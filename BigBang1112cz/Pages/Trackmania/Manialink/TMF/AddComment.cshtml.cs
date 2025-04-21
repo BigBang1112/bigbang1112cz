@@ -62,7 +62,6 @@ public class AddCommentModel : XmlPageModel
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
-        return Page();
         var deformattedNickname = Nickname is null ? null : TextFormatter.Deformat(Nickname, maxReplacementCount: 1000);
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
