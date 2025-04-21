@@ -17,7 +17,7 @@
     <label posn="-38 16 1" scale="2" text="$s$ff0$o10cc" halign="center" />
     <label posn="-38 10 1" text="$s$ff0$oEACH" halign="center" />
 
-    @if (Model.LocatorHost == HostType.GitHub)
+    @if (Model.LocatorHost is HostType.GitHub or HostType.Dashmap)
     {
         <quad posn="-38 2 1" sizen="38 6" style="Bgs1InRace" substyle="BgIconBorder" halign="center" valign="center" manialink="@Model.ManialinkUrl("bigbang1112:bulk")?fromp=@(Model.PageNum)&amp;locatorhost=@Model.LocatorHost" addplayerid="1" />
         <label posn="-38 2 2" sizen="34 6" text="$o$00010 RANDOM for 50cc" halign="center" valign="center" />
