@@ -27,7 +27,7 @@ public class ConfirmDownloadModel : XmlPageModel
 
     [FromQuery]
     [StringLength(255)]
-    public required string Nickname { get; set; }
+    public required string? Nickname { get; set; }
 
     [FromQuery(Name = "playerlogin")]
     [StringLength(255, MinimumLength = 2)]
@@ -35,7 +35,7 @@ public class ConfirmDownloadModel : XmlPageModel
 
     [FromQuery(Name = "path")]
     [StringLength(255)]
-    public required string Zone { get; set; }
+    public required string? Zone { get; set; }
 
     [FromQuery]
     public HostType LocatorHost { get; set; }
@@ -62,7 +62,7 @@ public class ConfirmDownloadModel : XmlPageModel
             return BadRequest(ModelState);
         }
 
-        var deformattedNickname = TextFormatter.Deformat(Nickname, maxReplacementCount: 1000);
+        var deformattedNickname = Nickname is null ? null : TextFormatter.Deformat(Nickname, maxReplacementCount: 1000);
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
         {
