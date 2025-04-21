@@ -1,0 +1,14 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.TMF.DownloadModel
+@{
+    Layout = "_ManiacodeLayout";
+}
+
+<install_skin>
+    <name>@Model.Horn</name>
+    <file>Skins/Horns/@Model.Horn</file>
+    <url>https://@(Request.Host)/horns/@(Model.Horn)</url>
+</install_skin>
+<show_message>
+    <message>Thanks for downloading, @(Model.Nickname)$z! The horn was downloaded @Model.DownloadCount times already! :D</message>
+</show_message>

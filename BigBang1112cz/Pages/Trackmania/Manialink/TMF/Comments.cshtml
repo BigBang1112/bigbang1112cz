@@ -1,0 +1,15 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.TMF.CommentsModel
+@{
+    Layout = "_ManialinkTmfLayout";
+}
+
+<quad posn="0 0 -2" sizen="128 96" image="https://@(Request.Host)/trackmania/manialink/tmf/background.jpg" halign="center" valign="center" />
+<quad posn="0 0 -1" sizen="128 96" bgcolor="111D" halign="center" valign="center" />
+<quad posn="0 0 0" sizen="56 88" style="Bgs1InRace" substyle="BgWindow3" halign="center" valign="center" />
+<quad posn="0 -36 2" sizen="49 6" style="Bgs1InRace" substyle="NavButtonBlink" halign="center" valign="center" />
+<entry posn="0 -36 2" sizen="48 5" name="ENTRY_COMMENT" default="" halign="center" valign="center" />
+<label posn="0 -30 2" sizen="48 5" text="Send" halign="center" valign="center" style="CardButtonMediumWide" manialink="@Model.ManialinkUrl("bigbang1112:addcomment")?content=ENTRY_COMMENT&amp;horn=@(Model.Horn)&amp;fromp=@(Model.FromPageNum)" addplayerid="1" />
+<quad posn="-48 -32 1" sizen="16 16" style="Icons128x128_1" substyle="Quit" halign="center" valign="center" manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.FromPageNum)" />
+<label posn="0 38 2" scale="2" sizen="24 8" halign="center" text="@(Model.Horn)" />
+<label posn="0 30 2" sizen="48 4" halign="center" text="$iNo description found." />
