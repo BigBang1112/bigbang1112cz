@@ -17,7 +17,7 @@
     <label posn="-38 16 1" scale="2" text="$s$ff0$o10cc" halign="center" />
     <label posn="-38 10 1" text="$s$ff0$oEACH" halign="center" />
 
-    <quad posn="-38 2 1" sizen="38 6" style="Bgs1InRace" substyle="BgIconBorder" halign="center" valign="center" manialink="@Model.ManialinkUrl("bigbang1112:bulk")" addplayerid="1" />
+    <quad posn="-38 2 1" sizen="38 6" style="Bgs1InRace" substyle="BgIconBorder" halign="center" valign="center" manialink="@Model.ManialinkUrl("bigbang1112:bulk")?fromp=@(Model.PageNum)" addplayerid="1" />
     <label posn="-38 2 2" sizen="34 6" text="$o$00010 RANDOM for 50cc" halign="center" valign="center" />
 
     <quad posn="-24 -36 1" sizen="6 6" style="Icons64x64_1" substyle="ArrowNext" halign="center" valign="center" manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.NextPageNum)" />
@@ -38,6 +38,6 @@
         <label posn="@(tileWidth - 64) @( -i * tileHeight + 36) 2" valign="center" style="TextCardRaceRank" text="@horn.Name@(horn.IsNew ? " $n$ff0NEW" : "")" sizen="32 5" scale="0.75" />
         <label posn="@(tileWidth - 36) @( -i * tileHeight + 36) 2" valign="center" style="TextCardRaceRank" text="@(horn.Duration.TotalSeconds.ToString("0.00"))s" sizen="24 5" scale="0.5" />
         <label posn="@(tileWidth - 26) @( -i * tileHeight + 36) 2" valign="center" style="TextCardRaceRank" text="$o@(horn.CommentCount) comment@(horn.CommentCount == 1 ? "" : "s")" sizen="24 5" scale="0.5" manialink="@Model.ManialinkUrl("bigbang1112:comments")?horn=@(horn.Name)&amp;fromp=@(Model.PageNum)" />
-        <quad posn="@(tileWidth - 12) @( -i * tileHeight + 40) 2" sizen="@(tileHeight) @(tileHeight)" halign="center" style="Icons128x128_1" substyle="Manialink" manialink="@Model.ManialinkUrl("bigbang1112:download")?horn=@horn.Name" addplayerid="1" />
+        <quad posn="@(tileWidth - 12) @( -i * tileHeight + 40) 2" sizen="@(tileHeight) @(tileHeight)" halign="center" style="Icons128x128_1" substyle="Manialink" manialink="@Model.ManialinkUrl("bigbang1112:download")?horn=@(horn.Name)&amp;fromp=@(Model.PageNum)" addplayerid="1" />
     }
 </frame>

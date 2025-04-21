@@ -10,5 +10,19 @@
     <url>https://@(Request.Host)/horns/@(Model.Horn)</url>
 </install_skin>
 <show_message>
-    <message>Thanks for downloading, @(Model.Nickname)$z! The horn was downloaded @Model.DownloadCount times already! :D</message>
+    @if (Model.DownloadCount == 0)
+    {
+        <message>Thanks for downloading, @(Model.Nickname)$z! You're the first to download this horn! :D</message>
+    }
+    else if (Model.DownloadCount == 1)
+    {
+        <message>Thanks for downloading, @(Model.Nickname)$z! The horn was downloaded only once before! :D</message>
+    }
+    else
+    {
+        <message>Thanks for downloading, @(Model.Nickname)$z! The horn was downloaded @Model.DownloadCount times already! :D</message>
+    }
 </show_message>
+<goto>
+    <link>@(Model.ManialinkUrl("bigbang1112"))?p=@(Model.FromPageNum)</link>
+</goto>

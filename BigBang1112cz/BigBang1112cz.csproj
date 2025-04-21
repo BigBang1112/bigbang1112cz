@@ -36,7 +36,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Services\" />
       <Folder Include="wwwroot\trackmania\manialink\tmf\" />
     </ItemGroup>
 

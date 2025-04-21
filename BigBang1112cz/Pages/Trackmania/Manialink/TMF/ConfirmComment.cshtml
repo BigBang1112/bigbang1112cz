@@ -1,0 +1,16 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.TMF.ConfirmCommentModel
+@{
+    Layout = "_ManiacodeLayout";
+}
+
+@if (Model.Message is not null)
+{
+    <show_message>
+        <message>@Model.Message</message>
+    </show_message>
+}
+
+<goto>
+    <link>@Model.Link</link>
+</goto>

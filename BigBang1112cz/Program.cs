@@ -3,6 +3,7 @@ using BigBang1112cz.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDomainServices();
 builder.Services.AddWebServices();
 builder.Services.AddDataServices(builder.Configuration);
 builder.Services.AddTelemetryServices(builder.Configuration, builder.Environment);

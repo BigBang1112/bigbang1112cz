@@ -10,7 +10,7 @@ using TmEssentials;
 
 namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
 
-public class DownloadModel : XmlPageModel
+public class AddCommentModel : XmlPageModel
 {
     private readonly HornUserService userService;
     private readonly AppDbContext db;
@@ -21,7 +21,7 @@ public class DownloadModel : XmlPageModel
     [StringLength(100, MinimumLength = 5)]
     public required string Horn { get; set; }
 
-    [FromQuery(Name = "fromp")]
+    [FromQuery(Name = "FromP")]
     public int FromPageNum { get; set; }
 
     [FromQuery]
@@ -36,11 +36,15 @@ public class DownloadModel : XmlPageModel
     [StringLength(255)]
     public required string Zone { get; set; }
 
-    public int DownloadCount { get; set; }
+    [FromQuery]
+    [StringLength(96)]
+    public required string Comment { get; set; }
 
-    public DownloadModel(
+    public string? Message { get; set; }
+
+    public AddCommentModel(
         HornUserService userService, 
-        AppDbContext db,
+        AppDbContext db, 
         IOutputCacheStore cache,
         IWebHostEnvironment env, 
         ILogger<DownloadModel> logger) : base(env)
@@ -62,7 +66,7 @@ public class DownloadModel : XmlPageModel
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
         {
-            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
+            logger.LogWarning("Comment post on {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
             return BadRequest();
         }
 
@@ -71,29 +75,34 @@ public class DownloadModel : XmlPageModel
 
         if (horn is null)
         {
-            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) failed: file not found", Horn, deformattedNickname, Login);
+            logger.LogWarning("Comment post {Horn} by {Nickname} (login: {Login}) failed: horn not found", Horn, deformattedNickname, Login);
             return NotFound();
         }
 
-        Horn = horn.FileName;
-
-        logger.LogInformation("Download request for {Horn} by {Nickname} (login: {Login}) is valid", Horn, deformattedNickname, Login);
-
-        DownloadCount = await db.HornDownloads
-            .CountAsync(x => x.Horn.FileName == Horn, cancellationToken);
-
         var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 
-        await db.HornDownloads.AddAsync(new HornDownloadDbModel
+        await db.HornComments.AddAsync(new HornCommentDbModel
         {
+            Content = Comment,
+            CreatedAt = DateTime.UtcNow,
             User = user,
-            Horn = horn,
-            DownloadedAt = DateTime.UtcNow,
+            Horn = horn
         }, cancellationToken);
 
-        await db.SaveChangesAsync(cancellationToken);
+        try
+        {
+            await db.SaveChangesAsync(cancellationToken);
+            logger.LogInformation("Comment posted for {Horn} by {Nickname} (login: {Login})", Horn, deformattedNickname, Login);
 
-        await cache.EvictByTagAsync("downloads", CancellationToken.None);
+            Message = "Comment posted successfully!";
+
+            await cache.EvictByTagAsync("comments", CancellationToken.None);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Failed to save comment for {Horn} by {Nickname} (login: {Login})", Horn, deformattedNickname, Login);
+            Message = "Something went wrong posting the message. Owner of the server has been notified.";
+        }
 
         return Page();
     }
