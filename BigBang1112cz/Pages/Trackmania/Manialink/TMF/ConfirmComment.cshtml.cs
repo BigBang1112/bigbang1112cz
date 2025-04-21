@@ -61,6 +61,7 @@ public class ConfirmCommentModel : XmlPageModel
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
+        return Page();
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
