@@ -68,7 +68,7 @@ public class IndexModel : XmlPageModel
         {
             Name = x.FileName,
             Duration = x.Duration,
-            IsNew = x.LastModifiedAt > DateTime.UtcNow.AddDays(-30),
+            IsNew = false,// x.LastModifiedAt > DateTime.UtcNow.AddDays(-30), doesnt work now
             CommentCount = x.CommentCount,
         }).ToList();
 
