@@ -11,12 +11,16 @@ using TmEssentials;
 
 namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
 
-public class BulkModel : XmlPageModel
+public class ConfirmDownloadModel : XmlPageModel
 {
     private readonly HornUserService userService;
     private readonly AppDbContext db;
     private readonly IOutputCacheStore cache;
-    private readonly ILogger<BulkModel> logger;
+    private readonly ILogger<ConfirmDownloadModel> logger;
+
+    [FromQuery]
+    [StringLength(100, MinimumLength = 5)]
+    public required string Horn { get; set; }
 
     [FromQuery(Name = "fromp")]
     public int FromPageNum { get; set; }
@@ -36,14 +40,14 @@ public class BulkModel : XmlPageModel
     [FromQuery]
     public HostType LocatorHost { get; set; }
 
-    public List<HornDbModel> Horns { get; set; } = [];
+    public int DownloadCount { get; set; }
 
-    public BulkModel(
+    public ConfirmDownloadModel(
         HornUserService userService, 
         AppDbContext db,
         IOutputCacheStore cache,
         IWebHostEnvironment env, 
-        ILogger<BulkModel> logger) : base(env)
+        ILogger<ConfirmDownloadModel> logger) : base(env)
     {
         this.userService = userService;
         this.db = db;
@@ -62,30 +66,34 @@ public class BulkModel : XmlPageModel
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
         {
-            logger.LogWarning("Bulk download request by {Nickname} (login: {Login}) from non-GameBox client", deformattedNickname, Login);
+            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
             return BadRequest();
         }
 
-        Horns = await db.Horns
-            .OrderBy(x => EF.Functions.Random())
-            .Take(10)
-            .ToListAsync(cancellationToken);
+        var horn = await db.Horns
+            .FirstOrDefaultAsync(x => x.FileName.Equals(Horn, StringComparison.OrdinalIgnoreCase), cancellationToken);
 
-        logger.LogInformation("Bulk download request by {Nickname} (login: {Login}) is valid", deformattedNickname, Login);
-
-        foreach (var horn in Horns)
+        if (horn is null)
         {
-            logger.LogInformation("Picked {Horn} for bulk download by {Nickname} (login: {Login})", horn.FileName, deformattedNickname, Login);
+            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) failed: file not found", Horn, deformattedNickname, Login);
+            return NotFound();
         }
+
+        Horn = horn.FileName;
+
+        logger.LogInformation("Download request for {Horn} by {Nickname} (login: {Login}) is valid", Horn, deformattedNickname, Login);
+
+        DownloadCount = await db.HornDownloads
+            .CountAsync(x => x.Horn.FileName == Horn, cancellationToken);
 
         var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 
-        await db.HornDownloads.AddRangeAsync(Horns.Select(x => new HornDownloadDbModel
+        await db.HornDownloads.AddAsync(new HornDownloadDbModel
         {
             User = user,
-            Horn = x,
+            Horn = horn,
             DownloadedAt = DateTime.UtcNow,
-        }), cancellationToken);
+        }, cancellationToken);
 
         await db.SaveChangesAsync(cancellationToken);
 

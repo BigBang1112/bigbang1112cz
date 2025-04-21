@@ -4,16 +4,13 @@
     Layout = "_ManiacodeLayout";
 }
 
-<show_message>
-    @if (string.IsNullOrWhiteSpace(Model.Message))
-    {
-        <message>Something went wrong posting the message. Sorry for the scam :(</message>
-    }
-    else
-    {
+@if (Model.Message is not null)
+{
+    <show_message>
         <message>@Model.Message</message>
-    }
-</show_message>
+    </show_message>
+}
+
 <goto>
-    <link>@(Model.ManialinkUrl("bigbang1112:comments"))?horn=@(Model.Horn)&amp;fromp=@(Model.FromPageNum)&amp;commentp=1</link>
+    <link>@Model.Link</link>
 </goto>

@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
 
-[OutputCache(Duration = 3600, VaryByQueryKeys = ["P"], Tags = ["comments", "downloads"])]
+[OutputCache(Duration = 3600, VaryByQueryKeys = ["P", "LocatorHost"], Tags = ["comments", "downloads"])]
 public class IndexModel : XmlPageModel
 {
     private readonly AppDbContext db;
@@ -18,6 +18,9 @@ public class IndexModel : XmlPageModel
     [FromQuery(Name = "P")]
     [Range(1, 20)] // hardcoded 20 page limit for now to prevent abuse
     public int PageNum { get; set; } = 1;
+
+    [FromQuery]
+    public HostType LocatorHost { get; set; }
 
     public int MaxPageNum { get; set; }
     public int NextPageNum { get; set; }

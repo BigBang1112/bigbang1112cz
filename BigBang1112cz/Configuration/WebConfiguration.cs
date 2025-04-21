@@ -8,6 +8,8 @@ public static class WebConfiguration
     {
         services.AddRazorPages();
 
+        services.AddHttpClient();
+
         services.AddOutputCache();
 
         services.AddResponseCompression(options =>

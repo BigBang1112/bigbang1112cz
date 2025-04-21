@@ -4,25 +4,13 @@
     Layout = "_ManiacodeLayout";
 }
 
-<install_skin>
-    <name>@Model.Horn</name>
-    <file>Skins/Horns/@Model.Horn</file>
-    <url>https://@(Request.Host)/horns/@(Model.Horn)</url>
-</install_skin>
-<show_message>
-    @if (Model.DownloadCount == 0)
-    {
-        <message>Thanks for downloading, @(Model.Nickname)$z! You're the first to download this horn! :D</message>
-    }
-    else if (Model.DownloadCount == 1)
-    {
-        <message>Thanks for downloading, @(Model.Nickname)$z! The horn was downloaded only once before! :D</message>
-    }
-    else
-    {
-        <message>Thanks for downloading, @(Model.Nickname)$z! The horn was downloaded @Model.DownloadCount times already! :D</message>
-    }
-</show_message>
+@if (Model.Message is not null)
+{
+    <show_message>
+        <message>@Model.Message</message>
+    </show_message>
+}
+
 <goto>
-    <link>@(Model.ManialinkUrl("bigbang1112"))?p=@(Model.FromPageNum)</link>
+    <link>@Model.Link</link>
 </goto>

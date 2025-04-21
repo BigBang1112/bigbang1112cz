@@ -1,5 +1,6 @@
 using BigBang1112cz.Data;
 using BigBang1112cz.Models.Db;
+using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Pages.Shared;
 using BigBang1112cz.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,7 @@ public class ConfirmCommentModel : XmlPageModel
     private readonly HornUserService userService;
     private readonly AppDbContext db;
     private readonly IOutputCacheStore cache;
-    private readonly ILogger<DownloadModel> logger;
+    private readonly ILogger<ConfirmCommentModel> logger;
 
     [FromQuery]
     [StringLength(100, MinimumLength = 5)]
@@ -40,16 +41,17 @@ public class ConfirmCommentModel : XmlPageModel
     [StringLength(96)]
     public required string Comment { get; set; }
 
-    public string? Message { get; set; }
+    [FromQuery]
+    public HostType LocatorHost { get; set; }
 
-    public required string Link { get; set; }
+    public string? Message { get; set; }
 
     public ConfirmCommentModel(
         HornUserService userService, 
         AppDbContext db, 
         IOutputCacheStore cache,
         IWebHostEnvironment env, 
-        ILogger<DownloadModel> logger) : base(env)
+        ILogger<ConfirmCommentModel> logger) : base(env)
     {
         this.userService = userService;
         this.db = db;
@@ -59,6 +61,11 @@ public class ConfirmCommentModel : XmlPageModel
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         var deformattedNickname = TextFormatter.Deformat(Nickname, maxReplacementCount: 1000);
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
@@ -78,24 +85,27 @@ public class ConfirmCommentModel : XmlPageModel
 
         var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 
-        Link = ModelState.IsValid
-            ? ManialinkUrl("bigbang1112:addcomment") + Request.QueryString
-            : ManialinkUrl("bigbang1112:comments") + $"?horn={Horn}&fromp={FromPageNum}&commentp=1";
-
-        if (!ModelState.IsValid)
+        await db.HornComments.AddAsync(new HornCommentDbModel
         {
-            var commentState = ModelState["Comment"];
+            Content = Comment,
+            CreatedAt = DateTime.UtcNow,
+            User = user,
+            Horn = horn
+        }, cancellationToken);
 
-            if (commentState is not null && commentState.Errors.Count > 0)
-            {
-                Message = commentState.Errors[0].ErrorMessage;
-            }
-            else
-            {
-                Message = "Comment is not valid.";
-            }
+        try
+        {
+            await db.SaveChangesAsync(cancellationToken);
+            logger.LogInformation("Comment posted for {Horn} by {Nickname} (login: {Login})", Horn, deformattedNickname, Login);
 
-            return Page();
+            Message = "Comment posted successfully!";
+
+            await cache.EvictByTagAsync("comments", CancellationToken.None);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Failed to save comment for {Horn} by {Nickname} (login: {Login})", Horn, deformattedNickname, Login);
+            Message = "Something went wrong posting the message. Owner of the server has been notified.";
         }
 
         return Page();

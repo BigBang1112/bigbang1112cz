@@ -29,6 +29,9 @@ public class CommentsModel : XmlPageModel
     [FromQuery(Name = "CommentP")]
     public int CommentPageNum { get; set; } = 1;
 
+    [FromQuery]
+    public HostType LocatorHost { get; set; }
+
     public List<CommentModel> Comments { get; set; } = [];
     public int CommentCount { get; set; }
 

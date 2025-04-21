@@ -2,6 +2,12 @@ using BigBang1112cz.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.UseDefaultServiceProvider(options =>
+{
+    options.ValidateScopes = true;
+    options.ValidateOnBuild = true;
+});
+
 // Add services to the container.
 builder.Services.AddDomainServices();
 builder.Services.AddWebServices();

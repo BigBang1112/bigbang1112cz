@@ -1,5 +1,6 @@
 using BigBang1112cz.Data;
 using BigBang1112cz.Models.Db;
+using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Pages.Shared;
 using BigBang1112cz.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ public class DownloadModel : XmlPageModel
 {
     private readonly HornUserService userService;
     private readonly AppDbContext db;
-    private readonly IOutputCacheStore cache;
+    private readonly HttpClient http;
     private readonly ILogger<DownloadModel> logger;
 
     [FromQuery]
@@ -36,33 +37,33 @@ public class DownloadModel : XmlPageModel
     [StringLength(255)]
     public required string Zone { get; set; }
 
-    public int DownloadCount { get; set; }
+    [FromQuery]
+    public HostType LocatorHost { get; set; }
+
+    public string? Message { get; set; }
+
+    public required string Link { get; set; }
 
     public DownloadModel(
         HornUserService userService, 
         AppDbContext db,
-        IOutputCacheStore cache,
+        HttpClient http,
         IWebHostEnvironment env, 
         ILogger<DownloadModel> logger) : base(env)
     {
         this.userService = userService;
         this.db = db;
-        this.cache = cache;
+        this.http = http;
         this.logger = logger;
     }
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-
         var deformattedNickname = TextFormatter.Deformat(Nickname, maxReplacementCount: 1000);
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
         {
-            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
+            logger.LogWarning("Comment post on {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
             return BadRequest();
         }
 
@@ -71,29 +72,24 @@ public class DownloadModel : XmlPageModel
 
         if (horn is null)
         {
-            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) failed: file not found", Horn, deformattedNickname, Login);
+            logger.LogWarning("Comment post {Horn} by {Nickname} (login: {Login}) failed: horn not found", Horn, deformattedNickname, Login);
             return NotFound();
         }
 
-        Horn = horn.FileName;
-
-        logger.LogInformation("Download request for {Horn} by {Nickname} (login: {Login}) is valid", Horn, deformattedNickname, Login);
-
-        DownloadCount = await db.HornDownloads
-            .CountAsync(x => x.Horn.FileName == Horn, cancellationToken);
-
         var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 
-        await db.HornDownloads.AddAsync(new HornDownloadDbModel
+        using var hornResponse = await http.HeadAsync(HornLocatorHost.GetUrl(Request, LocatorHost, horn.FileName), cancellationToken);
+
+        var isValid = ModelState.IsValid && hornResponse.IsSuccessStatusCode;
+        if (isValid)
         {
-            User = user,
-            Horn = horn,
-            DownloadedAt = DateTime.UtcNow,
-        }, cancellationToken);
-
-        await db.SaveChangesAsync(cancellationToken);
-
-        await cache.EvictByTagAsync("downloads", CancellationToken.None);
+            Link = ManialinkUrl("bigbang1112:confirmdownload") + Request.QueryString;
+        }
+        else
+        {
+            Message = "The horn is not available on this locator host.";
+            Link = ManialinkUrl("bigbang1112") + $"?p={FromPageNum}&locatorhost={LocatorHost}";
+        }
 
         return Page();
     }
