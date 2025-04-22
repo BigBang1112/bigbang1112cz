@@ -71,7 +71,7 @@ public class CommentsModel : XmlPageModel
             })
             .ToListAsync(cancellationToken);
 
-        CommentCount = await db.HornComments.CountAsync(cancellationToken);
+        CommentCount = await db.HornComments.CountAsync(x => x.Horn == horn, cancellationToken);
 
         Horn = horn.FileName;
         Description = horn.Description;
