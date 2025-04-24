@@ -34,19 +34,19 @@
           halign="center" valign="center"
           style="@(Model.LocatorHost == HostType.GitHub ? "BgsPlayerCard" : "Bgs1InRace")"
           substyle="@(Model.LocatorHost == HostType.GitHub ? "BgRacePlayerName" : "NavButton")"
-          manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.PageNum)&amp;locatorhost=GitHub" addplayerid="1" />
+          manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.PageNum)&amp;locatorhost=GitHub" />
     <label posn="-28.5 -20 2" sizen="19 6" text="@(Model.LocatorHost == HostType.GitHub ? "$FFF" : "$BBB")$oGitHub" halign="center" valign="center" />
     <quad posn="-47.5 -26 1" sizen="19 6"
           halign="center" valign="center"
           style="@(Model.LocatorHost == HostType.Dashmap ? "BgsPlayerCard" : "Bgs1InRace")"
           substyle="@(Model.LocatorHost == HostType.Dashmap ? "BgRacePlayerName" : "NavButton")"
-          manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.PageNum)&amp;locatorhost=Dashmap" addplayerid="1" />
+          manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.PageNum)&amp;locatorhost=Dashmap" />
     <label posn="-47.5 -26 2" sizen="19 6" text="@(Model.LocatorHost == HostType.Dashmap ? "$FFF" : "$BBB")$oDashmap" halign="center" valign="center" />
     <quad posn="-28.5 -26 1" sizen="19 6"
           halign="center" valign="center"
           style="@(Model.LocatorHost == HostType.ManiaCDN ? "BgsPlayerCard" : "Bgs1InRace")"
           substyle="@(Model.LocatorHost == HostType.ManiaCDN ? "BgRacePlayerName" : "NavButton")"
-          manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.PageNum)&amp;locatorhost=ManiaCDN" addplayerid="1" />
+          manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.PageNum)&amp;locatorhost=ManiaCDN" />
     <label posn="-28.5 -26 2" sizen="19 6" text="@(Model.LocatorHost == HostType.ManiaCDN ? "$FFF" : "$BBB")$oManiaCDN" halign="center" valign="center" />
 
     @for (var i = 0; i < Model.Horns.Count; i++)
