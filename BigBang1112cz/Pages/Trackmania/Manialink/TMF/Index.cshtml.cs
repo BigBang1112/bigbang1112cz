@@ -1,9 +1,11 @@
 using BigBang1112cz.Data;
 using BigBang1112cz.Models.Trackmania.Manialink;
+using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 
 namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
@@ -12,7 +14,7 @@ namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
 public class IndexModel : XmlPageModel
 {
     private readonly AppDbContext db;
-
+    private readonly IOptions<TrackmaniaOptions> options;
     public const int ResultsPerPage = 10;
 
     [FromQuery(Name = "P")]
@@ -30,13 +32,19 @@ public class IndexModel : XmlPageModel
     public int DownloadTotalCount { get; set; }
     public int CommentTotalCount { get; set; }
 
-    public IndexModel(AppDbContext db, IWebHostEnvironment env) : base(env)
+    public IndexModel(AppDbContext db, IOptions<TrackmaniaOptions> options, IWebHostEnvironment env) : base(env)
     {
         this.db = db;
+        this.options = options;
     }
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
+        if (options.Value.ManialinkRegistrationMode)
+        {
+            return StatusCode(200);
+        }
+
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);

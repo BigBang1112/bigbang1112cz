@@ -1,4 +1,5 @@
 using BigBang1112cz.Configuration;
+using BigBang1112cz.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ builder.Host.UseDefaultServiceProvider(options =>
     options.ValidateScopes = true;
     options.ValidateOnBuild = true;
 });
+
+builder.Services.Configure<TrackmaniaOptions>(builder.Configuration.GetSection("Trackmania"));
 
 // Add services to the container.
 builder.Services.AddDomainServices();

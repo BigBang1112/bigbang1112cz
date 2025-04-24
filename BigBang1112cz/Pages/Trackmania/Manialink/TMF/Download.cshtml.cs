@@ -1,9 +1,11 @@
 using BigBang1112cz.Data;
 using BigBang1112cz.Models.Trackmania.Manialink;
+using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
 using BigBang1112cz.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 using TmEssentials;
 
@@ -14,6 +16,7 @@ public class DownloadModel : XmlPageModel
     private readonly HornUserService userService;
     private readonly AppDbContext db;
     private readonly HttpClient http;
+    private readonly IOptions<TrackmaniaOptions> options;
     private readonly ILogger<DownloadModel> logger;
 
     [FromQuery]
@@ -46,17 +49,24 @@ public class DownloadModel : XmlPageModel
         HornUserService userService, 
         AppDbContext db,
         HttpClient http,
+        IOptions<TrackmaniaOptions> options,
         IWebHostEnvironment env, 
         ILogger<DownloadModel> logger) : base(env)
     {
         this.userService = userService;
         this.db = db;
         this.http = http;
+        this.options = options;
         this.logger = logger;
     }
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
+        if (options.Value.ManialinkRegistrationMode)
+        {
+            return StatusCode(200);
+        }
+
         var deformattedNickname = Nickname is null ? null : TextFormatter.Deformat(Nickname, maxReplacementCount: 1000);
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))

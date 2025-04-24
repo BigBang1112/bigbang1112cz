@@ -1,9 +1,11 @@
 using BigBang1112cz.Data;
 using BigBang1112cz.Models.Trackmania.Manialink;
+using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 
 namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
@@ -12,6 +14,7 @@ namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
 public class CommentsModel : XmlPageModel
 {
     private readonly AppDbContext db;
+    private readonly IOptions<TrackmaniaOptions> options;
     private readonly ILogger<CommentsModel> logger;
 
     public const int ResultsPerPage = 5;
@@ -35,14 +38,20 @@ public class CommentsModel : XmlPageModel
     public List<CommentModel> Comments { get; set; } = [];
     public int CommentCount { get; set; }
 
-    public CommentsModel(AppDbContext db, IWebHostEnvironment env, ILogger<CommentsModel> logger) : base(env)
+    public CommentsModel(AppDbContext db, IOptions<TrackmaniaOptions> options, IWebHostEnvironment env, ILogger<CommentsModel> logger) : base(env)
     {
         this.db = db;
+        this.options = options;
         this.logger = logger;
     }
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
+        if (options.Value.ManialinkRegistrationMode)
+        {
+            return StatusCode(200);
+        }
+
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);

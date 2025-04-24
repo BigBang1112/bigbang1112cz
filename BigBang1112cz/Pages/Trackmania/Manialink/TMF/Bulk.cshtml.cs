@@ -1,11 +1,13 @@
 using BigBang1112cz.Data;
 using BigBang1112cz.Models.Db;
 using BigBang1112cz.Models.Trackmania.Manialink;
+using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
 using BigBang1112cz.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 using TmEssentials;
 
@@ -15,6 +17,7 @@ public class BulkModel : XmlPageModel
 {
     private readonly HornUserService userService;
     private readonly AppDbContext db;
+    private readonly IOptions<TrackmaniaOptions> options;
     private readonly IOutputCacheStore cache;
     private readonly ILogger<BulkModel> logger;
 
@@ -41,18 +44,25 @@ public class BulkModel : XmlPageModel
     public BulkModel(
         HornUserService userService, 
         AppDbContext db,
+        IOptions<TrackmaniaOptions> options,
         IOutputCacheStore cache,
         IWebHostEnvironment env, 
         ILogger<BulkModel> logger) : base(env)
     {
         this.userService = userService;
         this.db = db;
+        this.options = options;
         this.cache = cache;
         this.logger = logger;
     }
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
+        if (options.Value.ManialinkRegistrationMode)
+        {
+            return StatusCode(200);
+        }
+
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
