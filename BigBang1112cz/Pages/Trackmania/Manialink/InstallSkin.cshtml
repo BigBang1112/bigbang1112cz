@@ -1,0 +1,20 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.InstallSkinModel
+@{
+    Layout = "_ManiacodeLayout";
+}
+
+@if (Model.ValidationProblemMessage is not null)
+{
+    <show_message>
+        <message>@Model.ValidationProblemMessage</message>
+    </show_message>
+}
+else
+{
+    <install_skin>
+        <name>@Model.FileName</name>
+        <file>Skins/@Model.Type/@Model.FileName</file>
+        <url>@Model.Uri</url>
+    </install_skin>
+}
