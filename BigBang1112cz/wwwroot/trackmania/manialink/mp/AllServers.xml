@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<manialink version="3">
+<quad z-index="-3" size="320 180" halign="center" valign="center" opacity="0.5" bgcolor="222"/>
+<quad id="QuadBackground" z-index="-2" size="320 180" halign="center" valign="center" opacity="0"/>
+<quad z-index="-1" size="320 200" halign="center" valign="center" style="Bgs1" substyle="BgGradBottom"/>
+<frame>
+	<label pos="0 75.5" z-index="0" size="100 15" text="ALL SERVERS" textfont="Oswald" halign="center" textsize="16" textprefix="$i$o$n"/>
+	<label pos="30 60" z-index="0" size="60 5" text="Manialink by BIGBANG1112" textfont="Oswald" halign="center" textsize="3" textprefix="$i$o$n"/>
+	<quad z-index="1" size="125.5 16.5" halign="center" opacity=".2" pos="-10 50" style="Bgs1" substyle="BgButtonShadow" valign="center"/>
+	<entry pos="-10 50" z-index="2" size="115 6" id="EntrySearch" halign="center" valign="center2" scriptevents="1"/>
+	<frame pos="54.5 50">
+		<quad z-index="0" size="10 7" halign="center" valign="center" style="BgsPlayerCard" substyle="BgPlayerCardBig" opacity=".5"/>
+		<quad id="QuadEnvironmentTrackmania" z-index="1" size="10 7" halign="center" valign="center" style="BgsPlayerCard" substyle="BgPlayerCardBig" scriptevents="1"/>
+		<label pos="0 -0.3" z-index="2" size="10 5" text="TM" halign="center" valign="center2" textsize="1.8" textfont="RajdhaniMono"/>
+	</frame>
+	<frame pos="65 50">
+		<quad z-index="0" size="10 7" halign="center" valign="center" style="BgsPlayerCard" substyle="BgPlayerCardBig" opacity=".5"/>
+		<quad id="QuadEnvironmentShootmania" z-index="1" size="10 7" halign="center" valign="center" style="BgsPlayerCard" substyle="BgPlayerCardBig" scriptevents="1"/>
+		<label pos="0 -0.3" z-index="2" size="10 5" text="SM" halign="center" valign="center2" textsize="1.8" textfont="RajdhaniMono"/>
+	</frame>
+	<frame pos="70.6 44">
+		<quad z-index="0" size="1.5 120" style="BgsPlayerCard" substyle="BgCard" halign="center" opacity=".75"/>
+		<quad id="QuadScrollbar" z-index="1" size="1.25 60" style="BgsPlayerCard" substyle="BgRacePlayerName" halign="center" hidden="1"/>
+		<quad id="QuadScrollbarClickable" z-index="2" size="1.25 60" style="BgsPlayerCard" substyle="BgRacePlayerName" halign="center" opacity="0" scriptevents="1" hidden="1"/>
+	</frame>
+	<label pos="105 -81" z-index="0" size="60 5" text="Scroll to see more servers" textprefix="$t$i" textfont="Oswald" halign="center" textcolor="AAA" valign="center"/>
+	<frame pos="0 -78">
+		<gauge id="GaugeIncomingRefresh" z-index="0" size="143 6" ratio="0" halign="center" drawbg="0"/>
+		<label id="LabelIncomingRefresh" pos="69 -4" z-index="0" size="30 3" text="$CCCincoming refresh..." halign="right" textsize="0.5" hidden="1"/>
+	</frame>
+	<framemodel id="FramemodelServer">
+		<quad id="QuadServer" z-index="-1" size="140 12.1" valign="center" halign="center" style="BgsPlayerCard" substyle="BgPlayerCardBig" scriptevents="1"/>
+		<label id="LabelEnv" opacity="0" pos="-67.5 0" z-index="0" size="10 5" text="Stadium" textsize="0.5" halign="center" valign="center" rot="-90" textfont="BiryaniDemiBold"/>
+		<quad id="QuadTitle" opacity="0" pos="-65" z-index="1" size="16 9" image="https://files-v4.live.maniaplanet.com/titles/TMStadium@nadeo/card.jpg" valign="center"/>
+		<quad hidden="1" opacity="0" pos="-69" z-index="0" size="24 15" valign="center" style="Bgs1" substyle="BgButtonShadow"/>
+		<label id="LabelServerName" opacity="0" pos="-46 -0.3" z-index="0" size="60 10" text="$00F$W$OLOLMAPS$FFF" valign="center2" textfont="Oswald" textsize="4"/>
+		<label id="LabelGamemode" opacity="0" pos="30 -0.3" z-index="0" size="20 5" text="TimeAttack" halign="center" valign="center2" textsize="2" textfont="BiryaniDemiBold"/>
+		<quad id="QuadPrivate" opacity="0" pos="47.5 0" z-index="0" size="8 8" halign="center" valign="center" style="Icons64x64_1" substyle="StatePrivate"/>
+		<label id="LabelPlayerCount" opacity="0" pos="65 -0.3" z-index="0" size="20 10" text="$o5$z$aaa/50" valign="center2" textfont="OswaldMono" textsize="4" halign="right"/>
+	</framemodel>
+	<frame clip="True" clipposn="-106 44" clipsizen="68 320">
+		<frame pos="-36 44" id="FramePanelTitle" hidden="1">
+			<quad id="QuadPanelTitle" z-index="-1" size="68 57" halign="center" style="BgsPlayerCard" substyle="BgPlayerCardBig"/>
+			<label id="LabelPanelTitleName" pos="0 -23" z-index="0" size="60 5" text="Trackmania² Stadium" halign="center" textfont="RajdhaniMono"/>
+			<label id="LabelPanelTitlePunchline" pos="0 -28" z-index="0" size="60 3" text="$i'The gameplay is always a true treat'$z jeuxvideo.com" halign="center" textfont="Oswald" textsize="1.1"/>
+			<label id="LabelPanelTitleDescription" pos="-30 -33" z-index="0" size="60 20" text="A favourite among eSports competitors since 2006, Stadium offers a simple and straightforward gameplay. 4 directional keys needed only, and everyone’s car drives the same. On the starting line, all players are equal. Only skill and concentration make a difference on your final time, and ultimately on your ranking." halign="left" textfont="BiryaniDemiBold" textsize="1.1" autonewline="1"/>
+			<quad id="QuadPanelTitleLogo" pos="0 -4" z-index="2" size="32 14" image="https://files-v4.live.maniaplanet.com/titles/TMStadium@nadeo/logo.png" halign="center"/>
+			<quad pos="0 -2" z-index="1" size="64 18" bgcolor="222" opacity="0.75" halign="center"/>
+			<quad id="QuadPanelTitleCard" pos="0 -2" z-index="1" size="32 18" halign="right" image="https://files-v4.live.maniaplanet.com/titles/TMStadium@nadeo/card.jpg"/>
+			<quad id="QuadPanelTitleBackground" pos="0 -2" z-index="1" size="32 18" image="https://files-v4.live.maniaplanet.com/titles/TMStadium@nadeo/background.jpg"/>
+		</frame>
+	</frame>
+	<frame clip="True" clipposn="106 44" clipsizen="68 320">
+		<frame pos="106 44" id="FramePanelServer" hidden="1">
+			<quad id="QuadPanelServer" z-index="-1" size="68 57" halign="center" style="BgsPlayerCard" substyle="BgPlayerCardBig"/>
+			<label id="LabelPanelServerName" pos="0 -4" z-index="0" size="60 5" text="$00F$W$OLOLMAPS$FFF" halign="center" textfont="RajdhaniMono" textsize="4"/>
+			<label id="LabelPanelServerLogin" pos="0 -10" z-index="0" size="60 3" text="droppie_lolmaps" halign="center" textfont="BiryaniDemiBold" textsize="1.1" textcolor="AAA"/>
+			<label id="LabelPanelServerDescription" pos="-30 -15" z-index="0" size="60 10" text="hosted by maniaservers.com" halign="left" textfont="BiryaniDemiBold" textsize="1.1" autonewline="1"/>
+			<frame pos="-30 -20" id="FramePanelServerDetails">
+				<frame>
+					<quad z-index="0" size="8 8" style="Icons64x64_1" substyle="Buddy"/>
+					<quad id="QuadPanelServerPlayersPrivate" z-index="1" size="6 6" style="Icons64x64_1" substyle="StatePrivate" pos="3 1" hidden="1"/>
+					<label id="LabelPanelServerPlayers" pos="10 -4.5" z-index="0" size="20 6" text="$o5$z$aaa/50" valign="center2" textsize="4" textfont="OswaldMono"/>
+					<quad z-index="1" size="8 8" style="Icons64x64_1" substyle="StatePrivate" pos="20 0" hidden="1"/>
+				</frame>
+				<frame pos="30">
+					<quad z-index="0" size="8 8" style="Icons64x64_1" substyle="TV" pos="1 -0.5"/>
+					<quad id="QuadPanelServerSpectatorsPrivate" z-index="1" size="6 6" style="Icons64x64_1" substyle="StatePrivate" pos="3 1" hidden="1"/>
+					<label id="LabelPanelServerSpectators" pos="10 -4.5" z-index="0" size="20 6" text="$o5$z$aaa/50" valign="center2" textsize="4" textfont="OswaldMono"/>
+					<quad z-index="1" size="8 8" style="Icons64x64_1" substyle="StatePrivate" pos="20 0" hidden="1"/>
+				</frame>
+				<frame pos="0 -8">
+					<quad z-index="0" size="8 8" style="Icons128x128_1" substyle="LadderPoints"/>
+					<label id="LabelPanelServerLadder" pos="10 -4.15" z-index="0" size="50 5" text="$AA710000-40000$FFF  avg: $AA756031" valign="center2" textsize="2" textfont="OswaldMono"/>
+				</frame>
+				<frame pos="0 -16">
+					<quad id="QuadPanelServerZone" z-index="0" size="8 8" image="file://ZoneFlags/Path/World"/>
+					<label id="LabelPanelServerZone" pos="10 -4.1" z-index="0" size="48 5" text="World" valign="center2" textsize="2" textfont="Oswald" autonewline="1"/>
+				</frame>
+				<frame pos="30 -30">
+					<frame id="FrameServerInfoButton">
+						<quad z-index="0" size="60 7" halign="center" valign="center" style="BgsPlayerCard" substyle="BgPlayerCardSmall"/>
+						<quad id="QuadServerInfoButton" z-index="1" size="60 7" halign="center" valign="center" style="BgsPlayerCard" substyle="BgPlayerCardSmall" scriptevents="1"/>
+						<label pos="0 -0.3" z-index="2" size="50 5" text="Load info as JSON" halign="center" valign="center2" textsize="1.8" textfont="BiryaniDemiBold"/>
+					</frame>
+					<textedit hidden="1" pos="-30 4" z-index="0" size="60 40" default="{}" textsize="1" id="TexteditServerInfo" textformat="Script"/>
+				</frame>
+			</frame>
+		</frame>
+	</frame>
+	<frame pos="0 38" id="FrameServers" scroll="True" scrollgrid="0 12" scrollmax="0 120" clip="True" clipposn="0 -53.5" clipsizen="141 120">
+		<frameinstance modelid="FramemodelServer"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -12"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -24"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -36"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -48"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -60"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -72"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -84"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -96"/>
+		<frameinstance modelid="FramemodelServer" pos="0 -108"/>
+	</frame>
+</frame>
+<script><![CDATA[
+
+#Include "MathLib" as MathLib
+#Include "AnimLib" as AnimLib
+#Include "TextLib" as TextLib
+
+#Struct SOnlineServer {
+	Text name;
+	Text description;
+	Text login;
+	Text title;
+	Integer ladder_limit_min;
+	Integer ladder_limit_max;
+	Integer average_ladder_points;
+	Integer player_count;
+	Integer player_max;
+	Integer spectator_count;
+	Text zone;
+	Boolean is_private;
+	Boolean is_spectator_private;
+	Boolean is_lobby;
+	Integer level_class_1;
+	Integer level_class_2;
+	Integer level_class_3;
+	Integer level_class_4;
+	Integer level_class_5;
+	Text script_name;
+	Integer game_mode;
+	Text relay_of;
+	Text environment;
+}
+
+#Struct STitleInfo {
+	Text uid;
+	Integer cost;
+	Text name;
+	Text description;
+	Text punchline;
+	Text card_url;
+	Text download_url;
+	Text background_url;
+	Text logo_url;
+	Text title_maker_uid;
+	Boolean public;
+}
+
+declare Integer[CHttpRequest] ResilientHttpRequestRetriesDict;
+
+declare CMlFrame FrameServers;
+declare CMlFrame FramePanelServer;
+declare CMlLabel LabelPanelServerName;
+declare CMlLabel LabelPanelServerLogin;
+declare CMlLabel LabelPanelServerDescription;
+declare CMlFrame FramePanelServerDetails;
+declare CMlLabel LabelPanelServerPlayers;
+declare CMlQuad QuadPanelServerPlayersPrivate;
+declare CMlLabel LabelPanelServerSpectators;
+declare CMlQuad QuadPanelServerSpectatorsPrivate;
+declare CMlLabel LabelPanelServerLadder;
+declare CMlQuad QuadPanelServerZone;
+declare CMlLabel LabelPanelServerZone;
+declare CMlQuad QuadPanelServer;
+declare CMlFrame FrameServerInfoButton;
+declare CMlTextEdit TexteditServerInfo;
+declare CMlFrame FramePanelTitle;
+declare CMlLabel LabelPanelTitleName;
+declare CMlLabel LabelPanelTitlePunchline;
+declare CMlLabel LabelPanelTitleDescription;
+declare CMlQuad QuadPanelTitleLogo;
+declare CMlQuad QuadPanelTitleCard;
+declare CMlQuad QuadPanelTitleBackground;
+declare CMlQuad QuadPanelTitle;
+
+declare SOnlineServer[] OnlineServers;
+declare Integer OnlineServersRequestedAt;
+declare Integer OnlineServersReceivedAt;
+declare Integer OnlineServersFirstReceivedAt;
+declare Integer OnlineServersLengthToRequest;
+declare Integer OnlineServersOffsetToRequest;
+declare Text OnlineServersSearchToRequest;
+declare Text[] OnlineServersEnvironmentsToRequest;
+declare Boolean OnlineServersAppendMode;
+declare Boolean OnlineServersPeriodicRefresh;
+declare Boolean OnlineServersResetScroll;
+declare Text SelectedServerId;
+declare Text SelectedTitleId;
+
+declare CHttpRequest TitleInfoRequest;
+declare STitleInfo[Text] TitleInfos;
+
+Boolean IsSuccessStatusCode(CHttpRequest Request) {
+	return Request != Null && Request.IsCompleted && Request.StatusCode >= 200 && Request.StatusCode <= 299;
+}
+
+Boolean ResilientHttpRequest(CHttpRequest Request, Integer MaxRetries) {
+	if (Request == Null || !Request.IsCompleted || IsSuccessStatusCode(Request)) {
+		return False;
+	}
+
+	if (!ResilientHttpRequestRetriesDict.existskey(Request)) {
+		ResilientHttpRequestRetriesDict[Request] = 0;
+	}
+
+	if (ResilientHttpRequestRetriesDict[Request] < MaxRetries) {
+		ResilientHttpRequestRetriesDict[Request] += 1;
+		return True;
+	}
+
+	ResilientHttpRequestRetriesDict.removekey(Request);
+	Http.Destroy(Request);
+
+	return False;
+}
+
+CHttpRequest GetOnlineServersRequest() {
+	declare Url = "https://maniaplanet.com/webservices/servers/online?length=" ^ OnlineServersLengthToRequest;
+
+	if (OnlineServersOffsetToRequest > 0) {
+		Url ^= "&offset=" ^ OnlineServersOffsetToRequest;
+	}
+
+	if (OnlineServersSearchToRequest != "") {
+		Url ^= "&search=" ^ OnlineServersSearchToRequest;
+	}
+
+	if (OnlineServersEnvironmentsToRequest.count > 0) {
+		foreach (Environment in OnlineServersEnvironmentsToRequest) {
+			Url ^= "&environments[]=" ^ Environment;
+		}
+	}
+
+	declare Request = Http.CreateGet(Url);
+	OnlineServersRequestedAt = Now;
+	return Request;
+}
+
+CHttpRequest GetTitleInfoRequest() {
+	return Http.CreateGet("https://maniaplanet.com/webservices/titles/" ^ SelectedTitleId);
+}
+
+Integer GetFrameServersScrollIndex() {
+	return MathLib::NearestInteger(FrameServers.ScrollOffset.Y / 12);
+}
+
+Void VisualizeServerList() {
+	FrameServers.ScrollMax.Y = MathLib::Max(0., (OnlineServers.count - 10) * 12.);
+	declare ScrollIndex = GetFrameServersScrollIndex();
+	for (I, 0, FrameServers.Controls.count - 1) {
+		declare Frame = (FrameServers.Controls[I] as CMlFrame);
+
+		if (OnlineServers.count <= ScrollIndex + I) {
+			Frame.Visible = False;
+			continue;
+		}
+
+		Frame.Visible = True;
+		
+		declare Server = OnlineServers[ScrollIndex + I];
+
+		declare QuadServer = (Frame.GetFirstChild("QuadServer") as CMlQuad);
+		declare LabelEnv = (Frame.GetFirstChild("LabelEnv") as CMlLabel);
+		declare QuadTitle = (Frame.GetFirstChild("QuadTitle") as CMlQuad);
+		declare LabelServerName = (Frame.GetFirstChild("LabelServerName") as CMlLabel);
+		declare LabelGamemode = (Frame.GetFirstChild("LabelGamemode") as CMlLabel);
+		declare QuadPrivate = (Frame.GetFirstChild("QuadPrivate") as CMlQuad);
+		declare LabelPlayerCount = (Frame.GetFirstChild("LabelPlayerCount") as CMlLabel);
+
+		QuadServer.StyleSelected = SelectedServerId == Server.login;
+		QuadServer.DataAttributeSet("login", Server.login);
+		QuadServer.DataAttributeSet("title", Server.title);
+		LabelEnv.Value = Server.environment;
+		QuadTitle.ImageUrl = "https://files-v4.live.maniaplanet.com/titles/" ^ Server.title ^ "/card.jpg";
+		LabelServerName.Value = Server.name;
+		LabelGamemode.Value = Server.script_name;
+		QuadPrivate.Visible = Server.is_private;
+		LabelPlayerCount.Value = "$o" ^ Server.player_count ^ "$z$aaa/" ^ Server.player_max;
+	}
+}
+
+SOnlineServer GetCurrentServer() {
+	declare SOnlineServer CurrentServer;
+
+	if (SelectedServerId != "") {
+		foreach (Server in OnlineServers) {
+			if (SelectedServerId == Server.login) {
+				CurrentServer = Server;
+				break;
+			}
+		}
+	}
+
+	return CurrentServer;
+}
+
+Void UpdateJsonTextedit() {
+	declare CurrentServer = GetCurrentServer();
+	declare Json = CurrentServer.tojson();
+	Json = TextLib::Replace(Json, ",", ",\n  ");
+	Json = TextLib::Replace(Json, "{", "{\n  ");
+	Json = TextLib::Replace(Json, "}", "\n}");
+	Json = TextLib::Replace(Json, "\":", "\": ");
+	TexteditServerInfo.Value = Json;
+}
+
+Void UpdateServerInfo() {
+	declare CurrentServer = GetCurrentServer();
+
+	if (CurrentServer.login == "") {
+		FramePanelServer.Visible = False;
+		return;
+	}
+
+	if (FramePanelServer.Visible) {
+		FramePanelServer.RelativePosition_V3.X = 106.;
+	}
+	else {
+		FramePanelServer.Visible = True;
+		AnimMgr.Add(FramePanelServer, "<frame pos=\"106 44\"/>", 300, CAnimManager::EAnimManagerEasing::QuadOut);
+	}
+
+	LabelPanelServerName.Value = CurrentServer.name;
+	LabelPanelServerLogin.Value = CurrentServer.login;
+	LabelPanelServerDescription.Value = TextLib::Trim(CurrentServer.description);
+
+	declare DescriptionHeight = LabelPanelServerDescription.ComputeHeight(LabelPanelServerDescription.Value);
+	if (LabelPanelServerDescription.Value == "") {
+		DescriptionHeight = 0.;
+	}
+
+	FramePanelServerDetails.RelativePosition_V3.Y = -17 - DescriptionHeight;
+	QuadPanelServer.Size.Y = 54 + DescriptionHeight;
+
+	LabelPanelServerPlayers.Value = "$o" ^ CurrentServer.player_count ^ "$z$AAA/" ^ CurrentServer.player_max;
+	QuadPanelServerPlayersPrivate.Visible = CurrentServer.is_private;
+	LabelPanelServerSpectators.Value = "$o" ^ CurrentServer.spectator_count ^ "$z$AAA/" ^ CurrentServer.player_max;
+	QuadPanelServerSpectatorsPrivate.Visible = CurrentServer.is_spectator_private;
+	LabelPanelServerLadder.Value = "$AA7" ^ CurrentServer.ladder_limit_min ^ "-" ^ CurrentServer.ladder_limit_max ^ "$FFF  avg: $AA7" ^ CurrentServer.average_ladder_points;
+	QuadPanelServerZone.ImageUrl = "file://ZoneFlags/Path/" ^ CurrentServer.zone;
+	LabelPanelServerZone.Value = TextLib::Replace(CurrentServer.zone, "|", " | ");
+
+	if (TexteditServerInfo.Visible) {
+		UpdateJsonTextedit();
+		QuadPanelServer.Size.Y += 33;
+	}
+}
+
+Void UpdateTitleInfo() {
+	if (!TitleInfos.existskey(SelectedTitleId)) {
+		return;
+	}
+
+	declare TitleInfo = TitleInfos[SelectedTitleId];
+
+	LabelPanelTitleName.Value = TitleInfo.name;
+	LabelPanelTitlePunchline.Value = TitleInfo.punchline;
+	LabelPanelTitleDescription.Value = TitleInfo.description;
+	QuadPanelTitleLogo.ImageUrl = TitleInfo.logo_url;
+	QuadPanelTitleCard.ImageUrl = TitleInfo.card_url;
+	QuadPanelTitleBackground.ImageUrl = TitleInfo.background_url;
+
+	QuadPanelTitle.Size.Y = LabelPanelTitleDescription.ComputeHeight(LabelPanelTitleDescription.Value) + 36;
+}
+
+main() {
+	FrameServers = (Page.GetFirstChild("FrameServers") as CMlFrame);
+
+	OnlineServersLengthToRequest = 20;
+	OnlineServersPeriodicRefresh = True;
+
+	FramePanelServer = (Page.GetFirstChild("FramePanelServer") as CMlFrame);
+	LabelPanelServerName = (Page.GetFirstChild("LabelPanelServerName") as CMlLabel);
+	LabelPanelServerLogin = (Page.GetFirstChild("LabelPanelServerLogin") as CMlLabel);
+	LabelPanelServerDescription = (Page.GetFirstChild("LabelPanelServerDescription") as CMlLabel);
+	FramePanelServerDetails = (Page.GetFirstChild("FramePanelServerDetails") as CMlFrame);
+	QuadPanelServer = (Page.GetFirstChild("QuadPanelServer") as CMlQuad);
+	LabelPanelServerPlayers = (Page.GetFirstChild("LabelPanelServerPlayers") as CMlLabel);
+	QuadPanelServerPlayersPrivate = (Page.GetFirstChild("QuadPanelServerPlayersPrivate") as CMlQuad);
+	LabelPanelServerSpectators = (Page.GetFirstChild("LabelPanelServerSpectators") as CMlLabel);
+	QuadPanelServerSpectatorsPrivate = (Page.GetFirstChild("QuadPanelServerSpectatorsPrivate") as CMlQuad);
+	LabelPanelServerLadder = (Page.GetFirstChild("LabelPanelServerLadder") as CMlLabel);
+	QuadPanelServerZone = (Page.GetFirstChild("QuadPanelServerZone") as CMlQuad);
+	LabelPanelServerZone = (Page.GetFirstChild("LabelPanelServerZone") as CMlLabel);
+	FrameServerInfoButton = (Page.GetFirstChild("FrameServerInfoButton") as CMlFrame);
+	TexteditServerInfo = (Page.GetFirstChild("TexteditServerInfo") as CMlTextEdit);
+	FramePanelTitle = (Page.GetFirstChild("FramePanelTitle") as CMlFrame);
+	LabelPanelTitleName = (Page.GetFirstChild("LabelPanelTitleName") as CMlLabel);
+	LabelPanelTitlePunchline = (Page.GetFirstChild("LabelPanelTitlePunchline") as CMlLabel);
+	LabelPanelTitleDescription = (Page.GetFirstChild("LabelPanelTitleDescription") as CMlLabel);
+	QuadPanelTitleLogo = (Page.GetFirstChild("QuadPanelTitleLogo") as CMlQuad);
+	QuadPanelTitleCard = (Page.GetFirstChild("QuadPanelTitleCard") as CMlQuad);
+	QuadPanelTitleBackground = (Page.GetFirstChild("QuadPanelTitleBackground") as CMlQuad);
+	QuadPanelTitle = (Page.GetFirstChild("QuadPanelTitle") as CMlQuad);
+
+	declare GaugeIncomingRefresh = (Page.GetFirstChild("GaugeIncomingRefresh") as CMlGauge);
+	declare LabelIncomingRefresh = (Page.GetFirstChild("LabelIncomingRefresh") as CMlLabel);
+	declare QuadScrollbar = (Page.GetFirstChild("QuadScrollbar") as CMlQuad);
+	declare QuadScrollbarClickable = (Page.GetFirstChild("QuadScrollbarClickable") as CMlQuad);
+	declare EntrySearch = (Page.GetFirstChild("EntrySearch") as CMlEntry);
+	declare QuadBackground = (Page.GetFirstChild("QuadBackground") as CMlQuad);
+	declare QuadEnvironmentTrackmania = (Page.GetFirstChild("QuadEnvironmentTrackmania") as CMlQuad);
+	declare QuadEnvironmentShootmania = (Page.GetFirstChild("QuadEnvironmentShootmania") as CMlQuad);
+
+	declare RefreshEverySeconds = 60;
+	declare RefreshBarLengthInSeconds = 10;
+
+	declare OnlineServersMaxRetries = 3;
+	declare OnlineServersRequest = GetOnlineServersRequest();
+
+	declare PreviousScrollIndex = 0;
+
+	declare ScrollbarClicked = False;
+	declare ScrollbarMouseY = 0.;
+	declare ScrollbarScrollY = 0.;
+
+	declare IsBackgroundDownloaded = False;
+	if (LoadedTitle != Null) {
+		QuadBackground.ImageUrl = "https://files-v4.live.maniaplanet.com/titles/" ^ LoadedTitle.TitleId ^ "/background.jpg";
+	}
+
+	while (True) {
+		yield;
+		foreach (Event in PendingEvents) {
+			if (Event.Type == CMlScriptEvent::Type::MouseClick) {
+				if (Event.ControlId == "QuadServer") {
+					declare Quad = (Event.Control as CMlQuad);
+					declare ServerLogin = Quad.DataAttributeGet("login");
+					declare TitleId = Quad.DataAttributeGet("title");
+					declare Selected = SelectedServerId == ServerLogin;
+
+					if (Selected) {
+						OpenLink("#join=" ^ ServerLogin ^ "@" ^ TitleId, CMlScript::LinkType::Goto);
+						SelectedServerId = "";
+					}
+					else {
+						SelectedServerId = ServerLogin;
+						FramePanelServer.RelativePosition_V3.X = 36.;
+						UpdateServerInfo();
+
+						if (!TitleInfos.existskey(TitleId) && FramePanelTitle.Visible) {
+							AnimMgr.Add(FramePanelTitle, "<frame pos=\"-36 44\"/>", 300, CAnimManager::EAnimManagerEasing::QuadOut);
+						}
+
+						SelectedTitleId = TitleId;
+
+						if (TitleInfos.existskey(TitleId)) {
+							UpdateTitleInfo();
+							AnimMgr.Add(FramePanelTitle, "<frame pos=\"-106 44\"/>", 300, CAnimManager::EAnimManagerEasing::QuadOut);
+						}
+						else {
+							TitleInfoRequest = GetTitleInfoRequest();
+						}
+					}
+
+					VisualizeServerList();
+
+					Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 0, 1.0);
+				}
+
+				if (Event.ControlId == "QuadScrollbarClickable") {
+					ScrollbarClicked = True;
+					ScrollbarMouseY = MouseY;
+					ScrollbarScrollY = FrameServers.ScrollOffset.Y;
+
+					Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 1, 1.0);
+				}
+
+				if (Event.ControlId == "QuadServerInfoButton") {
+					FrameServerInfoButton.Visible = False;
+					TexteditServerInfo.Visible = True;
+					UpdateJsonTextedit();
+					QuadPanelServer.Size.Y += 33;
+					TexteditServerInfo.Focus();
+					
+					Audio.PlaySoundEvent(CAudioManager::ELibSound::Valid, 1, 1.0);
+				}
+
+				if (Event.ControlId == "QuadEnvironmentTrackmania") {
+					OnlineServersEnvironmentsToRequest.remove("Storm");
+					if (OnlineServersEnvironmentsToRequest.exists("Canyon")
+					 || OnlineServersEnvironmentsToRequest.exists("Stadium")
+					 || OnlineServersEnvironmentsToRequest.exists("Valley")
+					 || OnlineServersEnvironmentsToRequest.exists("Lagoon")
+					 || OnlineServersEnvironmentsToRequest.exists("United")) {
+						OnlineServersEnvironmentsToRequest.remove("Canyon");
+						OnlineServersEnvironmentsToRequest.remove("Stadium");
+						OnlineServersEnvironmentsToRequest.remove("Valley");
+						OnlineServersEnvironmentsToRequest.remove("Lagoon");
+						OnlineServersEnvironmentsToRequest.remove("United");
+						QuadEnvironmentTrackmania.StyleSelected = False;
+					}
+					else {
+						OnlineServersEnvironmentsToRequest.add("Canyon");
+						OnlineServersEnvironmentsToRequest.add("Stadium");
+						OnlineServersEnvironmentsToRequest.add("Valley");
+						OnlineServersEnvironmentsToRequest.add("Lagoon");
+						OnlineServersEnvironmentsToRequest.add("United");
+						QuadEnvironmentTrackmania.StyleSelected = True;
+					}
+					QuadEnvironmentShootmania.StyleSelected = False;
+
+					OnlineServersRequest = GetOnlineServersRequest();
+				}
+
+				if (Event.ControlId == "QuadEnvironmentShootmania") {
+					OnlineServersEnvironmentsToRequest.remove("Canyon");
+					OnlineServersEnvironmentsToRequest.remove("Stadium");
+					OnlineServersEnvironmentsToRequest.remove("Valley");
+					OnlineServersEnvironmentsToRequest.remove("Lagoon");
+					OnlineServersEnvironmentsToRequest.remove("United");
+					if (OnlineServersEnvironmentsToRequest.exists("Storm")) {
+						OnlineServersEnvironmentsToRequest.remove("Storm");
+						QuadEnvironmentShootmania.StyleSelected = False;
+					}
+					else {
+						OnlineServersEnvironmentsToRequest.add("Storm");
+						QuadEnvironmentShootmania.StyleSelected = True;
+					}
+					QuadEnvironmentTrackmania.StyleSelected = False;
+
+					OnlineServersRequest = GetOnlineServersRequest();
+				}
+			}
+
+			if (Event.Type == CMlScriptEvent::Type::MouseOver) {
+				if (Event.ControlId == "QuadScrollbarClickable") {
+					QuadScrollbarClickable.Opacity = 1.;
+				}
+			}
+
+			if (Event.Type == CMlScriptEvent::Type::MouseOut) {
+				if (Event.ControlId == "QuadScrollbarClickable") {
+					QuadScrollbarClickable.Opacity = 0.;
+				}
+			}
+
+			if (Event.Type == CMlScriptEvent::Type::EntrySubmit) {
+				OnlineServersSearchToRequest = EntrySearch.Value;
+				OnlineServersOffsetToRequest = 0;
+				OnlineServersLengthToRequest = 20;
+				OnlineServersAppendMode = False;
+				OnlineServersResetScroll = True;
+				SelectedServerId = "";
+				OnlineServersRequest = GetOnlineServersRequest();
+				AnimMgr.Add(FramePanelTitle, "<frame pos=\"-36 44\"/>", 300, CAnimManager::EAnimManagerEasing::QuadOut);
+			}
+		}
+
+		declare RefreshWait = Now - OnlineServersRequestedAt - (1000 * (RefreshEverySeconds - RefreshBarLengthInSeconds));
+		LabelIncomingRefresh.Visible = RefreshWait > 0;
+		if (OnlineServersRequest != Null && !OnlineServersRequest.IsCompleted) {
+			GaugeIncomingRefresh.Ratio = 1.;
+			LabelIncomingRefresh.Visible = True;
+			LabelIncomingRefresh.Value = "$CCCongoing request...";
+		}
+		else {
+			GaugeIncomingRefresh.Ratio = MathLib::Min(1., MathLib::Max(0., RefreshWait / (1000 * 10.)));
+			LabelIncomingRefresh.Value = "$CCCincoming refresh...";
+		}
+
+		if (OnlineServersPeriodicRefresh && Now - OnlineServersRequestedAt > 1000 * RefreshEverySeconds) {
+			Http.Destroy(OnlineServersRequest);
+			OnlineServersRequest = GetOnlineServersRequest();
+		}
+
+		if (ResilientHttpRequest(OnlineServersRequest, 3)) {
+			OnlineServersRequest = GetOnlineServersRequest();
+		}
+
+		if (IsSuccessStatusCode(OnlineServersRequest)) {
+			if (OnlineServersAppendMode) {
+				declare SOnlineServer[] OnlineServersToAppend;
+				OnlineServersToAppend.fromjson(OnlineServersRequest.Result);
+
+				// add only servers that are not already in the list
+				// this is not a good solution as it's O(n^2), but for the amount of servers it's ok
+				foreach (Server in OnlineServersToAppend) {
+					declare AlreadyInList = False;
+					foreach (ExistingServer in OnlineServers) {
+						if (ExistingServer.login == Server.login) {
+							AlreadyInList = True;
+							break;
+						}
+					}
+					if (!AlreadyInList) {
+						OnlineServers.add(Server);
+					}
+				}
+			}
+			else {
+				OnlineServers.fromjson(OnlineServersRequest.Result);
+			}
+			Http.Destroy(OnlineServersRequest);
+			OnlineServersRequest = Null;
+
+			if (OnlineServersResetScroll) {
+				FrameServers.ScrollOffset.Y = 0.;
+				OnlineServersResetScroll = False;
+			}
+
+			VisualizeServerList();
+			UpdateServerInfo();
+
+			OnlineServersReceivedAt = Now;
+			if (OnlineServersFirstReceivedAt == 0) {
+				OnlineServersFirstReceivedAt = OnlineServersReceivedAt;
+			}
+		}
+
+		if (ResilientHttpRequest(TitleInfoRequest, 3)) {
+			TitleInfoRequest = GetTitleInfoRequest();
+		}
+
+		if (IsSuccessStatusCode(TitleInfoRequest)) {
+			FramePanelTitle.Visible = True;
+			AnimMgr.Add(FramePanelTitle, "<frame pos=\"-106 44\"/>", 300, CAnimManager::EAnimManagerEasing::QuadOut);
+
+			declare STitleInfo TitleInfo;
+			TitleInfo.fromjson(TitleInfoRequest.Result);
+			TitleInfos[SelectedTitleId] = TitleInfo;
+
+			Http.Destroy(TitleInfoRequest);
+			TitleInfoRequest = Null;
+
+			UpdateTitleInfo();
+		}
+		
+		if (OnlineServers.count > 0) {
+			for (I, 0, FrameServers.Controls.count - 1) {
+				declare Frame = (FrameServers.Controls[I] as CMlFrame);
+
+				Frame.RelativePosition_V3.Y = I * -12 - FrameServers.ScrollOffset.Y;
+
+				foreach (Control in Frame.Controls) {
+					if (Control.ControlId == "QuadServer") {
+						continue;
+					}
+					declare Opacity = AnimLib::EaseOutQuad(Now - OnlineServersFirstReceivedAt - I * 30, .0, 1.0, 200);
+					switchtype (Control) {
+						case CMlLabel: {
+							(Control as CMlLabel).Opacity = Opacity;
+						}
+						case CMlQuad: {
+							(Control as CMlQuad).Opacity = Opacity;
+						}
+					}
+				}
+			}
+		}
+
+		if (FrameServers.ScrollOffset.Y / 12 != PreviousScrollIndex) {
+			VisualizeServerList();
+			PreviousScrollIndex = GetFrameServersScrollIndex();
+		}
+
+		if (OnlineServers.count > 10) {
+			QuadScrollbar.Size.Y = MathLib::Max(1., 120. * 10 / OnlineServers.count);
+			QuadScrollbar.Visible = True;
+			QuadScrollbarClickable.Size.Y = QuadScrollbar.Size.Y;
+			QuadScrollbarClickable.Visible = True;
+
+			declare ScrollbarProgress = FrameServers.ScrollOffset.Y / FrameServers.ScrollMax.Y;
+
+			QuadScrollbar.RelativePosition_V3.Y = -ScrollbarProgress * (120 - QuadScrollbar.Size.Y);
+			QuadScrollbarClickable.RelativePosition_V3.Y = QuadScrollbar.RelativePosition_V3.Y;
+		}
+		else {
+			QuadScrollbar.Visible = False;
+			QuadScrollbarClickable.Visible = False;
+		}
+
+		if (OnlineServersRequest == Null && FrameServers.ScrollAnimOffset.Y > FrameServers.ScrollMax.Y) {
+			if (OnlineServersLengthToRequest == 20) {
+				OnlineServersLengthToRequest = 50;
+			}
+			else if (OnlineServersLengthToRequest == 50) {
+				OnlineServersLengthToRequest = 100;
+			}
+			else {
+				OnlineServersOffsetToRequest += 100;
+				OnlineServersAppendMode = True;
+				OnlineServersPeriodicRefresh = False; // periodic refresh breaks the append mode
+			}
+			OnlineServersRequest = GetOnlineServersRequest();
+		}
+
+		if (ScrollbarClicked) {
+			FrameServers.ScrollOffset.Y = MathLib::NearestInteger(MathLib::Clamp(ScrollbarScrollY + (ScrollbarMouseY - MouseY) * ((FrameServers.ScrollMax.Y + 120) / 120), 0., FrameServers.ScrollMax.Y) / 12) * 12.;
+
+			if (!MouseLeftButton) {
+				ScrollbarClicked = False;
+			}
+		}
+
+		if (!IsBackgroundDownloaded && !QuadBackground.DownloadInProgress) {
+			IsBackgroundDownloaded = True;
+			AnimMgr.Add(QuadBackground, "<quad opacity=\".3\"/>", 1000, CAnimManager::EAnimManagerEasing::QuadOut);
+		}
+	}
+}
+
+]]></script>
+</manialink>
