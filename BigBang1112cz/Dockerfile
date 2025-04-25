@@ -6,8 +6,8 @@ EXPOSE 8080
 EXPOSE 8081
 
 
-# Build phase
-FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
+# Publish phase
+FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS publish
 ARG BUILD_CONFIGURATION=Release
 ARG TARGETARCH
 ARG APPNAME=BigBang1112cz
