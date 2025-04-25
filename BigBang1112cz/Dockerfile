@@ -14,7 +14,7 @@ ARG APPNAME=BigBang1112cz
 WORKDIR /src
 # copy csproj and restore as distinct layers
 COPY $APPNAME/*.csproj $APPNAME/
-RUN dotnet restore $APPNAME/$APPNAME.csproj -a $TARGETARCH
+RUN dotnet restore $APPNAME/$APPNAME.csproj -a $TARGETARCH -r linux-musl-x64 --no-cache
 # copy and publish app and libraries
 COPY $APPNAME $APPNAME
 RUN dotnet publish $APPNAME -c $BUILD_CONFIGURATION -a $TARGETARCH -o /app -p:PublishReadyToRun=true -p:UseAppHost=false --no-restore
