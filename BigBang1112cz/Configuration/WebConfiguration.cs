@@ -38,13 +38,13 @@ public static class WebConfiguration
 
         app.UseRouting();
 
-        app.UseOutputCache();
-        app.UseAuthorization();
-        
         if (!app.Environment.IsDevelopment())
         {
             app.UseResponseCompression();
         }
+
+        app.UseOutputCache();
+        app.UseAuthorization();
 
         app.MapStaticAssets();
         app.MapRazorPages()
