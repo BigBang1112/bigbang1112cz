@@ -22,8 +22,6 @@ var app = builder.Build();
 app.MigrateDatabase();
 
 // Configure the HTTP request pipeline.
-app.UseSecurityMiddleware();
+app.UseMiddleware();
 
 app.Run();
-
-// locator options: this, github, dashmap, maniacdn
