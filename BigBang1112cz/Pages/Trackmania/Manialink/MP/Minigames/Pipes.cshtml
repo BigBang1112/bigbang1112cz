@@ -1,0 +1,1404 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.MP.Minigames.PipesModel
+@{
+    Layout = "_ManialinkMpLayout";
+}
+
+<frame posn="-160 90 0">
+	<quad posn="0 0 0" sizen="320 120" bgcolor="FFFA" style="Bgs1" substyle="BgListLine" z-index="-2"/>
+	<quad posn="10 -10 0" sizen="140 100" bgcolor="000000AA" z-index="-1"/>
+	<quad posn="10 -10 0" sizen="140 100" bgcolor="FFFA" style="Bgs1" substyle="BgColorContour" z-index="1"/>
+	
+	<frame id="Pipes">
+		<frame posn="30 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="50 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="70 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="90 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="110 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="130 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		
+		<frame posn="30 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="50 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="70 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="90 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="110 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="130 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		
+		<frame posn="30 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="50 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="70 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="90 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="110 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="130 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		
+		<frame posn="30 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="50 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="70 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="90 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="110 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="130 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+	</frame>
+	
+	<frame id="PipeStartEnd">
+		<frame posn="10 -30" data-connectedwith="-1" hidden="1" data-type="Start">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_start.png"/>
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="left" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="10 -50" data-connectedwith="-1" hidden="1" data-type="Start">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_start.png"/>
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="left" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="10 -70" data-connectedwith="-1" hidden="1" data-type="Start">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_start.png"/>
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="left" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="10 -90" data-connectedwith="-1" hidden="1" data-type="Start">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_start.png"/>
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="left" valign="center" hidden="1"/>
+		</frame>
+		
+		<frame posn="150 -30" data-connectedwith="-1" hidden="1" data-type="End">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_end.png"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="right" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="150 -50" data-connectedwith="-1" hidden="1" data-type="End">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_end.png"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="right" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="150 -70" data-connectedwith="-1" hidden="1" data-type="End">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_end.png"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="right" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="150 -90" data-connectedwith="-1" hidden="1" data-type="End">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_end.png"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="right" valign="center" hidden="1"/>
+		</frame>
+	</frame>
+	
+	<quad posn="170 -10 0" sizen="140 100" bgcolor="000000AA" z-index="-1"/>
+	<quad posn="170 -10 0" sizen="140 100" bgcolor="FFFA" style="Bgs1" substyle="BgColorContour" z-index="1"/>
+	
+	<frame id="Pipes2">
+		<frame posn="190 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="210 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="230 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="250 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="270 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="290 -30" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		
+		<frame posn="190 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="210 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="230 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="250 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="270 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="290 -50" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		
+		<frame posn="190 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="210 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="230 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="250 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="270 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="290 -70" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		
+		<frame posn="190 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="210 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="230 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="250 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="270 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+		<frame posn="290 -90" data-type="0" data-connectedwith="-1" data-readyend="0">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardInventoryItem" scriptevents="1"/>
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_nodata.png"/>
+			<quad sizen="20 20" bgcolor="0F04" halign="center" valign="center" hidden="1"/>
+			
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 -10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+			<quad posn="0 10 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" data-connection="0" hidden="1"/>
+		</frame>
+	</frame>
+	
+	<frame id="PipeStartEnd2">
+		<frame posn="170 -30" data-connectedwith="-1" hidden="1" data-type="Start">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_start.png"/>
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="left" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="170 -50" data-connectedwith="-1" hidden="1" data-type="Start">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_start.png"/>
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="left" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="170 -70" data-connectedwith="-1" hidden="1" data-type="Start">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_start.png"/>
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="left" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="170 -90" data-connectedwith="-1" hidden="1" data-type="Start">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_start.png"/>
+			<quad posn="10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="left" valign="center" hidden="1"/>
+		</frame>
+		
+		<frame posn="310 -30" data-connectedwith="-1" hidden="1" data-type="End">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_end.png"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="right" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="310 -50" data-connectedwith="-1" hidden="1" data-type="End">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_end.png"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="right" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="310 -70" data-connectedwith="-1" hidden="1" data-type="End">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_end.png"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="right" valign="center" hidden="1"/>
+		</frame>
+		<frame posn="310 -90" data-connectedwith="-1" hidden="1" data-type="End">
+			<quad sizen="20 20" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_end.png"/>
+			<quad posn="-10 0 0" sizen="2 2" bgcolor="FFFA" halign="center" valign="center" hidden="1"/>
+			<quad posn="0 0 0" sizen="10 20"  bgcolor="0F04" halign="right" valign="center" hidden="1"/>
+		</frame>
+	</frame>
+	
+	<quad posn="80 -60 1" sizen="139 99" bgcolor="000000FF" halign="center" valign="center" id="PipeHide" z-index="1"/>
+	<quad posn="80 -60 1" sizen="40 40" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/completed.png" id="Level1Completed" hidden="1" z-index="2"/>
+	<quad posn="240 -60 1" sizen="139 99" bgcolor="000000FF" halign="center" valign="center" id="PipeHide2" z-index="1"/>
+	<quad posn="240 -60 1" sizen="40 40" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/completed.png" id="Level2Completed" hidden="1" z-index="2"/>
+	
+	<label posn="285 -115 0" sizen="20 5" text="Stop checking connection" halign="center" valign="center" style="CardButtonSmallL" id="ButtonStopChecking" scriptevents="1"/>
+	
+	<frame id="BeginMessage" z-index="2">
+		<quad posn="160 -60 1" sizen="100 40" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgTitle3_5" z-index="-1"/>
+		<label posn="160 -50 1" sizen="30 10" text="Pipes" halign="center" valign="center" style="TextTitle3" textsize="8"/>
+		<label posn="160 -58 1" sizen="80 20" text="Choose one of the levels below or generate a whole new random level (not possible to solve often)." style="TextTitle3" autonewline="1" halign="center"/>
+	</frame>
+	
+	<quad posn="160 -65 1" sizen="80 30" bgcolor="FFFA" halign="center" valign="center" id="ButtonStartBack" style="Bgs1" substyle="BgTitle3_5" hidden="1" z-index="2"/>
+	<label posn="160 -70 1" sizen="60 5" halign="center" valign="center" text="Click to start solving!" style="TextTitle3" id="ButtonStartText" hidden="1" z-index="3"/>
+	<label posn="160 -60 1" sizen="300 100" text="Start" halign="center" valign="center" id="ButtonStart" style="CardButtonMediumL" scriptevents="1" hidden="1" z-index="3"/>
+	
+	<frame posn="20 -100 1" hidden="1" id="LevelMessage" z-index="2">
+		<quad sizen="10 10" bgcolor="FFFA" style="Icons128x128_1" substyle="Custom" halign="center" valign="center"/>
+		<label posn="10" sizen="70 10" text="$iNot specified" textsize="4" valign="center2" style="TextTitle2Blink" id="LevelLoadAction"/>
+	</frame>
+	
+</frame>
+<frame posn="-160 -30 0">
+	<quad sizen="240 60" bgcolor="FFFA" style="Bgs1" substyle="BgWindow2" posn="0 0" z-index="-1"/>
+	<quad posn="240 0 0" sizen="80 60" bgcolor="FFFA" style="Bgs1" substyle="BgWindow1" z-index="-1"/>
+	<label posn="10 -10 0" sizen="60 10" text="$s$iP$fffipes" style="TextTitle3" textsize="12" halign="left" valign="top" translate="1"/>
+	<label posn="15 -25 0" sizen="60 5" text="$s$iMinigame by BigBang1112" style="TextTitle3" halign="left" valign="center"/>
+	
+	<label pos="10 -45" z-index="0" size="20 5" text="Exit" translate="1" style="CardMain_Tool" manialink="minigames"/>
+	
+	<frame posn="155 -5 0">
+		<label posn="-5 -5 0" sizen="40 10" text="Pre-made  levels" autonewline="1" style="TextTitle3" textsize="4" halign="right"/>
+		<quad sizen="80 50" bgcolor="FFFA" style="Bgs1" substyle="BgList"/>
+		<label posn="75 -51 0" sizen="75 5" text="Pre-Made levels not avaliable atm." halign="right" scale=".5"/>
+		<frame posn="5 -5 0" id="Levels" z-index="1">
+			<quad sizen="15 15" bgcolor="FFFA" posn="5 -5" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="5 -5 0" sizen="15 15" text="1" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="20 -5" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="20 -5 0" sizen="15 15" text="2" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="35 -5" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="35 -5 0" sizen="15 15" text="3" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="50 -5" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="50 -5 0" sizen="15 15" text="4" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="65 -5" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="65 -5 0" sizen="15 15" text="5" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="5 -20" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="5 -20 0" sizen="15 15" text="6" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="20 -20" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="20 -20 0" sizen="15 15" text="7" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="35 -20" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="35 -20 0" sizen="15 15" text="8" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="50 -20" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="50 -20 0" sizen="15 15" text="9" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="65 -20" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="65 -20 0" sizen="15 15" text="10" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="5 -35" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="5 -35 0" sizen="15 15" text="11" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="20 -35" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="20 -35 0" sizen="15 15" text="12" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="35 -35" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="35 -35 0" sizen="15 15" text="13" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="50 -35" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="50 -35 0" sizen="15 15" text="14" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+			<quad sizen="15 15" bgcolor="FFFA" posn="65 -35" halign="center" valign="center" style="Bgs1" substyle="BgButtonSmall" scriptevents="1"/>
+			<label posn="65 -35 0" sizen="15 15" text="15" style="TextTitle3" halign="center" valign="center2" textsize="4" z-index="1"/>
+		</frame>
+		
+		<quad posn="-35 -23 0" sizen="10 10" bgcolor="FFFA" halign="right" valign="center" style="Icons64x64_1" substyle="ArrowBlue" id="IconLevelEasy" hidden="1"/>
+		<label posn="-5 -23 0" sizen="20 5" text="Easy" translate="1" style="CardButtonMediumS" halign="right" valign="center" scriptevents="1" id="ButtonLevelEasy"/>
+		<quad posn="-35 -32 0" sizen="10 10" bgcolor="FFFA" halign="right" valign="center" style="Icons64x64_1" substyle="ArrowBlue" id="IconLevelHard" hidden="1"/>
+		<label posn="-5 -32 0" sizen="20 5" text="Hard" translate="1" style="CardButtonMediumS" halign="right" valign="center" scriptevents="1" id="ButtonLevelHard"/>
+		
+		<frame posn="-5 -42 1" id="GenerateRandomTooltip" hidden="1" z-index="1">
+			<quad sizen="70 15" bgcolor="FFFA" halign="right" valign="bottom" style="Bgs1" substyle="BgProgressBar" z-index="-1"/>
+			<label sizen="65 15" text="Experimental feature for playtesting. Low chance to succeed." posn="-35 7.5" halign="center" autonewline="1" textsize="2" valign="center"/>
+		</frame>
+		<label posn="-5 -50 0" sizen="20 5" text="Generate Random" style="CardButtonMediumXXL" halign="right" valign="bottom" scriptevents="1" id="ButtonGenerateRandom"/>
+	</frame>
+	
+	<frame posn="280 -15 0">
+		<quad sizen="60 10" bgcolor="FFFA" style="Bgs1" substyle="BgColorContour" halign="center" valign="center"/>
+		<label sizen="60 10" text="Name not found" halign="center" textsize="3" valign="center2" id="PlayerName"/>
+	</frame>
+	<label posn="311 -25 0" sizen="40 10" text="0" style="TextTitle3" halign="right" textsize="6" id="ScoreText"/>
+	<label posn="268 -28 0" sizen="20 5" text="$0f0+0" valign="center2" style="TextTitle3" halign="right" textsize="4" id="ScoreTotalGet" hidden="1"/>
+	<label posn="250 -35 0" sizen="30 5" text="Turns: 0" style="TextTitle3" id="TurnsText"/>
+	<label posn="250 -40 0" sizen="30 5" text="Time: 0" style="TextTitle3" id="TimeText"/>
+	<label posn="250 -45 0" sizen="30 5" text="Bonus: $ff00" style="TextTitle3" id="BonusText"/>
+	<label posn="310 -36 0" sizen="30 5" text="$0ffLevel score" textsize="1" style="TextTitle3" halign="right" valign="top"/>
+	<label posn="310 -45 0" sizen="30 5" text="$aff0" halign="right" valign="bottom" style="TextValueSmallSm" id="LevelWeightText"/>
+	<label posn="299 -57 0" sizen="20 5" text="Give up at this level" style="CardButtonSmall" scriptevents="1" id="ButtonGiveUp" halign="center" valign="bottom"/>
+	<label posn="263 -57 0" sizen="20 5" text="Check connection" style="CardButtonSmall" scriptevents="1" id="ButtonCheckConnection" halign="center" valign="bottom"/>
+</frame>
+<script><![CDATA[
+		#Include "MathLib" as Math
+		#Include "AnimLib" as Anim
+		#Include "TextLib" as TXT
+
+		declare Integer score;
+		declare Integer turns;
+		declare Real time;
+		declare Integer bonus;
+		declare Integer levelWeight;
+
+		declare Integer levelState; //0=none 1=random 2=specific 3=playing
+		declare Text levelDifficulty; //easy,hard
+
+		declare Boolean level1;
+		declare Boolean level2;
+
+		declare Boolean checkingConnection;
+
+		Void GenerateRandomLevel() {
+			foreach(pipe in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+				pipe.RelativeRotation = Math::NearestReal(Math::Rand(1,4) * 90);
+
+				if(Math::Rand(0,1) == 0) {
+					pipe.DataAttributeSet("type","Turn");
+				}
+				else {
+					pipe.DataAttributeSet("type","Straight");
+				}
+			}
+			foreach(pipe in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+				pipe.RelativeRotation = Math::NearestReal(Math::Rand(1,4) * 90);
+
+				if(Math::Rand(0,1) == 0) {
+					pipe.DataAttributeSet("type","Turn");
+				}
+				else {
+					pipe.DataAttributeSet("type","Straight");
+				}
+			}
+		}
+
+		Void RefreshPipes() {
+			foreach(pipe in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+				if((pipe as CMlFrame).DataAttributeGet("type") == "Straight") {
+					((pipe as CMlFrame).Controls[1] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_straight.png");
+
+					((pipe as CMlFrame).Controls[3] as CMlQuad).DataAttributeSet("connection","1");
+					((pipe as CMlFrame).Controls[4] as CMlQuad).DataAttributeSet("connection","0");
+					((pipe as CMlFrame).Controls[5] as CMlQuad).DataAttributeSet("connection","1");
+					((pipe as CMlFrame).Controls[6] as CMlQuad).DataAttributeSet("connection","0");
+				}
+				else {
+					((pipe as CMlFrame).Controls[1] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_turn.png");
+
+					((pipe as CMlFrame).Controls[3] as CMlQuad).DataAttributeSet("connection","1");
+					((pipe as CMlFrame).Controls[4] as CMlQuad).DataAttributeSet("connection","0");
+					((pipe as CMlFrame).Controls[5] as CMlQuad).DataAttributeSet("connection","0");
+					((pipe as CMlFrame).Controls[6] as CMlQuad).DataAttributeSet("connection","1");
+				}
+			}
+			foreach(pipe in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+				if((pipe as CMlFrame).DataAttributeGet("type") == "Straight") {
+					((pipe as CMlFrame).Controls[1] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_straight.png");
+
+					((pipe as CMlFrame).Controls[3] as CMlQuad).DataAttributeSet("connection","1");
+					((pipe as CMlFrame).Controls[4] as CMlQuad).DataAttributeSet("connection","0");
+					((pipe as CMlFrame).Controls[5] as CMlQuad).DataAttributeSet("connection","1");
+					((pipe as CMlFrame).Controls[6] as CMlQuad).DataAttributeSet("connection","0");
+				}
+				else {
+					((pipe as CMlFrame).Controls[1] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/pipes/pipe_turn.png");
+
+					((pipe as CMlFrame).Controls[3] as CMlQuad).DataAttributeSet("connection","1");
+					((pipe as CMlFrame).Controls[4] as CMlQuad).DataAttributeSet("connection","0");
+					((pipe as CMlFrame).Controls[5] as CMlQuad).DataAttributeSet("connection","0");
+					((pipe as CMlFrame).Controls[6] as CMlQuad).DataAttributeSet("connection","1");
+				}
+			}
+		}
+
+		main() {
+			declare persistent Integer PERSISTENT_PIPES_SCORE for LocalUser;
+
+			score = 0;
+			turns = 0;
+			time = 0.;
+			bonus = 0;
+			levelWeight = 0;
+
+			levelState = 0;
+			levelDifficulty = "Easy";
+
+			level1 = False;
+			level2 = False;
+
+			checkingConnection = False;
+
+			(Page.GetFirstChild("PlayerName") as CMlLabel).SetText("$s" ^ LocalUser.Name);
+
+			(Page.GetFirstChild("PipeStartEnd") as CMlFrame).Controls[Math::Rand(0,3)].Show();
+			(Page.GetFirstChild("PipeStartEnd") as CMlFrame).Controls[Math::Rand(4,7)].Show();
+			(Page.GetFirstChild("PipeStartEnd2") as CMlFrame).Controls[Math::Rand(0,3)].Show();
+			(Page.GetFirstChild("PipeStartEnd2") as CMlFrame).Controls[Math::Rand(4,7)].Show();
+
+			RefreshPipes();
+
+			declare Integer timeStart = Now;
+			declare Integer timeStart2 = Now;
+			declare Integer time2 = 0;
+			declare Boolean addScore = False;
+
+			while(True) {
+				(Page.GetFirstChild("ScoreText") as CMlLabel).SetText(TXT::ToText(score));
+				(Page.GetFirstChild("TurnsText") as CMlLabel).SetText("Turns: " ^ turns);
+				(Page.GetFirstChild("TimeText") as CMlLabel).SetText("Time: " ^ time);
+				(Page.GetFirstChild("BonusText") as CMlLabel).SetText("Bonus: $ff0" ^ bonus);
+				(Page.GetFirstChild("LevelWeightText") as CMlLabel).SetText("$aff" ^ levelWeight);
+
+				score = PERSISTENT_PIPES_SCORE;
+
+				if(levelState == 3) {
+					if(!level1 || !level2)
+						time = Math::NearestReal(Now - timeStart - time2) / 1000.;
+
+					if(bonus > 0)
+						bonus = 500 - Math::NearestInteger(time) - turns;
+				}
+
+				if(levelState != 0 && levelState != 3) {
+					Page.GetFirstChild("ButtonStart").Show();
+					Page.GetFirstChild("ButtonStartBack").Show();
+					Page.GetFirstChild("ButtonStartText").Show();
+
+					Page.GetFirstChild("LevelMessage").Show();
+				}
+				else {
+					Page.GetFirstChild("ButtonStart").Hide();
+					Page.GetFirstChild("ButtonStartBack").Hide();
+					Page.GetFirstChild("ButtonStartText").Hide();
+
+					Page.GetFirstChild("LevelMessage").Hide();
+				}
+
+				if(levelState == 0) {
+					Page.GetFirstChild("BeginMessage").Show();
+
+					turns = 0;
+					bonus = 0;
+					levelWeight = 0;
+				}
+				else {
+					Page.GetFirstChild("BeginMessage").Hide();
+				}
+
+				if(level1 && level2) {
+					Page.GetFirstChild("ScoreTotalGet").Show();
+					(Page.GetFirstChild("ScoreTotalGet") as CMlLabel).SetText("$0f0+" ^ (levelWeight + bonus));
+
+					if(addScore) {
+						PERSISTENT_PIPES_SCORE += levelWeight + bonus;
+						addScore = False;
+					}
+
+					(Page.GetFirstChild("ButtonGiveUp") as CMlLabel).SetText("Continue");
+				}
+
+				foreach(Event in PendingEvents) {
+					switch(Event.Type) {
+						case CMlEvent::Type::MouseClick: {
+							if(Event.ControlId == "ButtonGenerateRandom" && levelState != 3) {
+
+								foreach(pipe in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+									(pipe as CMlFrame).Controls[2].Hide();
+									(pipe as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+								foreach(pipe in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+									(pipe as CMlFrame).Controls[2].Hide();
+									(pipe as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+								foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd") as CMlFrame).Controls)) {
+									(pipeStartEnd as CMlFrame).Controls[2].Hide();
+									(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+								foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd2") as CMlFrame).Controls)) {
+									(pipeStartEnd as CMlFrame).Controls[2].Hide();
+									(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+
+								GenerateRandomLevel();
+								RefreshPipes();
+								levelState = 1;
+								((Page.GetFirstChild("LevelMessage") as CMlFrame).Controls[1] as CMlLabel).SetText("$iGenerate Random");
+								((Page.GetFirstChild("LevelMessage") as CMlFrame).Controls[0] as CMlQuad).Substyle = "Custom";
+								(Page.GetFirstChild("LevelMessage") as CMlFrame).Show();
+								levelWeight = 100;
+							}
+
+							if(Event.ControlId == "ButtonLevelEasy") {
+								levelDifficulty = "Easy";
+								Page.GetFirstChild("IconLevelEasy").Show();
+								Page.GetFirstChild("IconLevelHard").Hide();
+							}
+							if(Event.ControlId == "ButtonLevelHard") {
+								levelDifficulty = "Hard";
+								Page.GetFirstChild("IconLevelEasy").Hide();
+								Page.GetFirstChild("IconLevelHard").Show();
+							}
+
+							if(Event.ControlId == "ButtonStart") {
+								Page.GetFirstChild("PipeHide").Hide();
+								Page.GetFirstChild("PipeHide2").Hide();
+								bonus = 500;
+								levelState = 3;
+								timeStart = Now;
+							}
+
+							if(Event.ControlId == "ButtonGiveUp") {
+								(Page.GetFirstChild("ButtonGiveUp") as CMlLabel).SetText("Give up at this level");
+								Page.GetFirstChild("ScoreTotalGet").Hide();
+
+								Page.GetFirstChild("PipeHide").Show();
+								Page.GetFirstChild("PipeHide2").Show();
+								levelState = 0;
+								time = 0.;
+
+								level1 = False;
+								level2 = False;
+
+								foreach(pipe in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+									(pipe as CMlFrame).Controls[2].Hide();
+									(pipe as CMlFrame).DataAttributeSet("connectedwith","-1");
+									(pipe as CMlFrame).DataAttributeSet("readyend","0");
+								}
+								foreach(pipe in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+									(pipe as CMlFrame).Controls[2].Hide();
+									(pipe as CMlFrame).DataAttributeSet("connectedwith","-1");
+									(pipe as CMlFrame).DataAttributeSet("readyend","0");
+								}
+								foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd") as CMlFrame).Controls)) {
+									(pipeStartEnd as CMlFrame).Controls[2].Hide();
+									(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+								foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd2") as CMlFrame).Controls)) {
+									(pipeStartEnd as CMlFrame).Controls[2].Hide();
+									(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+
+								Page.GetFirstChild("Level1Completed").Hide();
+								Page.GetFirstChild("Level2Completed").Hide();
+
+								checkingConnection = False;
+							}
+
+							if(Event.ControlId == "ButtonStopChecking") {
+								foreach(pipe in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+									(pipe as CMlFrame).Controls[2].Hide();
+									(pipe as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+								foreach(pipe in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+									(pipe as CMlFrame).Controls[2].Hide();
+									(pipe as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+								foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd") as CMlFrame).Controls)) {
+									(pipeStartEnd as CMlFrame).Controls[2].Hide();
+									(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+								foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd2") as CMlFrame).Controls)) {
+									(pipeStartEnd as CMlFrame).Controls[2].Hide();
+									(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith","-1");
+								}
+
+								checkingConnection = False;
+							}
+
+							if(Event.ControlId == "ButtonCheckConnection" && levelState == 3) {
+								checkingConnection = True;
+
+								for(a,0,(Page.GetFirstChild("Pipes") as CMlFrame).Controls.count) {
+									declare p = 0;
+
+									foreach(pipe in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+										foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd") as CMlFrame).Controls)) {
+											if((pipe as CMlFrame).Controls[3].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+											&& (pipe as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+											&& pipeStartEnd.DataAttributeGet("type") == "Start" && pipeStartEnd.Visible) {
+												(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(p));
+											}
+											if((pipe as CMlFrame).Controls[4].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+											&& (pipe as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+											&& pipeStartEnd.DataAttributeGet("type") == "Start" && pipeStartEnd.Visible) {
+												(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(p));
+											}
+											if((pipe as CMlFrame).Controls[5].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+											&& (pipe as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+											&& pipeStartEnd.DataAttributeGet("type") == "Start" && pipeStartEnd.Visible) {
+												(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(p));
+											}
+											if((pipe as CMlFrame).Controls[6].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+											&& (pipe as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+											&& pipeStartEnd.DataAttributeGet("type") == "Start" && pipeStartEnd.Visible) {
+												(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(p));
+											}
+										}
+
+										p += 1;
+									}
+
+									p = 0;
+
+									//Pipe all connection
+									foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd") as CMlFrame).Controls)) { //Read all PipeStartEnds
+										if(pipeStartEnd.Visible && pipeStartEnd.DataAttributeGet("type") == "Start") { //If one of them is visible
+											(pipeStartEnd as CMlFrame).Controls[2].Show();
+											for(i,0,(Page.GetFirstChild("Pipes") as CMlFrame).Controls.count - 1) { //Get each pipe id
+												if(pipeStartEnd.DataAttributeGet("connectedwith") == TXT::ToText(i)) { //If start is connected with pipe
+													((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[2].Show(); //Show pipe green background
+													(Page.GetFirstChild("Pipes") as CMlFrame).Controls[i].DataAttributeSet("connectedwith",TXT::ToText(i));
+												}
+												foreach(pipe2 in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+													if((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i].DataAttributeGet("connectedwith") != "-1") {
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[3].AbsolutePosition == (pipe2 as CMlFrame).Controls[3].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[3].AbsolutePosition == (pipe2 as CMlFrame).Controls[4].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[3].AbsolutePosition == (pipe2 as CMlFrame).Controls[5].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[3].AbsolutePosition == (pipe2 as CMlFrame).Controls[6].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[4].AbsolutePosition == (pipe2 as CMlFrame).Controls[3].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[4].AbsolutePosition == (pipe2 as CMlFrame).Controls[4].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[4].AbsolutePosition == (pipe2 as CMlFrame).Controls[5].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[4].AbsolutePosition == (pipe2 as CMlFrame).Controls[6].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[5].AbsolutePosition == (pipe2 as CMlFrame).Controls[3].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[5].AbsolutePosition == (pipe2 as CMlFrame).Controls[4].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[5].AbsolutePosition == (pipe2 as CMlFrame).Controls[5].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[5].AbsolutePosition == (pipe2 as CMlFrame).Controls[6].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[6].AbsolutePosition == (pipe2 as CMlFrame).Controls[3].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[6].AbsolutePosition == (pipe2 as CMlFrame).Controls[4].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[6].AbsolutePosition == (pipe2 as CMlFrame).Controls[5].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[6].AbsolutePosition == (pipe2 as CMlFrame).Controls[6].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+													}
+												}
+											}
+										}
+									}
+									foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd") as CMlFrame).Controls)) {
+										if(pipeStartEnd.Visible && pipeStartEnd.DataAttributeGet("type") == "End") {
+											foreach(pipe in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+												if(pipe.DataAttributeGet("readyend") == "1") {
+													if((pipe as CMlFrame).Controls[3].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+													|| (pipe as CMlFrame).Controls[4].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+													|| (pipe as CMlFrame).Controls[5].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+													|| (pipe as CMlFrame).Controls[6].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition) {
+														(pipeStartEnd as CMlFrame).Controls[2].Show();
+														level1 = True;
+														Page.GetFirstChild("PipeHide").Show();
+														Page.GetFirstChild("Level1Completed").Show();
+														Audio.PlaySoundEvent(CAudioManager::ELibSound::Victory,0,1.);
+													}
+												}
+											}
+										}
+									}
+
+									declare p2 = 0;
+
+									foreach(pipe in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+										foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd2") as CMlFrame).Controls)) {
+											if((pipe as CMlFrame).Controls[3].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+											&& (pipe as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+											&& pipeStartEnd.DataAttributeGet("type") == "Start" && pipeStartEnd.Visible) {
+												(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(p2));
+											}
+											if((pipe as CMlFrame).Controls[4].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+											&& (pipe as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+											&& pipeStartEnd.DataAttributeGet("type") == "Start" && pipeStartEnd.Visible) {
+												(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(p2));
+											}
+											if((pipe as CMlFrame).Controls[5].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+											&& (pipe as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+											&& pipeStartEnd.DataAttributeGet("type") == "Start" && pipeStartEnd.Visible) {
+												(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(p2));
+											}
+											if((pipe as CMlFrame).Controls[6].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+											&& (pipe as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+											&& pipeStartEnd.DataAttributeGet("type") == "Start" && pipeStartEnd.Visible) {
+												(pipeStartEnd as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(p2));
+											}
+										}
+
+										p2 += 1;
+									}
+
+									p2 = 0;
+
+									foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd2") as CMlFrame).Controls)) { //Read all PipeStartEnds
+										if(pipeStartEnd.Visible && pipeStartEnd.DataAttributeGet("type") == "Start") { //If one of them is visible
+											(pipeStartEnd as CMlFrame).Controls[2].Show();
+											for(i,0,(Page.GetFirstChild("Pipes2") as CMlFrame).Controls.count - 1) { //Get each pipe id
+												if(pipeStartEnd.DataAttributeGet("connectedwith") == TXT::ToText(i)) { //If start is connected with pipe
+													((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[2].Show(); //Show pipe green background
+													(Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i].DataAttributeSet("connectedwith",TXT::ToText(i));
+												}
+												foreach(pipe2 in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+													if((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i].DataAttributeGet("connectedwith") != "-1") {
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[3].AbsolutePosition == (pipe2 as CMlFrame).Controls[3].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[3].AbsolutePosition == (pipe2 as CMlFrame).Controls[4].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[3].AbsolutePosition == (pipe2 as CMlFrame).Controls[5].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[3].AbsolutePosition == (pipe2 as CMlFrame).Controls[6].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[4].AbsolutePosition == (pipe2 as CMlFrame).Controls[3].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[4].AbsolutePosition == (pipe2 as CMlFrame).Controls[4].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[4].AbsolutePosition == (pipe2 as CMlFrame).Controls[5].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[4].AbsolutePosition == (pipe2 as CMlFrame).Controls[6].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[5].AbsolutePosition == (pipe2 as CMlFrame).Controls[3].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[5].AbsolutePosition == (pipe2 as CMlFrame).Controls[4].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[5].AbsolutePosition == (pipe2 as CMlFrame).Controls[5].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[5].AbsolutePosition == (pipe2 as CMlFrame).Controls[6].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[6].AbsolutePosition == (pipe2 as CMlFrame).Controls[3].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[3].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[6].AbsolutePosition == (pipe2 as CMlFrame).Controls[4].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[4].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[6].AbsolutePosition == (pipe2 as CMlFrame).Controls[5].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[5].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+														if(((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[6].AbsolutePosition == (pipe2 as CMlFrame).Controls[6].AbsolutePosition
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& (pipe2 as CMlFrame).Controls[6].DataAttributeGet("connection") == "1"
+														&& ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls[i] as CMlFrame) != pipe2) {
+															(pipe2 as CMlFrame).Controls[2].Show();
+															(pipe2 as CMlFrame).DataAttributeSet("connectedwith",TXT::ToText(i));
+															(pipe2 as CMlFrame).DataAttributeSet("readyend","1");
+														}
+													}
+												}
+											}
+										}
+									}
+									foreach(pipeStartEnd in ((Page.GetFirstChild("PipeStartEnd2") as CMlFrame).Controls)) {
+										if(pipeStartEnd.Visible && pipeStartEnd.DataAttributeGet("type") == "End") {
+											foreach(pipe in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+												if(pipe.DataAttributeGet("readyend") == "1") {
+													if((pipe as CMlFrame).Controls[3].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+													|| (pipe as CMlFrame).Controls[4].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+													|| (pipe as CMlFrame).Controls[5].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition
+													|| (pipe as CMlFrame).Controls[6].AbsolutePosition == (pipeStartEnd as CMlFrame).Controls[1].AbsolutePosition) {
+														(pipeStartEnd as CMlFrame).Controls[2].Show();
+														level2 = True;
+														Page.GetFirstChild("PipeHide2").Show();
+														Page.GetFirstChild("Level2Completed").Show();
+														Audio.PlaySoundEvent(CAudioManager::ELibSound::Victory,0,1.);
+													}
+												}
+											}
+										}
+									}
+								}
+								addScore = True;
+							}
+
+							declare Integer buttonIndex = 0;
+
+							foreach(buttonLevel in ((Page.GetFirstChild("Levels") as CMlFrame).Controls)) {
+								if(buttonLevel is CMlQuad) {
+									buttonIndex += 1;
+									if(Event.Control == buttonLevel && levelState != 3) {
+										((Page.GetFirstChild("LevelMessage") as CMlFrame).Controls[1] as CMlLabel).SetText("$iPlay level: " ^ levelDifficulty ^ " " ^ buttonIndex);
+										((Page.GetFirstChild("LevelMessage") as CMlFrame).Controls[0] as CMlQuad).Substyle = "CustomStars";
+										Page.GetFirstChild("LevelMessage").Show();
+										levelState = 2;
+									}
+								}
+							}
+
+							foreach(pipe in ((Page.GetFirstChild("Pipes") as CMlFrame).Controls)) {
+								if(Event.Control == (pipe as CMlFrame).Controls[0] && Page.GetFirstChild("PipeHide").Visible == False && !checkingConnection) {
+									(pipe as CMlFrame).RelativeRotation += 90;
+									Audio.PlaySoundEvent(CAudioManager::ELibSound::HideMenu,0,1.);
+									turns += 1;
+								}
+							}
+							foreach(pipe in ((Page.GetFirstChild("Pipes2") as CMlFrame).Controls)) {
+								if(Event.Control == (pipe as CMlFrame).Controls[0] && Page.GetFirstChild("PipeHide2").Visible == False && !checkingConnection) {
+									(pipe as CMlFrame).RelativeRotation += 90;
+									Audio.PlaySoundEvent(CAudioManager::ELibSound::HideMenu,0,1.);
+									turns += 1;
+								}
+							}
+						}
+						case CMlEvent::Type::MouseOver: {
+							if(Event.Control == (Page.GetFirstChild("ButtonGenerateRandom") as CMlLabel)) {
+								Page.GetFirstChild("GenerateRandomTooltip").Show();
+							}
+						}
+						case CMlEvent::Type::MouseOut: {
+							if(Event.Control == (Page.GetFirstChild("ButtonGenerateRandom") as CMlLabel)) {
+								Page.GetFirstChild("GenerateRandomTooltip").Hide();
+							}
+						}
+					}
+				}
+
+				yield;
+			}
+		}
+		]]>
+</script>

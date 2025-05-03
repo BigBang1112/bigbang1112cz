@@ -18,7 +18,7 @@ public abstract class XmlPageModel : PageModel
         await next();
     }
 
-    public string ManialinkUrl(string id)
+    public string ManialinkUrl(string id, bool isMP = false)
     {
         if (env.IsProduction())
         {
@@ -27,11 +27,11 @@ public abstract class XmlPageModel : PageModel
 
         if (!id.Contains(':'))
         {
-            return $"{Request.Scheme}://{Request.Host}/trackmania/manialink/tmf";
+            return $"{Request.Scheme}://{Request.Host}/trackmania/manialink/{(isMP ? "mp" : "tmf")}";
         }
 
         var parts = id.Split(':');
 
-        return $"{Request.Scheme}://{Request.Host}/trackmania/manialink/tmf/{string.Join('/', parts.Skip(1))}";
+        return $"{Request.Scheme}://{Request.Host}/trackmania/manialink/{(isMP ? "mp" : "tmf")}/{string.Join('/', parts.Skip(1))}";
     }
 }

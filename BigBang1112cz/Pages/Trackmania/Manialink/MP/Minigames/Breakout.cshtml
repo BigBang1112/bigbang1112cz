@@ -1,0 +1,610 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.MP.Minigames.BreakoutModel
+@{
+    Layout = "_ManialinkMpLayout";
+}
+
+<frame posn="80 90 0.2" z-index="1">
+	<quad posn="-4 5 0" sizen="95 195" bgcolor="FFFA" style="Bgs1" substyle="BgButtonShadow"/>
+	<quad sizen="80 180" bgcolor="FFFA" style="Bgs1" substyle="BgWindow2" posn="0 0" scriptevents="1" z-index="1"/>
+	<label posn="40 -20 0" sizen="80 40" text="$sBreakout" textsize="8" autonewline="1" halign="center" valign="center" style="TextButtonBig" z-index="2"/>
+	
+	<label posn="40 -38 0" sizen="80 10" text="$fc0$s$iMinigame by BigBang1112" halign="center" valign="center2" textsize="3" z-index="2"/>
+	
+	<quad posn="40 -44 0" sizen="70 2" bgcolor="FFFA" style="Bgs1" substyle="BgTitleShadow" halign="center" valign="center" z-index="2"/>
+	
+	<label posn="40 -50 0" sizen="70 10" text="Name not found" autonewline="1" style="Manialink_Body" id="LabelPlayerName" textsize="4" halign="center" valign="center" z-index="2"/>
+	<label posn="40 -60 0" sizen="60 10" text="$s0" halign="center" style="TextButtonBig" valign="center" textsize="6" id="Score" z-index="2"/>
+	
+	<quad posn="20 -75 0" sizen="15 15" bgcolor="FFFA" style="MedalsBig" substyle="MedalBronze" halign="center" valign="center" opacity=".25" id="MedalBronze" z-index="2"/>
+	<quad posn="40 -75 0" sizen="15 15" bgcolor="FFFA" style="MedalsBig" substyle="MedalSilver" halign="center" valign="center" opacity=".25" id="MedalSilver" z-index="2"/>
+	<quad posn="60 -75 0" sizen="15 15" bgcolor="FFFA" style="MedalsBig" substyle="MedalGold" valign="center" halign="center" opacity=".25" id="MedalGold" z-index="2"/>
+	
+	<quad posn="22 -90 0" sizen="30 8" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform.png" id="SkinPreview" z-index="2"/>
+	<label posn="58 -90 0" sizen="60 10" text="Skin" style="CardButtonMediumS" halign="center" valign="center" scriptevents="1" id="ButtonSkin" z-index="2"/>
+	
+	<label posn="40 -100 0" sizen="65 10" text="$sAttempt 0" halign="center" valign="center" textsize="3" style="TextTitle3" id="Attempt" z-index="2"/>
+	<label posn="10 -110 0" sizen="30 5" text="$sScore: $ff00" halign="left" style="TextButtonBig" valign="center2" id="ScoreRound" z-index="2"/>
+	<label posn="10 -115 0" sizen="30 5" text="$sTime: 0.0" halign="left" style="TextButtonBig" valign="center2" id="Time" z-index="2"/>
+	<label posn="55 -112 0" sizen="30 10" text="$s$f0fRound 0" halign="center" valign="center" textsize="3" style="TextTitle3" id="Round" z-index="2"/>
+	
+	<frame posn="40 -120" z-index="2">
+		<quad sizen="65 30" bgcolor="FFFA" halign="center" valign="top" style="Bgs1" substyle="BgList"/>
+		<label posn="0 -4 0" sizen="65 8" text="Your best attempts:" textsize="1" halign="center" valign="center" style="TextTitle3" z-index="1"/>
+		<label posn="0 -15 0" sizen="65 8" text="$i$f00Work in progress" textsize="2" halign="center" valign="center" style="TextTitle3" z-index="1"/>
+		<frame posn="-28 -8 0" hidden="1">
+			<label posn="0 -3 0" sizen="12 6" text="$5afA. 5" halign="left" valign="center2" style="TextSubTitle2"/>
+			<label posn="15 -3 0" sizen="10 6" text="$ff09999" halign="left" valign="center2" style="TextSubTitle2"/>
+			<label posn="28 -3 0" sizen="15 6" text="120.319" halign="left" valign="center2" style="TextSubTitle2" textsize="1"/>
+			<label posn="45 -3 0" sizen="8 6" text="$f0f12" halign="left" valign="center2" style="TextSubTitle2"/>
+			<label posn="0 -9 0" sizen="12 6" text="$5afA. 20" halign="left" valign="center2" style="TextSubTitle2"/>
+			<label posn="15 -9 0" sizen="10 6" text="$ff09669" halign="left" valign="center2" style="TextSubTitle2"/>
+			<label posn="28 -9 0" sizen="15 6" text="120.319" halign="left" valign="center2" style="TextSubTitle2" textsize="1"/>
+			<label posn="45 -9 0" sizen="8 6" text="$f0f12" halign="left" valign="center2" style="TextSubTitle2"/>
+			<label posn="0 -15 0" sizen="12 6" text="$5afA. Q" halign="left" valign="center2" style="TextSubTitle2"/>
+			<label posn="15 -15 0" sizen="10 6" text="$ff01234" halign="left" valign="center2" style="TextSubTitle2"/>
+			<label posn="28 -15 0" sizen="15 6" text="120.319" halign="left" valign="center2" style="TextSubTitle2" textsize="1"/>
+			<label posn="45 -15 0" sizen="8 6" text="$f0f12" halign="left" valign="center2" style="TextSubTitle2"/>
+		</frame>
+	</frame>
+	
+	<quad posn="40 -152 0" sizen="70 2" bgcolor="FFFA" style="Bgs1" substyle="BgTitleShadow" halign="center" valign="center" z-index="2"/>
+	
+	<label posn="40 -170 0" sizen="20 5" text="Exit" style="CardMain_Tool" halign="center" valign="center" translate="1" z-index="2" manialink="minigames"/>
+</frame>
+<frame posn="-40" id="Playground">
+	<quad posn="-120 90 0" sizen="320 180" bgcolor="222A" z-index="-1"/>
+	<quad posn="-115 85 1" sizen="40 10" bgcolor="FFFA" style="ManiaPlanetLogos" substyle="ManiaPlanetLogoWhite"/>
+	<quad posn="0 -80 0" sizen="240 2" bgcolor="FFFA" halign="center" style="Bgs1InRace" substyle="ProgressBarSmall"/>
+	
+	<label posn="0 0 1" sizen="20 5" text="Reset" style="CardButtonMediumL" scriptfevents="1" id="ButtonReset" halign="center" valign="center" scriptevents="1" hidden="1"/>
+	<label posn="0 0 1" sizen="20 5" text="Start" style="CardButtonMediumL" scriptfevents="1" id="ButtonStart" halign="center" valign="center" scriptevents="1"/>
+	
+	<frame posn="0 -75 0" id="Platform">
+		<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform.png"/>
+		<label sizen="20 5" text="Random Position" style="CardButtonSmallS" scriptevents="1" halign="center" valign="center" id="ButtonRandomPos" z-index="1"/>
+	</frame>
+	
+	<frame posn="0 -65 0" id="Ball">
+		<quad posn="0 0 0" sizen="10 10" bgcolor="FFFA" halign="center" valign="center" style="Icons128x32_1" substyle="ManiaPlanet"/>
+	</frame>
+	
+	<frame id="Levels">
+		<frame id="Level" posn="0 0 0.25" hidden="1">
+			<frame posn="-40 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="0 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="40 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="0 70 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="0 40 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="40 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="40 70 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+			<frame posn="0 50 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+			<frame posn="-40 70 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+		</frame>
+		<frame id="Level" posn="0 0 0.25" hidden="1">
+			<frame posn="-40 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="0 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="40 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="0 70 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="0 40 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="40 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="40 70 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+			<frame posn="0 50 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+			<frame posn="-40 70 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+		</frame>
+		<frame id="Level" posn="0 0 0.25" hidden="1">
+			<frame posn="-40 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="0 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="40 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-80 50 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="0 40 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="80 50 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="0 70 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+		</frame>
+		<frame id="Level" posn="0 0 0.25" hidden="1">
+			<frame posn="-40 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="0 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="40 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-80 50 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="0 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="80 50 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 70 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="0 70 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+			<frame posn="40 70 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+		</frame>
+		<frame id="Level" posn="0 0 0.25" hidden="1">
+			<frame posn="-80 20 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="0 40 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="80 20 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-80 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="0 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="40 50 0" id="Block" data-weight="2">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_aqua.png"/>
+			</frame>
+			<frame posn="80 30 0" id="Block" data-weight="1">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_yellow.png"/>
+			</frame>
+			<frame posn="-40 70 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+			<frame posn="40 70 0" id="Block" data-weight="3">
+				<quad sizen="40 10" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/block_green.png"/>
+			</frame>
+		</frame>
+	</frame>
+</frame>
+<frame posn="0 0 1.5" id="WindowPlatformSkin" hidden="1" z-index="3">
+	<quad sizen="165 60" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgButtonShadow" z-index="-2"/>
+	<quad sizen="155 50" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgWindow2" z-index="-1" scriptevents="1"/>
+	<label posn="0 16 0" sizen="160 18" text="Platform skins" style="TextTitle3" textsize="6" halign="center" valign="center"/>
+	
+	<label posn="62 19 0" sizen="20 5" text="Default" halign="center" valign="center2" style="CardButtonSmallS" scale=".8" scriptevents="1" id="ButtonPlatform0"/>
+	
+	<frame posn="-55 -15 0">
+		<quad sizen="30 15" bgcolor="FFFA" style="Bgs1" substyle="BgIconBorder" halign="center" posn="0 12.5" valign="center" id="ButtonPlatform1" scriptevents="1"/>
+		<quad posn="0 12.5 0" sizen="20 5" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform1.png" z-index="1"/>
+		<quad posn="-10 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalBronze" halign="center" valign="center"/>
+		<quad posn="0 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalSilver" halign="center" valign="center" opacity=".25"/>
+		<quad posn="10 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalGold" halign="center" valign="center" opacity=".25"/>
+	</frame>
+	<frame posn="-18 -15 0">
+		<quad sizen="30 15" bgcolor="FFFA" style="Bgs1" substyle="BgIconBorder" halign="center" posn="0 12.5" valign="center" id="ButtonPlatform2" scriptevents="1"/>
+		<quad posn="0 12.5 0" sizen="20 5" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform2.png" z-index="1"/>
+		<quad posn="-10 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalBronze" halign="center" valign="center"/>
+		<quad posn="0 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalSilver" halign="center" valign="center"/>
+		<quad posn="10 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalGold" halign="center" valign="center" opacity=".25"/>
+	</frame>
+	<frame posn="18 -15 0">
+		<quad sizen="30 15" bgcolor="FFFA" style="Bgs1" substyle="BgIconBorder" halign="center" valign="center" posn="0 12.5" id="ButtonPlatform3" scriptevents="1"/>
+		<quad posn="0 12.5 0" sizen="20 5" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform3.png" z-index="1"/>
+		<quad posn="-10 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalBronze" halign="center" valign="center"/>
+		<quad posn="0 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalSilver" halign="center" valign="center"/>
+		<quad posn="10 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalGold" halign="center" valign="center" opacity=".25"/>
+	</frame>
+	<frame posn="55 -15 0">
+		<quad sizen="30 15" bgcolor="FFFA" style="Bgs1" substyle="BgIconBorder" halign="center" valign="center" posn="0 12.5" id="ButtonPlatform4" scriptevents="1"/>
+		<quad posn="0 12.5 0" sizen="20 5" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform4.png" z-index="1"/>
+		<quad posn="-10 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalBronze" halign="center" valign="center"/>
+		<quad posn="0 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalSilver" halign="center" valign="center"/>
+		<quad posn="10 0 0" sizen="8 8" bgcolor="FFFA" style="MedalsBig" substyle="MedalGold" halign="center" valign="center"/>
+	</frame>
+</frame>
+<script><![CDATA[
+	#Include "MathLib" as Math
+	#Include "AnimLib" as Anim
+	#Include "TextLib" as TXT
+	
+	#Const PlatformSpeed 0.8
+	#Const BallSpeed 0.9
+	
+	declare CMlFrame platform;
+	declare CMlFrame ball;
+	
+	declare Boolean isPlaying;
+	declare Real velocityX;
+	declare Real velocityY;
+	declare Boolean donateOpen;
+	declare Boolean windowPlatformSkinOpen;
+	declare Boolean resetPosition;
+	declare Integer levelId;
+	
+	declare Integer scoreRound;
+	declare Integer score;
+	declare Integer round;
+	declare Integer attempt;
+	declare Real time;
+	declare Integer startTime;
+	declare Integer blockAmount;
+	
+	declare Boolean medalBronze;
+	declare Boolean medalSilver;
+	declare Boolean medalGold;
+	
+	Boolean CollideCheck(CMlControl first, CMlControl second) {
+		if(first.RelativePosition_V3.Y - 5 <= second.RelativePosition_V3.Y + 5
+		&& first.RelativePosition_V3.Y + 5 >= second.RelativePosition_V3.Y - 5
+		&& first.RelativePosition_V3.X + 5 >= second.RelativePosition_V3.X - 20
+		&& first.RelativePosition_V3.X - 5 <= second.RelativePosition_V3.X + 20)
+			return True;
+		
+		return False;
+	}
+	
+	Void RandomPosition(){
+		platform.RelativePosition_V3.X = Math::ToReal(Math::Rand(-100, 100));
+		ball.RelativePosition_V3.X = platform.RelativePosition_V3.X;
+	}
+	
+	main(){
+		platform = (Page.GetFirstChild("Platform") as CMlFrame);
+		ball = (Page.GetFirstChild("Ball") as CMlFrame);
+		
+		isPlaying = False;
+		donateOpen = False;
+		time = 0.0;
+		score = 0;
+		scoreRound = 0;
+		startTime = 0;
+		windowPlatformSkinOpen = False;
+		resetPosition = False;
+		levelId = Math::Rand(0,4);
+		attempt = 0;
+		round = 0;
+		
+		medalBronze = False;
+		medalSilver = False;
+		medalGold = False;
+		
+		declare persistent Integer PERSISTENT_BREAKOUT_SCORE for LocalUser;
+		
+		(Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId].Show();
+		blockAmount = ((Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId] as CMlFrame).Controls.count;
+		
+		if(Math::Rand(0,1) == 0) {
+			velocityX = BallSpeed;
+			velocityY = BallSpeed;
+		}
+		else {
+			velocityX = -BallSpeed;
+			velocityY = BallSpeed;
+		}
+		
+		(Page.GetFirstChild("LabelPlayerName") as CMlLabel).SetText(LocalUser.Name);
+		RandomPosition();
+		
+		while(True){
+			(Page.GetFirstChild("Attempt") as CMlLabel).SetText("$sAttempt " ^ attempt);
+			(Page.GetFirstChild("Score") as CMlLabel).SetText(TXT::ToText(score));
+			(Page.GetFirstChild("ScoreRound") as CMlLabel).SetText(TXT::ToText(scoreRound));
+			(Page.GetFirstChild("Round") as CMlLabel).SetText("$s$f0fRound " ^ round);
+			(Page.GetFirstChild("Time") as CMlLabel).SetText("Time: " ^ time);
+			(Page.GetFirstChild("ScoreRound") as CMlLabel).SetText("Score: $ff0" ^ scoreRound);
+			
+			score = PERSISTENT_BREAKOUT_SCORE;
+			
+			if(score >= 1000)
+				medalBronze = True;
+			if(score >= 3000)
+				medalSilver = True;
+			if(score >= 10000)
+				medalGold = True;
+				
+			if(medalBronze)
+				(Page.GetFirstChild("MedalBronze") as CMlQuad).Opacity = 1.;
+			else
+				(Page.GetFirstChild("MedalBronze") as CMlQuad).Opacity = .25;
+				
+			if(medalSilver)
+				(Page.GetFirstChild("MedalSilver") as CMlQuad).Opacity = 1.;
+			else
+				(Page.GetFirstChild("MedalSilver") as CMlQuad).Opacity = .25;
+				
+			if(medalGold)
+				(Page.GetFirstChild("MedalGold") as CMlQuad).Opacity = 1.;
+			else
+				(Page.GetFirstChild("MedalGold") as CMlQuad).Opacity = .25;
+			
+			if(isPlaying) {
+				(platform.GetFirstChild("ButtonRandomPos") as CMlLabel).Hide();
+				(Page.GetFirstChild("ButtonStart") as CMlLabel).Hide();
+				resetPosition = True;
+				
+				if(KeyLeft && platform.RelativePosition_V3.X > -100){
+					platform.RelativePosition_V3.X -= PlatformSpeed;
+				}
+				if(KeyRight && platform.RelativePosition_V3.X < 100){
+					platform.RelativePosition_V3.X += PlatformSpeed;
+				}
+				
+				ball.RelativePosition_V3.X += velocityX;
+				ball.RelativePosition_V3.Y += velocityY;
+				
+				time = ((Now - startTime) / 1000.);
+				
+				if(ball.RelativePosition_V3.X <= -115)
+					velocityX = -velocityX;
+				if(ball.RelativePosition_V3.X >= 115)
+					velocityX = -velocityX;
+				if(ball.RelativePosition_V3.Y >= 85)
+					velocityY = -velocityY;
+				
+				if(CollideCheck(ball, platform) // Left
+				&& ball.RelativePosition_V3.X + 5 >= platform.RelativePosition_V3.X - 20
+				&& ball.RelativePosition_V3.X + 4 <= platform.RelativePosition_V3.X - 20)
+					velocityX = -velocityX;
+				if(CollideCheck(ball, platform) // Right
+				&& ball.RelativePosition_V3.X - 5 <= platform.RelativePosition_V3.X + 20
+				&& ball.RelativePosition_V3.X - 4 >= platform.RelativePosition_V3.X + 20)
+					velocityX = -velocityX;
+				if(CollideCheck(ball, platform) // Top
+				&& ball.RelativePosition_V3.Y - 5 <= platform.RelativePosition_V3.Y + 5
+				&& ball.RelativePosition_V3.Y - 4 >= platform.RelativePosition_V3.Y + 5)
+					velocityY = -velocityY;
+				if(CollideCheck(ball, platform) // Bottom
+				&& ball.RelativePosition_V3.Y + 5 >= platform.RelativePosition_V3.Y - 5
+				&& ball.RelativePosition_V3.Y + 4 <= platform.RelativePosition_V3.Y - 5)
+					velocityY = -velocityY;
+				
+				foreach(block in ((Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId] as CMlFrame).Controls) {
+					if(block.Visible && CollideCheck(ball, block) // Top
+					&& ball.RelativePosition_V3.Y - 5 <= block.RelativePosition_V3.Y + 5
+					&& ball.RelativePosition_V3.Y - 4 >= block.RelativePosition_V3.Y + 5){
+						velocityY = -velocityY;
+					}
+					if(block.Visible && CollideCheck(ball, block) // Bottom
+					&& ball.RelativePosition_V3.Y + 5 >= block.RelativePosition_V3.Y - 5
+					&& ball.RelativePosition_V3.Y + 4 <= block.RelativePosition_V3.Y - 5){
+						velocityY = -velocityY;
+					}
+					if(block.Visible && CollideCheck(ball, block) // Right
+					&& ball.RelativePosition_V3.X - 5 <= block.RelativePosition_V3.X + 20
+					&& ball.RelativePosition_V3.X - 4 >= block.RelativePosition_V3.X + 20){
+						velocityX = -velocityX;
+					}
+					if(block.Visible && CollideCheck(ball, block) // Left
+					&& ball.RelativePosition_V3.X + 5 >= block.RelativePosition_V3.X - 20
+					&& ball.RelativePosition_V3.X + 4 <= block.RelativePosition_V3.X - 20){
+						velocityX = -velocityX;
+					}
+					
+					if(block.Visible && CollideCheck(ball, block)) {
+						PERSISTENT_BREAKOUT_SCORE += 10 * TXT::ToInteger(block.DataAttributeGet("weight"));
+						scoreRound += 10 * TXT::ToInteger(block.DataAttributeGet("weight"));
+						blockAmount -= 1;
+						block.Hide();
+					}
+				}
+				
+				if(blockAmount <= 0) {
+					isPlaying = False;
+					ball.RelativePosition_V3 = <platform.RelativePosition_V3.X, -65.>;
+					levelId = Math::Rand(0,4);
+							
+					foreach(level in (Page.GetFirstChild("Levels") as CMlFrame).Controls) {
+						level.Hide();
+					}
+					foreach(block in ((Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId] as CMlFrame).Controls) {
+						block.Show();
+					}
+					
+					(Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId].Show();
+					blockAmount = ((Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId] as CMlFrame).Controls.count;
+					
+					resetPosition = False;
+				}
+					
+				if(ball.RelativePosition_V3.Y < -76){						
+					isPlaying = False;
+				}					
+			}
+			else {
+				velocityX = 0.;
+				velocityY = 0.;
+				
+				if(resetPosition) {
+					Page.GetFirstChild("ButtonReset").Show();
+					
+				}
+				else {
+					(Page.GetFirstChild("ButtonStart") as CMlLabel).Show();
+					(Page.GetFirstChild("ButtonRandomPos") as CMlLabel).Show();
+					Page.GetFirstChild("ButtonReset").Hide();
+				}
+			}
+			
+			foreach(Event in PendingEvents) {
+				switch(Event.Type) {
+					case CMlEvent::Type::MouseClick: {
+						if(Event.Control == (Page.GetFirstChild("ButtonRandomPos") as CMlLabel)) {
+							RandomPosition();
+						}
+						if(Event.Control == (Page.GetFirstChild("ButtonStart") as CMlLabel)) {
+							velocityX = BallSpeed;
+							velocityY = BallSpeed;
+							
+							round += 1;
+							
+							if(round < 2)
+								attempt += 1;
+							
+							isPlaying = True;
+							startTime = Now;
+						}
+						if(Event.Control == Page.GetFirstChild("ButtonReset")) {
+							platform.RelativePosition_V3 = <0., -75.>;
+							ball.RelativePosition_V3 = <0., -65.>;
+							RandomPosition();
+							levelId = Math::Rand(0,4);
+							time = 0.0;
+							scoreRound = 0;
+							round = 0;
+							
+							foreach(level in (Page.GetFirstChild("Levels") as CMlFrame).Controls) {
+								level.Hide();
+							}
+							foreach(block in ((Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId] as CMlFrame).Controls) {
+								block.Show();
+							}
+							
+							(Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId].Show();
+							blockAmount = ((Page.GetFirstChild("Levels") as CMlFrame).Controls[levelId] as CMlFrame).Controls.count;
+							
+							resetPosition = False;
+						}
+						
+						if(Event.Control == (Page.GetFirstChild("ButtonSkin") as CMlLabel)) {
+							if(windowPlatformSkinOpen == False) {
+								(Page.GetFirstChild("WindowPlatformSkin") as CMlFrame).Show();
+								windowPlatformSkinOpen = True;
+							}
+							else {
+								(Page.GetFirstChild("WindowPlatformSkin") as CMlFrame).Hide();
+								windowPlatformSkinOpen = False;
+							}
+						}
+						
+						if(Event.Control == (Page.GetFirstChild("ButtonPlatform0") as CMlLabel)) {
+							(Page.GetFirstChild("WindowPlatformSkin") as CMlFrame).Hide();
+							windowPlatformSkinOpen = False;
+							
+							(platform.Controls[0] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform.png");
+							(Page.GetFirstChild("SkinPreview") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform.png");
+						}
+						
+						if(Event.Control == (Page.GetFirstChild("ButtonPlatform1") as CMlLabel) && medalBronze) {
+							(Page.GetFirstChild("WindowPlatformSkin") as CMlFrame).Hide();
+							windowPlatformSkinOpen = False;
+							
+							(platform.Controls[0] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform1.png");
+							(Page.GetFirstChild("SkinPreview") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform1.png");
+						}
+						if(Event.Control == (Page.GetFirstChild("ButtonPlatform2") as CMlLabel) && medalBronze && medalSilver) {
+							(Page.GetFirstChild("WindowPlatformSkin") as CMlFrame).Hide();
+							windowPlatformSkinOpen = False;
+							
+							(platform.Controls[0] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform2.png");
+							(Page.GetFirstChild("SkinPreview") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform2.png");
+						}
+						if(Event.Control == (Page.GetFirstChild("ButtonPlatform3") as CMlLabel) && medalBronze && medalSilver) {
+							(Page.GetFirstChild("WindowPlatformSkin") as CMlFrame).Hide();
+							windowPlatformSkinOpen = False;
+							
+							(platform.Controls[0] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform3.png");
+							(Page.GetFirstChild("SkinPreview") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform3.png");
+						}
+						if(Event.Control == (Page.GetFirstChild("ButtonPlatform4") as CMlLabel) && medalBronze && medalSilver && medalGold) {
+							(Page.GetFirstChild("WindowPlatformSkin") as CMlFrame).Hide();
+							windowPlatformSkinOpen = False;
+							
+							(platform.Controls[0] as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform4.png");
+							(Page.GetFirstChild("SkinPreview") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/breakout/platform4.png");
+						}
+					}
+					case CMlEvent::Type::MouseOver: {
+						// #4 Execute on MouseOver event
+					}
+					case CMlEvent::Type::MouseOut: {
+						// #5 Execute on MouseOut event
+					}
+					case CMlEvent::Type::KeyPress: {
+						// #6 Execute on KeyPress event
+					}
+				}
+			}
+			
+			yield;
+		}
+	}
+]]>
+</script>
