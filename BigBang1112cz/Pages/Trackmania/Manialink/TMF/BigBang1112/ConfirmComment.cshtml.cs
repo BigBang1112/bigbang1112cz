@@ -11,17 +11,21 @@ using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 using TmEssentials;
 
-namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
+namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112;
 
-public class BulkModel : XmlPageModel
+public class ConfirmCommentModel : XmlPageModel
 {
     private readonly HornUserService userService;
     private readonly AppDbContext db;
     private readonly IOptions<TrackmaniaOptions> options;
     private readonly IOutputCacheStore cache;
-    private readonly ILogger<BulkModel> logger;
+    private readonly ILogger<ConfirmCommentModel> logger;
 
-    [FromQuery(Name = "fromp")]
+    [FromQuery]
+    [StringLength(100, MinimumLength = 5)]
+    public required string Horn { get; set; }
+
+    [FromQuery(Name = "FromP")]
     public int FromPageNum { get; set; }
 
     [FromQuery]
@@ -37,17 +41,21 @@ public class BulkModel : XmlPageModel
     public required string? Zone { get; set; }
 
     [FromQuery]
+    [StringLength(96)]
+    public required string Comment { get; set; }
+
+    [FromQuery]
     public HostType LocatorHost { get; set; }
 
-    public List<HornDbModel> Horns { get; set; } = [];
+    public string? Message { get; set; }
 
-    public BulkModel(
+    public ConfirmCommentModel(
         HornUserService userService, 
-        AppDbContext db,
+        AppDbContext db, 
         IOptions<TrackmaniaOptions> options,
         IOutputCacheStore cache,
         IWebHostEnvironment env, 
-        ILogger<BulkModel> logger) : base(env)
+        ILogger<ConfirmCommentModel> logger) : base(env)
     {
         this.userService = userService;
         this.db = db;
@@ -72,34 +80,43 @@ public class BulkModel : XmlPageModel
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
         {
-            logger.LogWarning("Bulk download request by {Nickname} (login: {Login}) from non-GameBox client", deformattedNickname, Login);
+            logger.LogWarning("Comment post on {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
             return BadRequest();
         }
 
-        Horns = await db.Horns
-            .OrderBy(x => EF.Functions.Random())
-            .Take(10)
-            .ToListAsync(cancellationToken);
+        var horn = await db.Horns
+            .FirstOrDefaultAsync(x => x.FileName.Equals(Horn, StringComparison.OrdinalIgnoreCase), cancellationToken);
 
-        logger.LogInformation("Bulk download request by {Nickname} (login: {Login}) is valid", deformattedNickname, Login);
-
-        foreach (var horn in Horns)
+        if (horn is null)
         {
-            logger.LogInformation("Picked {Horn} for bulk download by {Nickname} (login: {Login})", horn.FileName, deformattedNickname, Login);
+            logger.LogWarning("Comment post {Horn} by {Nickname} (login: {Login}) failed: horn not found", Horn, deformattedNickname, Login);
+            return NotFound();
         }
 
         var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 
-        await db.HornDownloads.AddRangeAsync(Horns.Select(x => new HornDownloadDbModel
+        await db.HornComments.AddAsync(new HornCommentDbModel
         {
+            Content = Comment,
+            CreatedAt = DateTime.UtcNow,
             User = user,
-            Horn = x,
-            DownloadedAt = DateTime.UtcNow,
-        }), cancellationToken);
+            Horn = horn
+        }, cancellationToken);
 
-        await db.SaveChangesAsync(cancellationToken);
+        try
+        {
+            await db.SaveChangesAsync(cancellationToken);
+            logger.LogInformation("Comment posted for {Horn} by {Nickname} (login: {Login})", Horn, deformattedNickname, Login);
 
-        await cache.EvictByTagAsync("downloads", CancellationToken.None);
+            Message = "Comment posted successfully!";
+
+            await cache.EvictByTagAsync("comments", CancellationToken.None);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Failed to save comment for {Horn} by {Nickname} (login: {Login})", Horn, deformattedNickname, Login);
+            Message = "Something went wrong posting the message. Owner of the server has been notified.";
+        }
 
         return Page();
     }

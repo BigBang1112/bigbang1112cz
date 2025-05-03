@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.IO;
 
 namespace BigBang1112cz.Pages.Shared;
 
@@ -27,11 +28,9 @@ public abstract class XmlPageModel : PageModel
 
         if (!id.Contains(':'))
         {
-            return $"{Request.Scheme}://{Request.Host}/trackmania/manialink/{(isMP ? "mp" : "tmf")}";
+            return $"{Request.Scheme}://{Request.Host}/trackmania/manialink/{(isMP ? "mp" : "tmf")}/{id}";
         }
 
-        var parts = id.Split(':');
-
-        return $"{Request.Scheme}://{Request.Host}/trackmania/manialink/{(isMP ? "mp" : "tmf")}/{string.Join('/', parts.Skip(1))}";
+        return $"{Request.Scheme}://{Request.Host}/trackmania/manialink/{(isMP ? "mp" : "tmf")}/{string.Join('/', id.Split(':'))}";
     }
 }

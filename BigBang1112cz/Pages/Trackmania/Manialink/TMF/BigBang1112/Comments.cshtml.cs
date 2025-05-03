@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 
-namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
+namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112;
 
 [OutputCache(Duration = 3600, VaryByQueryKeys = ["Horn", "CommentP"], Tags = ["comments", "users"])]
 public class CommentsModel : XmlPageModel

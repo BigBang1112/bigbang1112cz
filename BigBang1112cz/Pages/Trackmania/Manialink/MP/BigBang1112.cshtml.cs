@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.OutputCaching;
 namespace BigBang1112cz.Pages.Trackmania.Manialink.MP;
 
 [OutputCache]
-public class IndexModel : XmlPageModel
+public class BigBang1112Model : XmlPageModel
 {
-    public IndexModel(IHostEnvironment env) : base(env)
+    public BigBang1112Model(IHostEnvironment env) : base(env)
     {
     }
 

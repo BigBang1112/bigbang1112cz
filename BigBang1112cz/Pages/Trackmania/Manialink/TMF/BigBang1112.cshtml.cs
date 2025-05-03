@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations;
 namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
 
 [OutputCache(Duration = 3600, VaryByQueryKeys = ["P", "LocatorHost"], Tags = ["comments", "downloads"])]
-public class IndexModel : XmlPageModel
+public class BigBang1112Model : XmlPageModel
 {
     private readonly AppDbContext db;
     private readonly IOptions<TrackmaniaOptions> options;
@@ -32,7 +32,7 @@ public class IndexModel : XmlPageModel
     public int DownloadTotalCount { get; set; }
     public int CommentTotalCount { get; set; }
 
-    public IndexModel(AppDbContext db, IOptions<TrackmaniaOptions> options, IWebHostEnvironment env) : base(env)
+    public BigBang1112Model(AppDbContext db, IOptions<TrackmaniaOptions> options, IWebHostEnvironment env) : base(env)
     {
         this.db = db;
         this.options = options;

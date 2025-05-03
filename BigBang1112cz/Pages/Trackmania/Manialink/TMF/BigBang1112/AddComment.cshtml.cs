@@ -10,7 +10,7 @@ using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 using TmEssentials;
 
-namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
+namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112;
 
 public class AddCommentModel : XmlPageModel
 {

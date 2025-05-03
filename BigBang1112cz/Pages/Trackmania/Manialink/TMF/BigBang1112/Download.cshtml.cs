@@ -1,31 +1,29 @@
 using BigBang1112cz.Data;
-using BigBang1112cz.Models.Db;
 using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
 using BigBang1112cz.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 using TmEssentials;
 
-namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF;
+namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112;
 
-public class ConfirmCommentModel : XmlPageModel
+public class DownloadModel : XmlPageModel
 {
     private readonly HornUserService userService;
     private readonly AppDbContext db;
+    private readonly HttpClient http;
     private readonly IOptions<TrackmaniaOptions> options;
-    private readonly IOutputCacheStore cache;
-    private readonly ILogger<ConfirmCommentModel> logger;
+    private readonly ILogger<DownloadModel> logger;
 
     [FromQuery]
     [StringLength(100, MinimumLength = 5)]
     public required string Horn { get; set; }
 
-    [FromQuery(Name = "FromP")]
+    [FromQuery(Name = "fromp")]
     public int FromPageNum { get; set; }
 
     [FromQuery]
@@ -41,26 +39,24 @@ public class ConfirmCommentModel : XmlPageModel
     public required string? Zone { get; set; }
 
     [FromQuery]
-    [StringLength(96)]
-    public required string Comment { get; set; }
-
-    [FromQuery]
     public HostType LocatorHost { get; set; }
 
     public string? Message { get; set; }
 
-    public ConfirmCommentModel(
+    public required string Link { get; set; }
+
+    public DownloadModel(
         HornUserService userService, 
-        AppDbContext db, 
+        AppDbContext db,
+        HttpClient http,
         IOptions<TrackmaniaOptions> options,
-        IOutputCacheStore cache,
         IWebHostEnvironment env, 
-        ILogger<ConfirmCommentModel> logger) : base(env)
+        ILogger<DownloadModel> logger) : base(env)
     {
         this.userService = userService;
         this.db = db;
+        this.http = http;
         this.options = options;
-        this.cache = cache;
         this.logger = logger;
     }
 
@@ -69,11 +65,6 @@ public class ConfirmCommentModel : XmlPageModel
         if (options.Value.ManialinkRegistrationMode)
         {
             return StatusCode(200);
-        }
-
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
         }
 
         var deformattedNickname = Nickname is null ? null : TextFormatter.Deformat(Nickname, maxReplacementCount: 1000);
@@ -95,27 +86,17 @@ public class ConfirmCommentModel : XmlPageModel
 
         var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 
-        await db.HornComments.AddAsync(new HornCommentDbModel
+        using var hornResponse = await http.HeadAsync(HornLocatorHost.GetUrl(Request, LocatorHost, horn.FileName), cancellationToken);
+
+        var isValid = ModelState.IsValid && hornResponse.IsSuccessStatusCode;
+        if (isValid)
         {
-            Content = Comment,
-            CreatedAt = DateTime.UtcNow,
-            User = user,
-            Horn = horn
-        }, cancellationToken);
-
-        try
-        {
-            await db.SaveChangesAsync(cancellationToken);
-            logger.LogInformation("Comment posted for {Horn} by {Nickname} (login: {Login})", Horn, deformattedNickname, Login);
-
-            Message = "Comment posted successfully!";
-
-            await cache.EvictByTagAsync("comments", CancellationToken.None);
+            Link = ManialinkUrl("bigbang1112:confirmdownload") + Request.QueryString;
         }
-        catch (Exception ex)
+        else
         {
-            logger.LogError(ex, "Failed to save comment for {Horn} by {Nickname} (login: {Login})", Horn, deformattedNickname, Login);
-            Message = "Something went wrong posting the message. Owner of the server has been notified.";
+            Message = "The horn is not available on this locator host.";
+            Link = ManialinkUrl("bigbang1112") + $"?p={FromPageNum}&locatorhost={LocatorHost}";
         }
 
         return Page();
