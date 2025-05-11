@@ -4,8 +4,23 @@
     Layout = "_ManiacodeLayout";
 }
 
-<install_pack>
-    <name>Nadeo Envimix</name>
-    <file>Packs/Nadeo_Envimix@bigbang1112.Title.Pack.Gbx</file>
-    <url>https://prod.live.maniaplanet.com/ingame/public/titles/download/Nadeo_Envimix@bigbang1112.Title.Pack.gbx</url>
-</install_pack>
+@switch (Model.Type)
+{
+    case NadeoEnvimixType.Privacy:
+        <show_message>
+            <message>The title pack no longer authenticates externally, so there are no privacy concerns, yay!</message>
+        </show_message>
+        break;
+    case NadeoEnvimixType.About:
+        <show_message>
+            <message>Made by us! There used to be a manialink page, but we haven't restored it yet. Maybe one day.</message>
+        </show_message>
+        break;
+    default:
+        <install_pack>
+            <name>Nadeo Envimix</name>
+            <file>Packs/Nadeo_Envimix@bigbang1112.Title.Pack.Gbx</file>
+            <url>https://prod.live.maniaplanet.com/ingame/public/titles/download/Nadeo_Envimix@bigbang1112.Title.Pack.gbx</url>
+        </install_pack>
+        break;
+}
