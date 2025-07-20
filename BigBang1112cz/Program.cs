@@ -19,7 +19,10 @@ builder.Services.AddTelemetryServices(builder.Configuration, builder.Environment
 
 var app = builder.Build();
 
-app.MigrateDatabase();
+if (app.Environment.IsDevelopment())
+{
+    app.MigrateDatabase();
+}
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware();
