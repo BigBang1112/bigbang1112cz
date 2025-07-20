@@ -1,0 +1,12 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.MP.MinigamesModel
+@{
+    Layout = "_ManialinkMpLayout";
+}
+
+<quad pos="0 0" z-index="-1" size="320 180" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/bg.jpg" />
+<label pos="0 40" z-index="0" size="20 5" text="Breakout" style="CardButtonMediumL" manialink="@Model.ManialinkUrl("minigames", isMP: true)?Breakout" scale="2" valign="center" halign="center" />
+<label pos="0 20" z-index="0" size="20 5" text="Pipes" style="CardButtonMediumL" manialink="@Model.ManialinkUrl("minigames", isMP: true)?Pipes" scale="2" valign="center" halign="center" />
+<label pos="0 0" z-index="0" size="20 5" text="Paint" style="CardButtonMediumL" manialink="@Model.ManialinkUrl("minigames", isMP: true)?Paint" scale="2" valign="center" halign="center" />
+<label pos="0 -20" z-index="0" size="20 5" text="Minesweeper" style="CardButtonMediumL" scale="2" valign="center" halign="center" />
+<label pos="0 -40" z-index="0" size="20 5" text="Pong" style="CardButtonMediumL" scale="2" valign="center" halign="center" />

@@ -1,0 +1,31 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.MP.MapUidModel
+@{
+    Layout = "_ManialinkMpLayout";
+}
+
+<quad pos="0" z-index="-1" size="320 180" bgcolor="" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/background2.jpg" />
+<frame id="FrameNoMap" pos="0 0" hidden="1">
+    <label pos="0 0" z-index="0" size="200 10" text="No map loaded." halign="center" valign="center2" textsize="8" textfont="RajdhaniMono" />
+</frame>
+<frame id="FrameMap" pos="0 -20" hidden="1">
+    <label pos="0 50" z-index="0" size="200 10" text="[mapname]" halign="center" valign="center2" textsize="8" textfont="RajdhaniMono" id="LabelName" />
+    <label pos="0 40" z-index="0" size="200 10" text="[author]" halign="center" valign="center2" textsize="4" textfont="RajdhaniMono" id="LabelAuthor" />
+    <label pos="0 30" z-index="0" size="100 10" text="[comments]" halign="center" valign="center2" textfont="RajdhaniMono" textsize="2" autonewline="1" id="LabelComments" />
+    <quad pos="0 4.5" z-index="0" size="158 17" bgcolor="FFFA" halign="center" style="Bgs1" substyle="BgGlow2" valign="center" />
+    <entry pos="0 0" z-index="1" size="150 9" default="" textsize="6" valign="bottom" halign="center" textfont="RajdhaniMono" id="EntryUid" selecttext="1" />
+</frame>
+<script><![CDATA[
+        if (CurMap == Null) {
+            Page.GetFirstChild("FrameNoMap").Show();
+        }
+        else {
+            Page.GetFirstChild("FrameMap").Show();
+
+            (Page.GetFirstChild("LabelName") as CMlLabel).SetText(CurMap.MapInfo.Name);
+            (Page.GetFirstChild("LabelAuthor") as CMlLabel).SetText("by " ^ CurMap.MapInfo.AuthorNickName);
+            (Page.GetFirstChild("LabelComments") as CMlLabel).SetText(CurMap.MapInfo.Comments);
+            (Page.GetFirstChild("EntryUid") as CMlEntry).SetText(CurMap.MapInfo.MapUid, False);
+        }
+        ]]>
+</script>

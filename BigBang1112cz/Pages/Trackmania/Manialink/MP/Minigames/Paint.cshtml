@@ -1,0 +1,1395 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.MP.Minigames.PaintModel
+@{
+    Layout = "_ManialinkMpLayout";
+}
+
+<frame posn="-160 90 0">
+	<quad sizen="80 180" bgcolor="FFFA" style="Bgs1" substyle="BgWindow2" posn="0 0" z-index="-2"/>
+	<label posn="40 -15 0" sizen="80 30" text="$s$0ffP$fffai$0ffn$ffft" halign="center" valign="center" style="TextTitle3" textsize="12"/>
+	<quad posn="40 -35 0" sizen="70 12" bgcolor="FFFA" halign="center" valign="center" style="Bgs1" substyle="BgCardList" z-index="-1"/>
+	<label posn="40 -35 0" sizen="70 10" text="$s0" halign="center" valign="center2" textsize="6" style="TextTitle3"/>
+	<label posn="10 -45 0" sizen="35 5" text="Money: $ff00$$" style="TextTitle3" valign="center2"/>
+	<label posn="45 -45 0" sizen="20 5" text="Transfer to score" style="CardButtonMediumL" valign="center" scale=".6"/>
+	<quad posn="40 -50 0" sizen="75 2" bgcolor="FFFA" style="Bgs1" substyle="ProgressBarSmall" halign="center"/>
+	<frame posn="22 -55 0">
+		<label sizen="20 5" text="Tools" halign="center" style="TextTitle3"/>
+		<quad posn="0 -5 0" sizen="30 20" bgcolor="FFFA" halign="center" style="Bgs1" substyle="EnergyTeam2" z-index="-1"/>
+	<quad posn="0 -15 0" sizen="12 12" bgcolor="FFFA" halign="center" valign="center" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/pencil.png" id="ToolImage" />
+		<quad posn="-10 -15 0" sizen="5 5" bgcolor="FFFA" style="Icons64x64_1" substyle="ManiaLinkPrev" halign="center" valign="center" scriptevents="1" id="ToolPrevious"/>
+		<quad posn="10 -15 0" sizen="5 5" bgcolor="FFFA" style="Icons64x64_1" substyle="ManiaLinkNext" halign="center" valign="center" scriptevents="1" id="ToolNext"/>
+	</frame>
+	
+	<label posn="44 -55 0" sizen="20 5" text="New paper" style="CardButtonSmallS" id="ButtonNewPaper" scriptevents="1"/>
+	
+	<label posn="58 -70 0" sizen="20 5" text="Donate:" textsize="1" halign="center" valign="center" style="TextTitle3"/>
+	<label posn="48 -75 0" sizen="20 10" text="50" style="CardButtonSmallXS" manialink="http://maniaflash.maniaplanet.com/channel/donate/?channelId=minigamestitle&amp;amount=50" scale=".8" halign="center" valign="center"/>
+	<label posn="58 -75 0" sizen="20 10" text="100" style="CardButtonSmallXS" manialink="http://maniaflash.maniaplanet.com/channel/donate/?channelId=minigamestitle&amp;amount=100" scale=".8" halign="center" valign="center"/>
+<label posn="68 -75 0" sizen="20 10" text="500" style="CardButtonSmallXS" manialink="http://maniaflash.maniaplanet.com/channel/donate/?channelId=minigamestitle&amp;amount=500" scale=".8" halign="center" valign="center" />
+	
+	<label posn="40 -90 0" sizen="20 5" text="Sell this painting" halign="center" valign="center2" style="CardButtonMediumXL" id="ButtonSell"/>
+	<frame posn="5 -100 0">
+		<label posn="35 -15 0" sizen="70 10" text="Special colors" halign="center" valign="center" style="TextTitle3"/>
+		<quad sizen="10 10" bgcolor="880F" posn="0 0"/>
+		<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="0 0" z-index="1" />
+		<quad sizen="10 10" bgcolor="244F" posn="10 0"/>
+		<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="10 0" z-index="1" />
+		<quad sizen="10 10" bgcolor="858F" posn="20 0"/>
+		<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="20 0" z-index="1"/>
+		<quad sizen="10 10" bgcolor="FD8F" posn="30 0"/>
+		<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="30 0" z-index="1"/>
+		<quad sizen="10 10" bgcolor="F80F" posn="40 0"/>
+		<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="40 0" z-index="1"/>
+		<quad sizen="10 10" bgcolor="08FF" posn="50 0"/>
+		<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="50 0" z-index="1"/>
+		<quad sizen="10 10" bgcolor="840F" posn="60 0"/>
+	<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="60 0" z-index="1" />
+	</frame>
+	<quad posn="40 -120 0" sizen="75 2" bgcolor="FFFA" style="Bgs1" substyle="ProgressBarSmall" halign="center"/>
+	<frame posn="5 -125 0" z-index="1">
+		<quad posn="40 -10 0" sizen="20 40" bgcolor="F00F" id="ColorCurrent"/>
+		<quad posn="0 10 0" sizen="10 10" bgcolor="FFFA" style="Bgs1" substyle="ArrowDown"/>
+		<quad posn="70 0 0" sizen="10 10" bgcolor="FFFA" style="Bgs1" substyle="ArrowLeft"/>
+		<frame id="Pallete">
+			<quad sizen="10 10" bgcolor="F00F" posn="0 0" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="0 0" id="PalleteColorLock" z-index="1" hidden="1"/>
+			<quad sizen="10 10" bgcolor="400F" posn="0 -10" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="0 -10" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="800F" posn="0 -20" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="0 -20" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="F44F" posn="0 -30" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="0 -30" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="F88F" posn="0 -40" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="0 -40" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="0F0F" posn="10 0" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="10 0" id="PalleteColorLock" z-index="1" hidden="1"/>
+			<quad sizen="10 10" bgcolor="040F" posn="10 -10" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="10 -10" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="080F" posn="10 -20" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="10 -20" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="4F4F" posn="10 -30" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="10 -30" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="8F8F" posn="10 -40" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="10 -40" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="00FF" posn="20 0" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="20 0" id="PalleteColorLock" z-index="1" hidden="1"/>
+			<quad sizen="10 10" bgcolor="004F" posn="20 -10" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="20 -10" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="008F" posn="20 -20" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="20 -20" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="44FF" posn="20 -30" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="20 -30" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="88FF" posn="20 -40" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="20 -40" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="FF0F" posn="30 0" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="30 0" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="440F" posn="30 -10" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="30 -10" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="AA0F" posn="30 -20" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="30 -20" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="FF4F" posn="30 -30" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="30 -30" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="FF8F" posn="30 -40" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="30 -40" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="0FFF" posn="40 0" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="40 0" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="F0FF" posn="50 0" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="50 0" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="000F" posn="60 0" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="60 0" id="PalleteColorLock" z-index="1" hidden="1"/>
+			<quad sizen="10 10" bgcolor="444F" posn="60 -10" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="60 -10" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="777F" posn="60 -20" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="60 -20" id="PalleteColorLock" z-index="1" hidden="1"/>
+			<quad sizen="10 10" bgcolor="AAAF" posn="60 -30" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="60 -30" id="PalleteColorLock" z-index="1"/>
+			<quad sizen="10 10" bgcolor="FFFF" posn="60 -40" id="PalleteColor" scriptevents="1"/>
+			<quad sizen="10 10" image="https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/locked.png" posn="60 -40" id="PalleteColorLock" z-index="1"/>
+		</frame>
+	</frame>
+
+	<frame posn="40 -175 0" id="ToolTipColor" hidden="1">
+		<quad sizen="50 8" bgcolor="FFFA" halign="center" style="Bgs1" substyle="EnergyTeam2" valign="center"/>
+		<label posn="0 0 0" sizen="50 5" text="Color Red (locked)" halign="center" valign="center2" style="TextTitle3" textsize="1" id="ToolTipText"/>
+	</frame>
+</frame>
+<frame posn="-80 90 0">
+	<quad posn="0 0 0" sizen="240 180" bgcolor="FFFA" style="Bgs1" substyle="BgWindow1" z-index="-2"/>
+	<quad sizen="210 150" bgcolor="FFFA" posn="15 -15" style="Bgs1" substyle="BgColorContour"/>
+	
+	<label pos="160 -167" z-index="1" size="20 5" text="Exit" translate="1" style="CardMain_Tool" manialink="minigames"/>
+
+	<frame posn="20 -20 0" id="Canvas">
+		<quad posn="-5 5 0" sizen="210 150" bgcolor="FFFA" style="Bgs1" substyle="BgButtonShadow" z-index="-1"/>
+		<quad posn="0 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 0 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -5 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -10 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -15 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -20 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -25 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -30 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -35 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -40 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -45 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -50 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -55 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -60 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -65 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -70 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -75 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -80 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -85 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -90 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -95 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -100 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -105 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -110 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -115 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -120 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -125 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -130 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="0 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="5 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="10 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="15 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="20 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="25 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="30 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="35 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="40 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="45 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="50 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="55 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="60 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="65 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="70 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="75 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="80 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="85 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="90 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="95 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="100 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="105 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="110 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="115 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="120 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="125 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="130 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="135 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="140 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="145 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="150 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="155 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="160 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="165 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="170 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="175 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="180 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="185 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="190 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+		<quad posn="195 -135 0" sizen="5 5" bgcolor="FFFF" scriptevents="1" id="CanvasPixel"/>
+	</frame>
+</frame>
+<label posn="150 85 0" sizen="30 5" text="Drawing: OFF" halign="right" valign="top" style="TextTitle3" id="HudDrawing" z-index="1"/>
+<script><![CDATA[
+	#Include "MathLib" as Math
+	#Include "AnimLib" as Anim
+	#Include "TextLib" as TXT
+	
+	declare Vec3 color;
+	declare Integer score;
+	declare Integer money;
+	
+	declare Boolean readyToDraw;
+	
+	declare Integer tool;
+	
+	Void Pencil(CMlEvent event) {
+		(event.Control as CMlQuad).BgColor = color;
+		(event.Control as CMlQuad).Opacity = 1.0;
+	}
+	
+	Void Eraser(CMlEvent event) {
+		(event.Control as CMlQuad).BgColor = <1.0, 1.0, 1.0>;
+		(event.Control as CMlQuad).Opacity = 0.75;
+	}
+	
+	Void Brush(CMlEvent event) {
+		
+	}
+	
+	Void Paint(CMlEvent event) {
+		
+	}
+	
+	Void Eyedropper(CMlEvent event) {
+		
+	}
+	
+	main() {
+		foreach(Pixel in (Page.GetFirstChild("Canvas") as CMlFrame).Controls) {
+			(Pixel as CMlQuad).Opacity = 0.75;
+		}
+	
+		color = <1.0, 0.0, 0.0>;
+		score = 0;
+		money = 0;
+		
+		readyToDraw = False;
+		
+		tool = 0;
+		
+		while(True) {		
+			foreach(Event in PendingEvents) {
+				switch(Event.Type) {
+					case CMlEvent::Type::MouseClick: {
+						if(Event.ControlId == "CanvasPixel") {
+							if(!readyToDraw) {
+								foreach(Pixel in (Page.GetFirstChild("Canvas") as CMlFrame).Controls) {
+									if(Pixel == Event.Control) {
+										if(tool == 0)
+											Pencil(Event);
+										if(tool == 1)
+											Eraser(Event);
+										if(tool == 2)
+											Brush(Event);
+										if(tool == 3)
+											Paint(Event);
+										if(tool == 4)
+											Eyedropper(Event);
+									}
+								}
+								
+								(Page.GetFirstChild("HudDrawing") as CMlLabel).SetText("Drawing: ON");
+								readyToDraw = True;
+							}
+							else {
+								(Page.GetFirstChild("HudDrawing") as CMlLabel).SetText("Drawing: OFF");
+								readyToDraw = False;
+							}
+						}
+						
+						if(Event.ControlId == "PalleteColor") {
+							foreach(Lock in (Page.GetFirstChild("Pallete") as CMlFrame).Controls) {
+								if(Lock.ControlId == "PalleteColorLock" && Event.Control.AbsolutePosition == Lock.AbsolutePosition && !Lock.Visible) {
+									color = (Event.Control as CMlQuad).BgColor;
+									(Page.GetFirstChild("ColorCurrent") as CMlQuad).BgColor = color;
+								}
+							}
+						}
+						
+						if(Event.ControlId == "ToolNext") {
+							if(tool < 4)
+								tool += 1;
+						}
+						if(Event.ControlId == "ToolPrevious") {
+							if(tool > 0)
+								tool -= 1;
+						}
+						
+						if(Event.ControlId == "ButtonNewPaper") {
+							foreach(Pixel in (Page.GetFirstChild("Canvas") as CMlFrame).Controls) {
+								(Pixel as CMlQuad).Opacity = 0.75;
+								(Pixel as CMlQuad).BgColor = <1.0, 1.0, 1.0>;
+							}
+						}
+						
+						if(Event.ControlId == "ButtonSell") {
+							declare Integer moneyGet = 0;
+							declare Integer part1 = 0;
+							
+							foreach(Pixel in (Page.GetFirstChild("Canvas") as CMlFrame).Controls) {
+								part1 += Math::NearestInteger((Pixel as CMlQuad).BgColor[0] + (Pixel as CMlQuad).BgColor[1] + (Pixel as CMlQuad).BgColor[2]);
+							}
+							part1 = (part1 / 3) / (Page.GetFirstChild("Canvas") as CMlFrame).Controls.count;
+							
+							moneyGet = part1;
+							money += moneyGet;
+						}
+						
+						if(tool == 0)
+							(Page.GetFirstChild("ToolImage") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/pencil.png");
+						if(tool == 1)
+							(Page.GetFirstChild("ToolImage") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/eraser.png");
+						if(tool == 2)
+							(Page.GetFirstChild("ToolImage") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/brush.png");
+						if(tool == 3)
+							(Page.GetFirstChild("ToolImage") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/paint.png");
+						if(tool == 4)
+							(Page.GetFirstChild("ToolImage") as CMlQuad).ChangeImageUrl("https://@(Request.Host)/trackmania/manialink/mp/minigames/paint/picker.png");
+					}
+					case CMlEvent::Type::MouseOver: {
+						if(readyToDraw)
+							foreach(Pixel in (Page.GetFirstChild("Canvas") as CMlFrame).Controls)
+								if(Pixel == Event.Control) {
+									if(tool == 0)
+										Pencil(Event);
+									if(tool == 1)
+										Eraser(Event);
+								}
+					}
+					case CMlEvent::Type::MouseOut: {
+						
+					}
+				}
+			}
+			
+			yield;
+		}
+	}
+
+    ]]>
+</script>

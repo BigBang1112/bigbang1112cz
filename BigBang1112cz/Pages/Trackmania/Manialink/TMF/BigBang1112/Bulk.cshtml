@@ -1,0 +1,20 @@
+﻿@page
+@model BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112.BulkModel
+@{
+    Layout = "_ManiacodeLayout";
+}
+
+@foreach (var horn in Model.Horns)
+{
+    <install_skin>
+        <name>@horn.FileName</name>
+        <file>Skins/Horns/@horn.FileName</file>
+        <url>@HornLocatorHost.GetUrl(Request, Model.LocatorHost, horn.FileName)</url>
+    </install_skin>
+}
+<show_message>
+    <message>Thanks for the bulk download, @(Model.Nickname)$z! Especially appreciated!</message>
+</show_message>
+<goto>
+    <link>@(Model.ManialinkUrl("bigbang1112"))?p=@(Model.FromPageNum)&amp;locatorhost=@(Model.LocatorHost)</link>
+</goto>

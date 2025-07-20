@@ -35,8 +35,4 @@
         <PackageReference Include="TmEssentials" Version="2.5.2" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="wwwroot\trackmania\manialink\tmf\" />
-    </ItemGroup>
-
 </Project>
