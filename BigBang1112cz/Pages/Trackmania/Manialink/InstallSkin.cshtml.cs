@@ -1,3 +1,4 @@
+using BigBang1112cz.Extensions;
 using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Pages.Shared;
 using Microsoft.AspNetCore.Mvc;
@@ -45,5 +46,7 @@ public class InstallSkinModel : XmlPageModel
 
         FileName = response.Content.Headers.ContentDisposition?.FileName ?? Path.GetFileName(uri.LocalPath);
         Uri = uri;
+
+        Response.ClientCache();
     }
 }

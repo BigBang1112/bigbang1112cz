@@ -1,4 +1,5 @@
 using BigBang1112cz.Data;
+using BigBang1112cz.Extensions;
 using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
@@ -84,6 +85,8 @@ public class CommentsModel : XmlPageModel
 
         Horn = horn.FileName;
         Description = horn.Description;
+
+        Response.ClientCache();
 
         return Page();
     }

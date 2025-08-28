@@ -1,4 +1,5 @@
 using BigBang1112cz.Data;
+using BigBang1112cz.Extensions;
 using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
@@ -82,6 +83,8 @@ public class BigBang1112Model : XmlPageModel
 
         DownloadTotalCount = await db.HornDownloads.CountAsync(cancellationToken);
         CommentTotalCount = await db.HornComments.CountAsync(cancellationToken);
+
+        Response.ClientCache();
 
         return Page();
     }
