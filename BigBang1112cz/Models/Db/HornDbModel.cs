@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace BigBang1112cz.Models.Db;
 
+[Index(nameof(FileName), IsUnique = true)]
 public sealed class HornDbModel
 {
     public int Id { get; set; }
