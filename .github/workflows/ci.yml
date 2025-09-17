@@ -20,10 +20,10 @@ jobs:
         dotnet-version: 9.0.x
         
     - name: Restore dependencies
-      run: dotnet restore BigBang1112cz.sln
+      run: dotnet restore BigBang1112cz.slnx
       
     - name: Build
-      run: dotnet build BigBang1112cz.sln --no-restore /p:ContinuousIntegrationBuild=true
+      run: dotnet build BigBang1112cz.slnx --no-restore /p:ContinuousIntegrationBuild=true
       
     - name: Test
-      run: dotnet test BigBang1112cz.sln --no-build --verbosity normal
+      run: dotnet test BigBang1112cz.slnx --no-build --verbosity normal
