@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var currentPage = ViewContext.RouteData.Values["page"]?.ToString() ?? "";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +12,17 @@
     <link rel="stylesheet" href="~/BigBang1112cz.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <header>
+        <a class="brand" href="/">BigBang1112.cz</a>
+        <nav>
+            <a href="/" class="@(currentPage == "/Index" ? "active" : "")">Home</a>
+            <a href="/projects" class="@(currentPage.StartsWith("/Projects") ? "active" : "")">Projects</a>
+            <a href="/links" class="@(currentPage.StartsWith("/Links") ? "active" : "")">Links</a>
+            <a href="/music" class="@(currentPage.StartsWith("/Music") ? "active" : "")">Music</a>
+            <a href="/blog" class="@(currentPage.StartsWith("/Blog") ? "active" : "")">Blog</a>
+            <a href="/contact" class="@(currentPage.StartsWith("/Contact") ? "active" : "")">Contact</a>
+        </nav>
+    </header>
     <main>
         @RenderBody()
     </main>

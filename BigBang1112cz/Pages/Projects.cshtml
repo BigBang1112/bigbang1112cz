@@ -1,0 +1,128 @@
+@page
+@model ProjectsModel
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="page-hero">
+    <h1>Projects</h1>
+    <p>Modifications, libraries, and open-source tools I made over the years.</p>
+</div>
+
+<div class="page-content">
+    <section>
+        <h2>Libraries</h2>
+        <div class="card-grid">
+            <a class="card" href="https://github.com/BigBang1112/gbx-net">
+                <div class="card-title">GBX.NET</div>
+                <div class="card-desc">General purpose .NET library for reading and writing Gbx files used by Trackmania and ManiaPlanet.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>Gbx</span></div>
+            </a>
+            <a class="card" href="https://github.com/BigBang1112/maniaapi-net">
+                <div class="card-title">ManiaAPI.NET</div>
+                <div class="card-desc">Unofficial collection of .NET web API wrappers connected with Trackmania and ManiaPlanet games.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>HTTP</span></div>
+            </a>
+            <a class="card" href="https://github.com/BigBang1112/tm-essentials">
+                <div class="card-title">TmEssentials</div>
+                <div class="card-desc">A super lightweight library that provides formatting features and little additions for any development related to Trackmania.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span></div>
+            </a>
+            <a class="card" href="/projects/nativesharp">
+                <div class="card-title">NativeSharp</div>
+                <div class="card-desc">Ecosystem for wrapping native C libraries for different platforms in .NET, including WebAssembly.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span></div>
+            </a>
+            <a class="card" href="https://github.com/BigBang1112/minimal-xmlreader">
+                <div class="card-title">MinimalXmlReader</div>
+                <div class="card-desc">Lightweight variant of C#'s XmlReader, for those that don't want to waste 6MB of executable binary just to read a few XML lines.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span></div>
+            </a>
+            <a class="card" href="https://github.com/BigBang1112/simplest-git-source-generator">
+                <div class="card-title">SimplestGitSourceGenerator</div>
+                <div class="card-desc">Simplest solution to get Git information in your .NET apps.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>Git</span></div>
+            </a>
+            <a class="card" href="https://bigbang1112.github.io/reuniverse">
+                <div class="card-title">Reuniverse</div>
+                <div class="card-desc">Component library and templates for Blazor applications.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>Blazor</span></div>
+            </a>
+        </div>
+    </section>
+    <section>
+        <h2>Tools</h2>
+        <div class="card-grid">
+            <a class="card" href="https://github.com/BigBang1112/mania-server-manager">
+                <div class="card-title">ManiaServerManager</div>
+                <div class="card-desc">Simple yet rich stock server manager for all Trackmania and Shootmania games.</div>
+                <div class="card-tags"><span>Docker</span><span>C#</span><span>.NET</span><span>Shell</span></div>
+            </a>
+            <a class="card" href="https://nc.gbx.tools">
+                <div class="card-title">Nations Converter</div>
+                <div class="card-desc">Map conversion tool from TMS/TMNESWC/TMUF/TMT/TM² Stadium to Trackmania (2020).</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>Blazor</span></div>
+            </a>
+            <a class="card" href="https://discord.com/discovery/applications/901286952421195857">
+                <div class="card-title">TMWRR</div>
+                <div class="card-desc">Discord bot used on 270+ servers that monitors hundreds of Trackmania leaderboards, reports changes, and tracks history from them.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>Discord</span></div>
+            </a>
+            <a class="card" href="https://github.com/bigbang1112/blender-gbx-tools">
+                <div class="card-title">Blender Gbx Tools</div>
+                <div class="card-desc">Blender plugin made for any form of 3D works with Trackmania and Shootmania objects.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>Python</span><span>Blender</span></div>
+            </a>
+            <a class="card" href="https://github.com/bigbang1112-cz/clip-input">
+                <div class="card-title">Clip Input</div>
+                <div class="card-desc">A tool to convert input data available inside a replay or ghost into its Clip.Gbx visualization overlay.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>Blazor</span></div>
+            </a>
+            <a class="card" href="https://github.com/bigbang1112-cz/clip-checkpoint">
+                <div class="card-title">Clip Checkpoint</div>
+                <div class="card-desc">A tool to convert checkpoint data available inside a replay or ghost into its Clip.Gbx visualization overlay.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span></div>
+            </a>
+            <a class="card" href="https://3d.gbx.tools">
+                <div class="card-title">3D Gbx Tools</div>
+                <div class="card-desc">Web-based tooling to analyze maps, replays, and 3D objects from Nadeo games.</div>
+                <div class="card-tags"><span>Blazor</span><span>C#</span><span>.NET</span><span>three.js</span></div>
+            </a>
+            <a class="card" href="https://revalidate.gbx.tools">
+                <div class="card-title">Revalidate</div>
+                <div class="card-desc">Validate Trackmania (2020) and TM2 replays outside the game.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>Blazor</span></div>
+            </a>
+            <a class="card" href="https://bigbang1112.github.io/maniascript-reference/">
+                <div class="card-title">ManiaScript Reference</div>
+                <div class="card-desc">Latest, automatically generated ManiaScript references via Doxygen.</div>
+                <div class="card-tags"><span>Doxygen</span><span>GitHub</span></div>
+            </a>
+            <a class="card" href="https://github.com/BigBang1112/win-file-explorer-gbx-addons">
+                <div class="card-title">Gbx Addons for Windows File Explorer</div>
+                <div class="card-desc">Thumbnails for Gbx files in Windows File Explorer.</div>
+                <div class="card-tags"><span>C#</span><span>.NET</span><span>COM</span></div>
+            </a>
+        </div>
+    </section>
+    <div class="more-link">
+        <a class="button" href="https://github.com/BigBang1112">View all repositories on GitHub →</a>
+    </div>
+    <section>
+        <h2>Gameplay</h2>
+        <div class="gameplay-cards">
+            <a href="https://envimix.gbx.tools/turbo" class="gameplay-card">
+                <img src="~/img/emt.jpg" width="1100" />
+            </a>
+            <a href="https://github.com/BigBang1112/randomizer-tmf" class="gameplay-card">
+                <img src="~/img/randomizertmf.jpg" width="1100" />
+            </a>
+            <a href="https://challenge.bigbang1112.eu" class="gameplay-card">
+                <img src="~/img/challenge.jpg" width="1100" />
+            </a>
+            <a href="https://www.youtube.com/watch?v=bLPGKHm70J0" class="gameplay-card">
+                <img src="~/img/nem.jpg" width="1100" />
+            </a>
+        </div>
+    </section>
+</div>
