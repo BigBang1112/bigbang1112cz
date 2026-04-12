@@ -562,6 +562,10 @@ pre code {
     color: #ccc;
 }
 
+.centered {
+    text-align: center;
+}
+
 @media (max-width: 700px) {
     .music-row {
         grid-template-columns: 1fr;
