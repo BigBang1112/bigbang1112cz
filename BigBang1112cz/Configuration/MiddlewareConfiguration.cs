@@ -11,6 +11,8 @@ public static class MiddlewareConfiguration
             app.UseHsts();
         }
 
+        app.UseStatusCodePagesWithReExecute("/NotFound");
+
         // app.UseHttpsRedirection(); needs to be avoided for TMF manialinks
 
         app.UseRouting();

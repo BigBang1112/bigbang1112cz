@@ -1,0 +1,44 @@
+@page
+@model NativeSharpModel
+@{
+    ViewData["Title"] = "NativeSharp";
+}
+
+<div class="page-hero">
+    <h1>NativeSharp</h1>
+    <p>Ecosystem for wrapping native C libraries for different platforms in .NET, including WebAssembly.</p>
+</div>
+
+<div class="page-content">
+    <section>
+        <h2>Overview</h2>
+        <p>NativeSharp provides simple C library wrappers with NativeAOT support and transparent builds through GitHub workflows.</p>
+        <p>Supported runtimes: <code>win-x64</code>, <code>win-x86</code>, <code>linux-x64</code>, <code>linux-x86</code>, <code>linux-arm</code>, <code>linux-arm64</code>, <code>browser-wasm</code></p>
+        <div class="nativesharp">
+            <div class="card-grid">
+                <a class="card" href="https://github.com/BigBang1112/NativeSharpLzo">
+                    <div class="card-title">NativeSharpLzo</div>
+                    <div class="card-desc">Simple wrapper around the lzo 2.10 C library by Markus F.X.J. Oberhumer. Fork of SharpLzo.</div>
+                </a>
+            </div>
+            <div class="card-grid">
+                <a class="card" href="https://github.com/BigBang1112/NativeSharpZlib">
+                    <div class="card-title">NativeSharpZlib</div>
+                    <div class="card-desc">Simple zlib 1.2.5.1 wrapper, as there wasn't one where you'd be able to set concrete de/compress block sizes.</div>
+                </a>
+            </div>
+            <div class="card-grid">
+                <a class="card" href="https://github.com/BigBang1112/NativeSharpLz4">
+                    <div class="card-title">NativeSharpLz4</div>
+                    <div class="card-desc">Simple lz4 1.10 wrapper.</div>
+                </a>
+            </div>
+            <div class="card-grid">
+                <a class="card" href="https://github.com/BigBang1112/NativeSharpLua">
+                    <div class="card-title">NativeSharpLua</div>
+                    <div class="card-desc">Simple Lua 5.5 wrapper with additional C# integration features.</div>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

@@ -10,24 +10,15 @@
 </div>
 
 <div class="page-content">
-    <div class="links">
-        <div class="link-group">
-            <div class="link-group-title">Code</div>
-            <a class="button github" href="https://github.com/BigBang1112">
-                <img src="~/img/GitHub_Lockup_Black_Clearspace.svg" height="70" />
-            </a>
-        </div>
-        <div class="link-group">
-            <div class="link-group-title">Discord servers</div>
-            <a class="button discord" href="https://discord.gbx.tools">GameBox Sandbox</a>
-            <a class="button discord" href="https://discord.nc.gbx.tools">Nations Converter</a>
-            <a class="button discord" href="https://discord.gg/q9whS3c">BigBang1112tm</a>
-        </div>
-        <div class="link-group">
-            <div class="link-group-title">YouTube channels</div>
-            <a class="button youtube" href="https://youtube.com/@@BigBang1112tm">BigBang1112tm</a>
-            <a class="button youtube" href="https://youtube.com/@@BigBang1112">BigBang1112</a>
-            <a class="button youtube" href="https://youtube.com/@@realnestmusic">Realnest</a>
-        </div>
-    </div>
+    <ul class="link-list">
+        @foreach (var link in LinksModel.Links)
+        {
+            <li>
+                <a class="link-item" href="@link.Url" target="_blank" rel="noopener">
+                    <div class="link-item-label">@link.Label</div>
+                    <div class="link-item-url">@(new Uri(link.Url).Host + new Uri(link.Url).AbsolutePath.TrimEnd('/'))</div>
+                </a>
+            </li>
+        }
+    </ul>
 </div>

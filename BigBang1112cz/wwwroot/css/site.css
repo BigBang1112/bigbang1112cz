@@ -19,7 +19,12 @@ body {
     backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100%;
+}
+
+p {
+    margin: 0.5rem 0;
+    font-weight: 400;
 }
 
 main {
@@ -157,7 +162,6 @@ nav a.active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.8rem;
     margin: 2rem 0;
     text-align: center;
 }
@@ -226,7 +230,7 @@ nav a.active {
 
 .button.youtube {
     display: inline-flex;
-    background-color: #FF0000;
+    background-color: #EE0000;
     border-color: #BB0000;
 }
 
@@ -240,10 +244,6 @@ h2 {
     margin: 3rem 0 1.5rem 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-}
-
-p {
-    text-align: center;
 }
 
 .overview {
@@ -292,7 +292,6 @@ footer {
 }
 
 .page-hero p {
-    margin: 0;
     color: #AAA;
     font-weight: 300;
 }
@@ -377,13 +376,91 @@ footer {
     margin-top: 2rem;
 }
 
+.button.spotify {
+    display: inline-flex;
+    background-color: #1DB954;
+    border-color: #158A3E;
+}
+
+.button.spotify:hover {
+    background-color: #1ED760;
+}
+
 .button.soundcloud {
+    display: inline-flex;
     background-color: #F36C28;
     border-color: #C0501A;
 }
 
 .button.soundcloud:hover {
     background-color: #F57F45;
+}
+
+.button.instagram {
+    display: inline-flex;
+    background: linear-gradient(45deg, #DD2A7B, #8134AF);
+    border-color: #9B2FAF;
+}
+
+.button.instagram:hover {
+    filter: brightness(1.12);
+}
+
+/* 404 page */
+
+.not-found-code {
+    font-size: 600%;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+}
+
+.not-found-desc {
+    margin: 2rem 0;
+}
+
+.link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    background: #4CB7FF22;
+    border: 1px solid #456;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.1s ease, border-color 0.1s ease;
+}
+
+.link-item:hover {
+    background: #4CB7FF44;
+    border-color: #6AA;
+    color: white;
+    text-decoration: none;
+}
+
+.link-item-label {
+    font-size: 100%;
+}
+
+.link-item-url {
+    font-size: 80%;
+    color: #89A;
+    font-weight: 400;
+    white-space: nowrap;
 }
 
 .gameplay-cards {
@@ -395,4 +472,98 @@ footer {
 .gameplay-card img {
     border-radius: 0.5rem;
     max-width: 100%;
+    box-shadow: 0 0 20px #111A;
+    transition: transform 0.2s ease;
+}
+
+.gameplay-card img:hover {
+    transform: scale(1.02);
+}
+
+.nativesharp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+code {
+    font-family: "Consolas", "Cascadia Code", "Fira Code", monospace;
+    font-size: 0.875em;
+    font-weight: 400;
+    background: #ffffff14;
+    border: 1px solid #ffffff22;
+    border-radius: 4px;
+    padding: 0.15em 0.45em;
+}
+
+pre {
+    background: #0D1117;
+    border: 1px solid #ffffff18;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.music-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.music-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.music-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.music-info h3 {
+    margin: 0;
+    font-size: 200%;
+}
+
+.music-info h4 {
+    margin: 0;
+    font-size: 120%;
+}
+
+.music-meta {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #89A;
+}
+
+.music-info p {
+    font-weight: 400;
+    color: #ccc;
+}
+
+@media (max-width: 700px) {
+    .music-row {
+        grid-template-columns: 1fr;
+    }
 }
