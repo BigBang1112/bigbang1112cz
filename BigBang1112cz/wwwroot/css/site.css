@@ -79,6 +79,7 @@ header {
     background: #181818CC;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #2A2A2A;
+    gap: 1rem;
 }
 
 .brand {
@@ -262,10 +263,17 @@ h2 {
     flex-direction: column;
     gap: 0.5rem;
     padding: 20px;
+    text-align: center;
 }
 
 .highlights .button .highlight-title {
     font-size: 300%;
+}
+
+@media (max-width: 900px) {
+    .highlights {
+        flex-direction: column;
+    }
 }
 
 footer {
@@ -520,6 +528,7 @@ pre code {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .music-list {
