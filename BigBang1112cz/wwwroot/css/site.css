@@ -86,7 +86,6 @@ header {
     color: white;
     font-size: 115%;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
     text-decoration: none;
 }
 
@@ -244,7 +243,6 @@ h2 {
     text-align: center;
     margin: 3rem 0 1.5rem 0;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .overview {
@@ -296,7 +294,6 @@ footer {
     margin: 0 0 0.5rem 0;
     font-size: 280%;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .page-hero p {
