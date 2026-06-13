@@ -28,8 +28,12 @@
     <label posn="-56 -8" style="TextCardRaceRank" text="$oTotal comments: @Model.CommentTotalCount" sizen="40 5" scale="0.5" />
 
     <label posn="-38 -13 1" sizen="36 8" text="$oLOCATOR HOST" halign="center" />
-    <quad posn="-47.5 -20 1" sizen="19 6" style="Bgs1InRace" substyle="NavButton" halign="center" valign="center" />
-    <label posn="-47.5 -20 2" sizen="19 6" text="$o$888BigBang1112" halign="center" valign="center" scale="0.9" />
+    <quad posn="-47.5 -20 1" sizen="19 6"
+          halign="center" valign="center"
+          style="@(Model.LocatorHost == HostType.BigBang1112cz ? "BgsPlayerCard" : "Bgs1InRace")"
+          substyle="@(Model.LocatorHost == HostType.BigBang1112cz ? "BgRacePlayerName" : "NavButton")"
+          manialink="@Model.ManialinkUrl("bigbang1112")?p=@(Model.PageNum)&amp;locatorhost=BigBang1112cz" />
+    <label posn="-47.5 -20 2" sizen="19 6" text="@(Model.LocatorHost == HostType.BigBang1112cz ? "$FFF" : "$BBB")$oBigBang1112" halign="center" valign="center" />
     <quad posn="-28.5 -20 1" sizen="19 6"
           halign="center" valign="center"
           style="@(Model.LocatorHost == HostType.GitHub ? "BgsPlayerCard" : "Bgs1InRace")"

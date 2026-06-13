@@ -2,8 +2,8 @@
 
 public enum HostType
 {
+    BigBang1112cz,
     Dashmap,
     GitHub,
-    ManiaCDN,
-    BigBang1112cz
+    ManiaCDN
 }
