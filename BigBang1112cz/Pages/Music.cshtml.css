@@ -1,0 +1,53 @@
+.music-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.music-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.music-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.music-info h3 {
+    margin: 0;
+    font-size: 200%;
+}
+
+.music-info h4 {
+    margin: 0;
+    font-size: 120%;
+}
+
+.music-meta {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #89A;
+}
+
+.music-info p {
+    font-weight: 400;
+    color: #ccc;
+}
+
+@media (max-width: 700px) {
+    .music-row {
+        grid-template-columns: 1fr;
+    }
+}

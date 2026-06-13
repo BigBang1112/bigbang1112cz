@@ -1,0 +1,11 @@
+.not-found-code {
+    font-size: 600%;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+}
+
+.not-found-desc {
+    margin: 2rem 0;
+}

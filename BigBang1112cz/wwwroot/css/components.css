@@ -1,0 +1,185 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: #333B;
+    border-bottom: 2px solid #444;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.05s ease;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: white;
+    text-decoration: none;
+    background: #444B;
+}
+
+.button.github {
+    color: #111;
+    background-color: #EEE;
+    border-color: #999;
+    height: 100%;
+}
+
+.button.github:hover {
+    background-color: #DDD;
+}
+
+.button.discord {
+    display: inline-flex;
+    background-color: #5865F2;
+    border-color: #4752C4;
+}
+
+.button.discord:hover {
+    background-color: #6373ED;
+}
+
+.button.youtube {
+    display: inline-flex;
+    background-color: #EE0000;
+    border-color: #BB0000;
+}
+
+.button.youtube:hover {
+    background-color: #FF3333;
+}
+
+.button.spotify {
+    display: inline-flex;
+    background-color: #1DB954;
+    border-color: #158A3E;
+}
+
+.button.spotify:hover {
+    background-color: #1ED760;
+}
+
+.button.soundcloud {
+    display: inline-flex;
+    background-color: #F36C28;
+    border-color: #C0501A;
+}
+
+.button.soundcloud:hover {
+    background-color: #F57F45;
+}
+
+.button.instagram {
+    display: inline-flex;
+    background: linear-gradient(45deg, #DD2A7B, #8134AF);
+    border-color: #9B2FAF;
+}
+
+.button.instagram:hover {
+    filter: brightness(1.12);
+}
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #4CB7FF11;
+    border: 1px solid #4CB7FF88;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: background 0.1s ease, border-color 0.1s ease;
+}
+
+    .card:hover {
+        background: #4CB7FF33;
+        border-color: #4CB7FFAA;
+        color: white;
+        text-decoration: none;
+    }
+
+.card-title {
+    font-size: 130%;
+    color: white;
+}
+
+.card-desc {
+    font-weight: 300;
+    font-size: 90%;
+    color: #EEE;
+    flex: 1;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+}
+
+    .card-tags span {
+        font-size: 75%;
+        background: #FFF1;
+        border: 1px solid #FFF3;
+        border-radius: 4px;
+        padding: 2px 8px;
+        color: #FFFA;
+        font-weight: 400;
+    }
+
+.link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    background: #4CB7FF11;
+    border: 1px solid #4CB7FF88;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.1s ease, border-color 0.1s ease;
+}
+
+    .link-item:hover {
+        background: #4CB7FF33;
+        border-color: #4CB7FFAA;
+        color: white;
+        text-decoration: none;
+    }
+
+.link-item-label {
+    font-size: 100%;
+}
+
+.link-item-url {
+    font-size: 80%;
+    color: #4CB7FFAA;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.more-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}

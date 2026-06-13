@@ -1,0 +1,102 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    min-height: 56px;
+    background: #181818CC;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2A2A2A;
+    gap: 1rem;
+}
+
+.brand {
+    color: white;
+    font-size: 115%;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.brand:hover {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    overflow-x: auto;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #CCC;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    transition: color 0.1s ease, border-color 0.1s ease;
+    padding: 8px 14px;
+    font-size: 95%;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+nav a.active {
+    color: white;
+    border-bottom-color: #4CB7FF;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #AAA;
+    font-size: 90%;
+}
+
+.page-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 1rem 2rem;
+}
+
+.page-hero h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 280%;
+    text-transform: uppercase;
+}
+
+.page-hero p {
+    color: #AAA;
+    font-weight: 300;
+}
+
+.page-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.page-content section {
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 750px) {
+    header {
+        padding: 0 1.5rem;
+    }
+
+    nav a {
+        padding: 8px 10px;
+    }
+}

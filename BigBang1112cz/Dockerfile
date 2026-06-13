@@ -1,5 +1,5 @@
 # Debug phase
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS base
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine AS base
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
@@ -7,7 +7,7 @@ EXPOSE 8081
 
 
 # Publish phase
-FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS publish
+FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS publish
 ARG BUILD_CONFIGURATION=Release
 ARG TARGETARCH
 ARG APPNAME=BigBang1112cz

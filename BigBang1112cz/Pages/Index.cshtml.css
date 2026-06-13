@@ -1,0 +1,116 @@
+.beginning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-color: #888;
+    height: 320px;
+    padding: 1rem;
+}
+
+.punch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    gap: 0.8rem;
+}
+
+.names {
+    transform: skew(-12deg);
+}
+
+.info {
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.link-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.link-group-title {
+    color: #AAA;
+    font-size: 85%;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.overview {
+    margin: 3rem 0;
+}
+
+.highlights {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1rem;
+}
+
+::deep .highlights .button {
+    flex: 1;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 20px;
+    text-align: center;
+}
+
+::deep .highlights .button .highlight-title {
+    font-size: 300%;
+}
+
+@media (max-width: 900px) {
+    .highlights {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 750px) {
+    .punch {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .links {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 550px) {
+    .names {
+        font-size: 75%;
+    }
+}
+
+@media (max-width: 400px) {
+    .names {
+        font-size: 55%;
+    }
+}

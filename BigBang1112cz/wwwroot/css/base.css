@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+html {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    height: 100%;
+}
+
+body {
+    color: white;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(0deg, #222E, #111E), url("../img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+p {
+    margin: 0.5rem 0;
+    font-weight: 400;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    color: #4CB7FF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #66C1FF;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 200%;
+    text-align: center;
+    margin: 3rem 0 1.5rem 0;
+    text-transform: uppercase;
+}
+
+code {
+    font-family: "Consolas", "Cascadia Code", "Fira Code", monospace;
+    font-size: 0.875em;
+    font-weight: 400;
+    background: #ffffff14;
+    border: 1px solid #ffffff22;
+    border-radius: 4px;
+    padding: 0.15em 0.45em;
+}
+
+pre {
+    background: #0D1117;
+    border: 1px solid #ffffff18;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+.centered {
+    text-align: center;
+}
