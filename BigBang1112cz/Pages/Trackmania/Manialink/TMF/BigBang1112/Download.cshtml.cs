@@ -1,5 +1,4 @@
 using BigBang1112cz.Data;
-using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
 using BigBang1112cz.Services;
@@ -11,34 +10,15 @@ using TmEssentials;
 
 namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112;
 
-public class DownloadModel : XmlPageModel
+public class DownloadModel : TmfPlayerPageModel
 {
     private readonly AppDbContext db;
     private readonly HttpClient http;
-    private readonly IOptions<TrackmaniaOptions> options;
     private readonly ILogger<DownloadModel> logger;
 
     [FromQuery]
     [StringLength(100, MinimumLength = 5)]
     public required string Horn { get; set; }
-
-    [FromQuery(Name = "fromp")]
-    public int FromPageNum { get; set; }
-
-    [FromQuery]
-    [StringLength(255)]
-    public required string? Nickname { get; set; }
-
-    [FromQuery(Name = "playerlogin")]
-    [StringLength(255, MinimumLength = 2)]
-    public required string Login { get; set; }
-
-    [FromQuery(Name = "path")]
-    [StringLength(255)]
-    public required string? Zone { get; set; }
-
-    [FromQuery]
-    public HostType LocatorHost { get; set; }
 
     public string? Message { get; set; }
 
@@ -49,35 +29,21 @@ public class DownloadModel : XmlPageModel
         HttpClient http,
         IOptions<TrackmaniaOptions> options,
         IWebHostEnvironment env,
-        ILogger<DownloadModel> logger) : base(env)
+        ILogger<DownloadModel> logger) : base(options, env, logger)
     {
         this.db = db;
         this.http = http;
-        this.options = options;
         this.logger = logger;
     }
 
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
-        if (options.Value.ManialinkRegistrationMode)
-        {
-            return StatusCode(200);
-        }
-
-        var deformattedNickname = Nickname is null ? null : TextFormatter.Deformat(Nickname, maxReplacementCount: 1000);
-
-        if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
-        {
-            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
-            return BadRequest();
-        }
-
         var horn = await db.Horns
             .FirstOrDefaultAsync(x => x.FileName.Equals(Horn, StringComparison.OrdinalIgnoreCase), cancellationToken);
 
         if (horn is null)
         {
-            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) failed: horn not found", Horn, deformattedNickname, Login);
+            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) failed: horn not found", Horn, DeformattedNickname, Login);
             return NotFound();
         }
 

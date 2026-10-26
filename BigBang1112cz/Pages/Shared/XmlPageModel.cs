@@ -12,10 +12,9 @@ public abstract class XmlPageModel : PageModel
         this.env = env;
     }
 
-    public override async Task OnPageHandlerExecutionAsync(PageHandlerExecutingContext context, PageHandlerExecutionDelegate next)
+    public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
     {
         Response.ContentType = "application/xml";
-        await next();
     }
 
     public string ManialinkUrl(string id, bool isMP = false)
