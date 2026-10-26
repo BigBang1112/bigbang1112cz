@@ -11,11 +11,14 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS publish
 ARG BUILD_CONFIGURATION=Release
 ARG TARGETARCH
 ARG APPNAME=BigBang1112cz
+# SimplestGitSourceGenerator reads commit info from git during the build, this stage is not part of the final image
+RUN apk add --no-cache git
 WORKDIR /src
 # copy csproj and restore as distinct layers
 COPY $APPNAME/*.csproj $APPNAME/
 RUN dotnet restore $APPNAME/$APPNAME.csproj -a $TARGETARCH --no-cache
 # copy and publish app and libraries
+COPY .git .git
 COPY $APPNAME $APPNAME
 RUN dotnet publish $APPNAME -c $BUILD_CONFIGURATION -a $TARGETARCH -o /app -p:UseAppHost=false --no-restore
 
