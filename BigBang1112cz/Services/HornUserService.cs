@@ -33,6 +33,7 @@ public sealed class HornUserService
                 CreatedAt = DateTime.UtcNow,
             };
             await db.HornUsers.AddAsync(user, cancellationToken);
+            await db.SaveChangesAsync(cancellationToken);
             await cache.EvictByTagAsync("users", CancellationToken.None);
         }
         else if (user.Nickname != nickname || user.Zone != zone)
@@ -49,7 +50,8 @@ public sealed class HornUserService
 
             user.Nickname = nickname;
             user.Zone = zone;
-            await cache.EvictByTagAsync("users", cancellationToken);
+            await db.SaveChangesAsync(cancellationToken);
+            await cache.EvictByTagAsync("users", CancellationToken.None);
         }
 
         return user;

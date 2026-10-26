@@ -2,7 +2,6 @@ using BigBang1112cz.Data;
 using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Options;
 using BigBang1112cz.Pages.Shared;
-using BigBang1112cz.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +13,6 @@ namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112;
 
 public class AddCommentModel : XmlPageModel
 {
-    private readonly HornUserService userService;
     private readonly AppDbContext db;
     private readonly IOptions<TrackmaniaOptions> options;
     private readonly IOutputCacheStore cache;
@@ -51,14 +49,12 @@ public class AddCommentModel : XmlPageModel
     public required string Link { get; set; }
 
     public AddCommentModel(
-        HornUserService userService, 
-        AppDbContext db, 
+        AppDbContext db,
         IOptions<TrackmaniaOptions> options,
         IOutputCacheStore cache,
-        IWebHostEnvironment env, 
+        IWebHostEnvironment env,
         ILogger<AddCommentModel> logger) : base(env)
     {
-        this.userService = userService;
         this.db = db;
         this.options = options;
         this.cache = cache;
@@ -88,8 +84,6 @@ public class AddCommentModel : XmlPageModel
             logger.LogWarning("Comment post {Horn} by {Nickname} (login: {Login}) failed: horn not found", Horn, deformattedNickname, Login);
             return NotFound();
         }
-
-        var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 
         Link = ModelState.IsValid
             ? ManialinkUrl("bigbang1112:confirmcomment") + Request.QueryString

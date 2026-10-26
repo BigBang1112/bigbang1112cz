@@ -13,7 +13,6 @@ namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112;
 
 public class DownloadModel : XmlPageModel
 {
-    private readonly HornUserService userService;
     private readonly AppDbContext db;
     private readonly HttpClient http;
     private readonly IOptions<TrackmaniaOptions> options;
@@ -46,14 +45,12 @@ public class DownloadModel : XmlPageModel
     public required string Link { get; set; }
 
     public DownloadModel(
-        HornUserService userService, 
         AppDbContext db,
         HttpClient http,
         IOptions<TrackmaniaOptions> options,
-        IWebHostEnvironment env, 
+        IWebHostEnvironment env,
         ILogger<DownloadModel> logger) : base(env)
     {
-        this.userService = userService;
         this.db = db;
         this.http = http;
         this.options = options;
@@ -71,7 +68,7 @@ public class DownloadModel : XmlPageModel
 
         if (!Request.GetTypedHeaders().Headers.UserAgent.Equals("GameBox"))
         {
-            logger.LogWarning("Comment post on {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
+            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) from non-GameBox client", Horn, deformattedNickname, Login);
             return BadRequest();
         }
 
@@ -80,11 +77,9 @@ public class DownloadModel : XmlPageModel
 
         if (horn is null)
         {
-            logger.LogWarning("Comment post {Horn} by {Nickname} (login: {Login}) failed: horn not found", Horn, deformattedNickname, Login);
+            logger.LogWarning("Download request for {Horn} by {Nickname} (login: {Login}) failed: horn not found", Horn, deformattedNickname, Login);
             return NotFound();
         }
-
-        var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 
         using var hornResponse = await http.HeadAsync(HornLocatorHost.GetUrl(Request, LocatorHost, horn.FileName), cancellationToken);
 
