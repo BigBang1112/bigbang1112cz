@@ -96,8 +96,12 @@ pre {
     border-radius: 8px;
     padding: 1.25rem 1.5rem;
     overflow-x: auto;
+    /* Highlighted code blocks have no <code> inside, so the font is set here too */
+    font-family: "Consolas", "Cascadia Code", "Fira Code", monospace;
+    font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.6;
+    color: #D4D4D4;
 }
 
 pre code {
@@ -106,6 +110,65 @@ pre code {
     padding: 0;
     color: inherit;
     font-size: inherit;
+}
+
+/* Syntax highlighting of Markdown code blocks (ColorCode CSS classes), colors from the VS Code Dark+ theme */
+pre .keyword,
+pre .preprocessorKeyword {
+    color: #569CD6;
+}
+
+pre .controlKeyword {
+    color: #C586C0;
+}
+
+pre .string,
+pre .stringCSharpVerbatim,
+pre .jsonString,
+pre .xmlAttributeValue {
+    color: #CE9178;
+}
+
+pre .stringEscape {
+    color: #D7BA7D;
+}
+
+pre .comment,
+pre .xmlComment {
+    color: #6A9955;
+}
+
+pre .xmlDocTag,
+pre .xmlDocComment {
+    color: #608B4E;
+}
+
+pre .number,
+pre .jsonNumber {
+    color: #B5CEA8;
+}
+
+pre .className,
+pre .type,
+pre .typeVariable {
+    color: #4EC9B0;
+}
+
+pre .jsonKey,
+pre .xmlAttribute {
+    color: #9CDCFE;
+}
+
+pre .jsonConst {
+    color: #569CD6;
+}
+
+pre .xmlName {
+    color: #569CD6;
+}
+
+pre .xmlDelimiter {
+    color: #808080;
 }
 
 .centered {

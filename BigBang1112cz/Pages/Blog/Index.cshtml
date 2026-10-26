@@ -1,0 +1,43 @@
+@page
+@model BlogIndexModel
+@using System.Globalization
+@{
+    ViewData["Title"] = "Blog";
+    ViewData["Description"] = BlogCatalog.Description;
+}
+
+<div class="page-hero">
+    <h1>Blog</h1>
+    <p>Stories behind my projects and the things I find along the way.</p>
+    <a class="feed-link" href="/blog/feed.xml">RSS feed</a>
+</div>
+
+<div class="page-content">
+    @if (Model.Posts.Count == 0)
+    {
+        <p class="centered">No posts yet.</p>
+    }
+    else
+    {
+        <ul class="post-list">
+            @foreach (var post in Model.Posts)
+            {
+                <li>
+                    <a class="card" asp-page="/Blog/Post" asp-route-slug="@post.Slug">
+                        <div class="post-meta">
+                            <time datetime="@post.Published.UtcDateTime.ToString("yyyy-MM-dd'T'HH:mm'Z'", CultureInfo.InvariantCulture)">@post.PublishedDate.ToString("d MMMM yyyy", CultureInfo.InvariantCulture)</time>
+                            <span>·</span>
+                            <span>@post.ReadingMinutes min read</span>
+                            @if (post.Published > Model.Now)
+                            {
+                                <span class="card-badge">Scheduled</span>
+                            }
+                        </div>
+                        <h2 class="post-title">@post.Title</h2>
+                        <p class="card-desc">@post.Description</p>
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+</div>
