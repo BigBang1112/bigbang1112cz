@@ -7,7 +7,7 @@ using TmEssentials;
 
 namespace BigBang1112cz.Pages.Trackmania.Manialink;
 
-[OutputCache(Duration = 60, VaryByQueryKeys = ["Type", "uri"])]
+[OutputCache(Duration = 60, VaryByQueryKeys = ["Type", "url"])]
 public class InstallSkinModel : XmlPageModel
 {
     private readonly HttpClient http;
@@ -42,11 +42,39 @@ public class InstallSkinModel : XmlPageModel
             return;
         }
         
-        using var response = await http.HeadAsync(uri, cancellationToken);
+        string? fileName;
 
-        FileName = response.Content.Headers.ContentDisposition?.FileName ?? Path.GetFileName(uri.LocalPath);
+        try
+        {
+            using var response = await http.HeadAsync(uri, cancellationToken);
+            var contentDisposition = response.Content.Headers.ContentDisposition;
+            fileName = SanitizeFileName(contentDisposition?.FileNameStar ?? contentDisposition?.FileName);
+        }
+        catch (Exception ex) when (ex is HttpRequestException || (ex is TaskCanceledException && !cancellationToken.IsCancellationRequested))
+        {
+            ValidationProblemMessage = "URL could not be reached";
+            return;
+        }
+
+        fileName ??= SanitizeFileName(uri.LocalPath);
+
+        if (fileName is null)
+        {
+            ValidationProblemMessage = "File name could not be determined";
+            return;
+        }
+
+        FileName = fileName;
         Uri = uri;
 
         Response.ClientCache();
+    }
+
+    private static string? SanitizeFileName(string? fileName)
+    {
+        // Strip quotes and any directory part so the remote server can't choose where the game writes the file
+        fileName = fileName?.Trim().Trim('"');
+        fileName = fileName?[(fileName.LastIndexOfAny(['/', '\\']) + 1)..];
+        return string.IsNullOrWhiteSpace(fileName) || fileName is "." or ".." ? null : fileName;
     }
 }
