@@ -1,6 +1,7 @@
 using BigBang1112cz.Extensions;
 using BigBang1112cz.Models.Trackmania.Manialink;
 using BigBang1112cz.Pages.Shared;
+using BigBang1112cz.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using TmEssentials;
@@ -23,9 +24,9 @@ public class InstallSkinModel : XmlPageModel
     public required string FileName { get; set; }
     public required Uri Uri { get; set; }
 
-    public InstallSkinModel(HttpClient http, IHostEnvironment env) : base(env)
+    public InstallSkinModel(IHttpClientFactory httpClientFactory, IHostEnvironment env) : base(env)
     {
-        this.http = http;
+        http = httpClientFactory.CreateClient(ExternalHttpClient.Name);
     }
 
     public async Task OnGet(CancellationToken cancellationToken)

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.ResponseCompression;
+﻿using BigBang1112cz.Services;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace BigBang1112cz.Configuration;
 
@@ -9,6 +10,7 @@ public static class WebConfiguration
         services.AddRazorPages();
 
         services.AddHttpClient();
+        services.AddExternalHttpClient();
 
         services.AddOutputCache();
 
