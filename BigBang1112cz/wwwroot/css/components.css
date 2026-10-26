@@ -90,8 +90,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    background: #4CB7FF11;
-    border: 1px solid #4CB7FF88;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.25rem 1.5rem;
     color: white;
@@ -100,8 +100,8 @@
 }
 
     a.card:hover {
-        background: #4CB7FF33;
-        border-color: #4CB7FFAA;
+        background: var(--surface-hover);
+        border-color: var(--border-hover);
         color: white;
         text-decoration: none;
     }
@@ -128,10 +128,10 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 2px 8px;
-    border: 1px solid #4CB7FF88;
+    border: 1px solid var(--border);
     border-radius: 999px;
-    background: #4CB7FF22;
-    color: #4CB7FF;
+    background: color-mix(in srgb, var(--accent) 13%, transparent);
+    color: var(--accent);
 }
 
 .card-desc {
@@ -175,8 +175,8 @@
     justify-content: space-between;
     gap: 1rem;
     padding: 0.9rem 1.25rem;
-    background: #4CB7FF11;
-    border: 1px solid #4CB7FF88;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
     color: white;
     text-decoration: none;
@@ -184,8 +184,8 @@
 }
 
     .link-item:hover {
-        background: #4CB7FF33;
-        border-color: #4CB7FFAA;
+        background: var(--surface-hover);
+        border-color: var(--border-hover);
         color: white;
         text-decoration: none;
     }
@@ -196,7 +196,7 @@
 
 .link-item-url {
     font-size: 80%;
-    color: #4CB7FFAA;
+    color: color-mix(in srgb, var(--accent) 67%, transparent);
     font-weight: 400;
     white-space: nowrap;
 }

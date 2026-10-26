@@ -35,7 +35,7 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #CCC;
+    color: var(--text-secondary);
     border-bottom: 2px solid transparent;
     text-decoration: none;
     transition: color 0.1s ease, border-color 0.1s ease;
@@ -51,13 +51,13 @@ nav a:hover {
 
 nav a.active {
     color: white;
-    border-bottom-color: #4CB7FF;
+    border-bottom-color: var(--accent);
 }
 
 footer {
     text-align: center;
     padding: 1rem;
-    color: #AAA;
+    color: var(--text-muted);
     font-size: 90%;
 }
 
@@ -77,7 +77,7 @@ footer {
 }
 
 .page-hero p {
-    color: #AAA;
+    color: var(--text-muted);
     font-weight: 300;
 }
 

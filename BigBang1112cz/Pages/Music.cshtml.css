@@ -45,7 +45,7 @@
 /* The Markdown content is rendered as raw HTML, which doesn't get the CSS isolation attribute */
 .music-text ::deep p {
     font-weight: 400;
-    color: #ccc;
+    color: var(--text-secondary);
 }
 
 .music-embed {
