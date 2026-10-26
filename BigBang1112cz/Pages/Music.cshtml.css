@@ -25,13 +25,14 @@
     gap: 0.4rem;
 }
 
-.music-info h3 {
+.music-title {
     margin: 0;
     font-size: 200%;
+    text-align: left;
+    text-transform: none;
 }
 
-.music-info h4 {
-    margin: 0;
+.music-title.remix {
     font-size: 120%;
 }
 
@@ -41,9 +42,19 @@
     color: #89A;
 }
 
-.music-info p {
+/* The Markdown content is rendered as raw HTML, which doesn't get the CSS isolation attribute */
+.music-text ::deep p {
     font-weight: 400;
     color: #ccc;
+}
+
+.music-embed {
+    width: 100%;
+    border: 0;
+}
+
+.music-embed.spotify {
+    border-radius: 12px;
 }
 
 @media (max-width: 700px) {
