@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BigBang1112cz.Pages.Trackmania.Manialink.TMF.BigBang1112;
 
-[OutputCache(Duration = 3600, VaryByQueryKeys = ["Horn", "CommentP"], Tags = ["comments", "users"])]
+[OutputCache(Duration = 3600, VaryByQueryKeys = ["Horn", "CommentP", "FromP", "LocatorHost"], Tags = ["comments", "users"])]
 public class CommentsModel : XmlPageModel
 {
     private readonly AppDbContext db;
@@ -31,6 +31,7 @@ public class CommentsModel : XmlPageModel
     public int FromPageNum { get; set; } = 1;
 
     [FromQuery(Name = "CommentP")]
+    [Range(1, int.MaxValue)]
     public int CommentPageNum { get; set; } = 1;
 
     [FromQuery]

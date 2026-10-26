@@ -77,6 +77,7 @@ public class BulkModel : XmlPageModel
         }
 
         Horns = await db.Horns
+            .Where(x => !x.IsDeleted)
             .OrderBy(x => EF.Functions.Random())
             .Take(10)
             .ToListAsync(cancellationToken);

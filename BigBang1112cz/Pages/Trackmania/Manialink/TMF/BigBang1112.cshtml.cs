@@ -51,9 +51,9 @@ public class BigBang1112Model : XmlPageModel
             return BadRequest(ModelState);
         }
 
-        var hornCount = await db.Horns.CountAsync(cancellationToken);
+        var hornCount = await db.Horns.CountAsync(x => !x.IsDeleted, cancellationToken);
 
-        MaxPageNum = (int)Math.Ceiling((double)hornCount / ResultsPerPage);
+        MaxPageNum = Math.Max(1, (int)Math.Ceiling((double)hornCount / ResultsPerPage));
         PageNum = Math.Clamp(PageNum, 1, MaxPageNum);
 
         var horns = await db.Horns

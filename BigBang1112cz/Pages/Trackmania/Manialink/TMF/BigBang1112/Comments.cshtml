@@ -25,11 +25,11 @@
     </frame>  
 }  
 
-@if (Model.CommentCount > 5)
+@if (Model.CommentCount > CommentsModel.ResultsPerPage)
 {
-    var offset = (5 * (Model.CommentPageNum - 1));
+    var offset = CommentsModel.ResultsPerPage * (Model.CommentPageNum - 1);
 
-    if (Model.CommentCount - 5 * offset > 5)
+    if (Model.CommentCount - offset > CommentsModel.ResultsPerPage)
     {  
         <quad posn="2 -26 3" sizen="3 3" style="Icons64x64_1" substyle="ArrowDown" halign="center" valign="center" manialink="@Model.ManialinkUrl("bigbang1112:comments")?horn=@Model.Horn&amp;fromp=@Model.FromPageNum&amp;commentp=@(Model.CommentPageNum + 1)&amp;locatorhost=@(Model.LocatorHost)" />  
     }  
