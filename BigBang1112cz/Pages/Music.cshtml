@@ -25,7 +25,7 @@
                 <article class="music-row">
                     <div class="music-info">
                         <h2 class="music-title @(release.Type == MusicReleaseType.Remix ? "remix" : "")">@release.Title</h2>
-                        <time class="music-meta" datetime="@release.Released.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)">released @release.Released.ToString("d MMMM yyyy", CultureInfo.InvariantCulture)</time>
+                        <time class="music-meta" datetime="@release.Released.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)">@(release.Released > Model.Today ? "releases" : "released") @release.Released.ToString("d MMMM yyyy", CultureInfo.InvariantCulture)</time>
                         <div class="music-text">@Html.Raw(release.ContentHtml)</div>
                     </div>
                     @if (release.Embed is { } embed)
