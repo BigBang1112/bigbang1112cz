@@ -14,6 +14,9 @@ public sealed class HornDbModel
     public required TimeSpan Duration { get; set; }
     public required DateTimeOffset LastModifiedAt { get; set; }
 
+    // Null for horns that existed before this was tracked
+    public DateTimeOffset? FirstSeenAt { get; set; }
+
     [StringLength(255)]
     public string? Description { get; set; }
 

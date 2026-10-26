@@ -65,7 +65,7 @@ public class BigBang1112Model : XmlPageModel
             {
                 x.FileName,
                 x.Duration,
-                x.LastModifiedAt,
+                x.FirstSeenAt,
                 CommentCount = x.Comments.Count
             })
             .ToListAsync(cancellationToken);
@@ -77,7 +77,7 @@ public class BigBang1112Model : XmlPageModel
         {
             Name = x.FileName,
             Duration = x.Duration,
-            IsNew = false,// x.LastModifiedAt > DateTime.UtcNow.AddDays(-30), doesnt work now
+            IsNew = x.FirstSeenAt > DateTimeOffset.UtcNow.AddDays(-30),
             CommentCount = x.CommentCount,
         }).ToList();
 
