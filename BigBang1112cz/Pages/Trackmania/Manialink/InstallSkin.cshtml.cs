@@ -71,7 +71,7 @@ public class InstallSkinModel : XmlPageModel
         Response.ClientCache();
     }
 
-    private static string? SanitizeFileName(string? fileName)
+    internal static string? SanitizeFileName(string? fileName)
     {
         // Strip quotes and any directory part so the remote server can't choose where the game writes the file
         fileName = fileName?.Trim().Trim('"');

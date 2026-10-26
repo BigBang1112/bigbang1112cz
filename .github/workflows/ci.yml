@@ -6,24 +6,15 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.0.x
-        
-    - name: Restore dependencies
-      run: dotnet restore BigBang1112cz.slnx
-      
-    - name: Build
-      run: dotnet build BigBang1112cz.slnx --no-restore /p:ContinuousIntegrationBuild=true
-      
-    - name: Test
-      run: dotnet test BigBang1112cz.slnx --no-build --verbosity normal
+  ci:
+    uses: bigbang1112/workflows/.github/workflows/dotnet-ci.yml@main
+    with:
+      dotnet-version: 10.0.x
+      # The repository root also has docker-compose.dcproj, so the solution has to be named
+      restore-args: BigBang1112cz.slnx
+      build-args: BigBang1112cz.slnx
+      test-args: --solution BigBang1112cz.slnx
