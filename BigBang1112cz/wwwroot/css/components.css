@@ -99,16 +99,39 @@
     transition: background 0.1s ease, border-color 0.1s ease;
 }
 
-    .card:hover {
+    a.card:hover {
         background: #4CB7FF33;
         border-color: #4CB7FFAA;
         color: white;
         text-decoration: none;
     }
 
+    .card.upcoming {
+        background: #FFFFFF08;
+        border-style: dashed;
+        border-color: #FFFFFF33;
+    }
+
 .card-title {
     font-size: 130%;
     color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-badge {
+    display: inline-block;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    font-size: 55%;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border: 1px solid #4CB7FF88;
+    border-radius: 999px;
+    background: #4CB7FF22;
+    color: #4CB7FF;
 }
 
 .card-desc {
