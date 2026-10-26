@@ -21,7 +21,7 @@ public sealed class HornUserService
     public async Task<HornUserDbModel> GetOrUpdateUserAsync(string login, string? nickname, string? zone, CancellationToken cancellationToken = default)
     {
         var user = await db.HornUsers
-            .FirstOrDefaultAsync(x => x.Login.Equals(login, StringComparison.OrdinalIgnoreCase), cancellationToken);
+            .FirstOrDefaultAsync(x => x.Login == login, cancellationToken);
 
         if (user is null)
         {

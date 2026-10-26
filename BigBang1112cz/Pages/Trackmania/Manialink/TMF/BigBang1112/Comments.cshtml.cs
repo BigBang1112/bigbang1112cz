@@ -61,7 +61,7 @@ public class CommentsModel : XmlPageModel
 
         var horn = await db.Horns
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.FileName.Equals(Horn, StringComparison.OrdinalIgnoreCase), cancellationToken);
+            .FirstOrDefaultAsync(x => x.FileName == Horn, cancellationToken);
 
         if (horn is null)
         {

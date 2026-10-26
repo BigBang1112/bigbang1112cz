@@ -39,7 +39,7 @@ public class DownloadModel : TmfPlayerPageModel
     public async Task<IActionResult> OnGet(CancellationToken cancellationToken)
     {
         var horn = await db.Horns
-            .FirstOrDefaultAsync(x => x.FileName.Equals(Horn, StringComparison.OrdinalIgnoreCase), cancellationToken);
+            .FirstOrDefaultAsync(x => x.FileName == Horn, cancellationToken);
 
         if (horn is null)
         {

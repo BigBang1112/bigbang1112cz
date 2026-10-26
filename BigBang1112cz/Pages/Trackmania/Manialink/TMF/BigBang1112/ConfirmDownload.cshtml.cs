@@ -46,7 +46,7 @@ public class ConfirmDownloadModel : TmfPlayerPageModel
         }
 
         var horn = await db.Horns
-            .FirstOrDefaultAsync(x => x.FileName.Equals(Horn, StringComparison.OrdinalIgnoreCase), cancellationToken);
+            .FirstOrDefaultAsync(x => x.FileName == Horn, cancellationToken);
 
         if (horn is null)
         {
@@ -59,7 +59,7 @@ public class ConfirmDownloadModel : TmfPlayerPageModel
         logger.LogInformation("Download request for {Horn} by {Nickname} (login: {Login}) is valid", Horn, DeformattedNickname, Login);
 
         DownloadCount = await db.HornDownloads
-            .CountAsync(x => x.Horn.FileName == Horn, cancellationToken);
+            .CountAsync(x => x.Horn == horn, cancellationToken);
 
         var user = await userService.GetOrUpdateUserAsync(Login, Nickname, Zone, cancellationToken);
 

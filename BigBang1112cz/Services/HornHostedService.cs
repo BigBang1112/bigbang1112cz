@@ -28,7 +28,7 @@ public sealed class HornHostedService : IHostedService
         {
             var hornModel = hornModels.FirstOrDefault(x => x.FileName == hornFile.Name);
 
-            var oggFile = TagLib.File.Create(hornFile.PhysicalPath);
+            using var oggFile = TagLib.File.Create(hornFile.PhysicalPath);
             var duration = oggFile.Properties.Duration;
 
             if (hornModel is null)
@@ -38,6 +38,7 @@ public sealed class HornHostedService : IHostedService
                     FileName = hornFile.Name,
                     Duration = duration,
                     LastModifiedAt = hornFile.LastModified,
+                    FirstSeenAt = DateTimeOffset.UtcNow,
                 }, cancellationToken);
             }
             else

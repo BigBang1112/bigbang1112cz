@@ -10,10 +10,7 @@ public static class DataConfiguration
         services.AddDbContext<AppDbContext>(options =>
         {
             var connectionStr = config.GetConnectionString("DefaultConnection");
-            options.UseMySql(connectionStr, ServerVersion.AutoDetect(connectionStr), options =>
-            {
-                options.EnableStringComparisonTranslations();
-            });
+            options.UseMySql(connectionStr, ServerVersion.AutoDetect(connectionStr));
         });
     }
 
