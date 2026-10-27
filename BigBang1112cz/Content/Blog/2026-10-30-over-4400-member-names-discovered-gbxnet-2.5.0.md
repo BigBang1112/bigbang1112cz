@@ -24,9 +24,9 @@ Once the generator was ready, I connected the project's code with the game decom
 5. Older Trackmania games (excluding TmUnitedForever)
 6. Virtual Skipper 5
 
-I specified these as concrete program names as I had in Ghidra in my [ChunkL From Decompilation](https://github.com/BigBang1112/gbx-net/blob/b0d9fc8ad0fe2b94b74b606097b46e07eb00538d/.agents/skills/chunkl-from-decompilation/SKILL.md) skill in this order, which also included instructions on how to handle the ChunkL definitions in various edge cases. Before I started using the skill, I also processed class info and GetChunkInfo/Chunk functions to make it easier for the agent to look around.
+I specified these as concrete program names as I had in Ghidra in my [ChunkL From Decompilation](https://github.com/BigBang1112/gbx-net/blob/b0d9fc8ad0fe2b94b74b606097b46e07eb00538d/.agents/skills/chunkl-from-decompilation/SKILL.md) skill in this order, which also included instructions on how to handle the ChunkL definitions in various edge cases. Before I started using the skill, I also processed class info and `GetChunkInfo`/`Chunk` functions to make it easier for the agent to look around.
 
-Then I just ran the skill and only typed the class I wanted to investigate. This alone found basically everything that's possible to find about the class' serialization across all Trackmania games. Now I only needed to run this for basically every single class, and spend quite a bit of tokens. Scarily enough, it only costed me 1 and a half of the ChatGPT Plus subscription bills, roughly just 30€ in total...
+Then I just ran the skill and only typed the class I wanted to investigate. This alone found nearly everything that's possible to find about the class' serialization across all Trackmania games. Now I only needed to run this for basically every single class, and spend quite a bit of tokens. Scarily enough, it only cost me 1 and a half of the ChatGPT Plus subscription bills, roughly just 30€ in total...
 
 ## What it found
 
@@ -45,7 +45,7 @@ While not being able to run the private build, some features have been confirmed
 
 The meaning is assumed from member names found. All of these now exist as a theory in the library, but when set, they will likely crash the game (it was tested that world distort in fact does).
 
-Next I checked replays and ghosts to find everything that was still missing, with a bit of copium that there is a timestamp of the run somewhere (spoiler alert it isn't). Some new validation parameters have been found, like the race start time or "game rules" mask, but I also gave a deeper look into the anticheat chunk `0x023`.
+**Next I checked replays and ghosts to find everything that was still missing**, with a bit of copium that there is a timestamp of the run somewhere (spoiler alert it isn't). Some new validation parameters have been found, like the race start time or "game rules" mask, but I also gave a deeper look into the anticheat chunk `0x023`.
 
 The AI found a couple of scuffed parameters in there:
 
@@ -118,7 +118,7 @@ Unfortunately, because the generated code ended up way bigger than expected (5MB
 
 The split of Node and NodeFile is finally gone and you can now reference external files to any node you want.
 
-This was done by making private NodeRef<T> field, which privately handles resolution and references of nodes, the property still uses the expected node type (therefore no deep nesting), and you can view these node references in the `References` view property instead.
+This was done by making private `NodeRef<T>` field, which privately handles resolution and references of nodes, the property still uses the expected node type (therefore no deep nesting), and you can view these node references in the `References` view property instead.
 
 This is once again fully generated behaviour based on ChunkL files. There are still some minor hacks around the spec, but those should be resolved rather soon.
 
@@ -126,11 +126,11 @@ This is once again fully generated behaviour based on ChunkL files. There are st
 
 GBX.NET 2.5.0 is now available for everyone.
 
-The worrying part is about the dangers of AI definitely. You no longer need low level geniuses to figure out small little things, anyone can find a big problem in the smallest thing somewhere and cause damage on daily basis.
+The worrying part is the dangers of AI definitely. You no longer need low level geniuses to figure out small little things, anyone can find a big problem in the smallest thing somewhere and cause damage on daily basis.
 
 What should be understood though is that if I wouldn't come public with this, someone else with bad intentions would certainly know soon enough. Obfuscation is officially pointless. We should be prepared for the upcoming dangers of AI and fight them with the good will.
 
-And most importantly, **store IPs only in your private databases**, please.
+And most importantly, **store IPs only in your private databases, please.**
 
 Once again, install [Mystixor's IP-less Ghosts OpenPlanet plugin](https://openplanet.dev/plugin/984) if you don't want your next replays to contain a public IP address in Trackmania 2 and Trackmania Turbo.
 
