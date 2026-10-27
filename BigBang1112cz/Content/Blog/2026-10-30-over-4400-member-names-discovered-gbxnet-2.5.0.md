@@ -3,7 +3,7 @@ title: "Over 4400 member names discovered, including public IP addresses in TM2 
 published: 2026-10-30 16:30
 ---
 
-GBX.NET 2 was released 2.5 years ago already, so it was about time to look at some of its technical debt.
+GBX.NET 2 was released 2.5 years ago already, so it was about time to look at some of its technical debt in version 2.5.
 
 With the releases of Sol 6 or tools like REA, I realized what kind of future we are heading to with software... so I had to do a hard and unpopular decision within the community and send the full AI workflows into the library to keep up, as it is easier than ever for someone to just clone the library into JavaScript or Python and make it "perfect" themselves, making the 5 years of manual decompile effort dead in no time.
 
