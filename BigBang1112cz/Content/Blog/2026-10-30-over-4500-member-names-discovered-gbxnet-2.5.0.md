@@ -1,5 +1,5 @@
 ---
-title: "Over 4400 member names discovered, including public IP addresses in TM2 replays – GBX.NET 2.5.0"
+title: "Over 4500 member names discovered, including public IP addresses in TM2 replays – GBX.NET 2.5.0"
 published: 2026-10-30 16:30
 ---
 
@@ -80,7 +80,7 @@ Gbx Explorer also blurs public IP addresses by default from now on, so you don't
 
 ## 99.99% parse success
 
-The goal was also to reach basically error-less parse using the large scale application AI allows. I created a GbxCLI app (will be properly distributed soon) with verification features and wrote simple instruction to look for all GameData and Packs folder and report failing file names, which would then be directed to the ChunkL From Decompilation skill, until ideally 100% parse success. It's realistically 99.99%, as some Gbxs are just too quirky.
+The goal was also to reach basically error-less parse using the large scale apply that AI allows. I created a GbxCLI app (will be properly distributed soon) with verification features and wrote simple instruction to look for all GameData and Packs folder and report failing file names, which would then be directed to the ChunkL From Decompilation skill, until ideally 100% parse success. It's realistically 99.99%, as some Gbxs are just too quirky.
 
 ## Builders
 
@@ -124,7 +124,7 @@ This is once again fully generated behaviour based on ChunkL files. There are st
 
 ## Conclusion
 
-GBX.NET 2.5.0 is now available for everyone.
+[GBX.NET 2.5.0 is now available as a stable build.](https://github.com/BigBang1112/gbx-net/releases/tag/v2.5.0)
 
 The worrying part is the dangers of AI definitely. You no longer need low level geniuses to figure out small little things, anyone can find a big problem in the smallest thing somewhere and cause damage on daily basis.
 
@@ -139,3 +139,4 @@ Once again, install [Mystixor's IP-less Ghosts OpenPlanet plugin](https://openpl
 
 - [GBX.NET](https://github.com/BigBang1112/gbx-net) and [Gbx Explorer](https://explorer.gbx.tools/)
 - [IP-less Ghosts](https://openplanet.dev/plugin/984)
+- [GameBox Sandbox Discord Server](https://discord.gbx.tools)
