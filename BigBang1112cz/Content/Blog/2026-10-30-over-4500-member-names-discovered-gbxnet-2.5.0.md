@@ -131,7 +131,7 @@ The worrying part is the dangers of AI definitely. You no longer need low level 
 
 What should be understood though is that if I wouldn't come public with this, someone else with bad intentions would certainly know soon enough. Obfuscation is officially pointless. We should be prepared for the upcoming dangers of AI and fight them with the good will.
 
-And most importantly, **store IPs only in your private databases, please.**
+And most importantly, **store public IPs only in your private databases, please.**
 
 Once again, install [Mystixor's IP-less Ghosts OpenPlanet plugin](https://openplanet.dev/plugin/984) if you don't want your next replays to contain a public IP address in Trackmania 2 and Trackmania Turbo.
 
