@@ -33,7 +33,7 @@ Then I just ran the skill and only typed the class I wanted to investigate. This
 
 This process took roughly 2 to 3 weeks to complete and the results are:
 
-- [4400+ unknown member names have been discovered](https://github.com/BigBang1112/gbx-net/blob/895958dddad3589854707f324ccbbd5473894e71/Docs/NewMemberNames2.5.0.md)
+- [4400+ unknown member names have been discovered](https://github.com/BigBang1112/gbx-net/blob/2ca9f91000391def413b81a8de2e791fe0e85506/Docs/NewMemberNames2.5.0.md)
 - 250+ new classes have been added to the library
 - Features from the next scrapped ManiaPlanet version have existing code in the private 4.1 build, marked "dead" in public builds
 
@@ -63,7 +63,7 @@ Now why would this need to be permanently stored in the ghost object? This infor
 
 CpuKind is the CPU architecture *type* used to run the game. If the game is built as 32bit, it reports 32bit architectures, and same for 64bit. It differentiates Intel, AMD, and other vendor CPUs, so not a big deal slash anything too useful and was already available through `Validate_CpuKind` a long time ago.
 
-The real concern is NetworkAddress. This was a suspicious 32bit integer value that kept changing on Trackmania 2 replays, so I gave it a closer look. The integer was indeed an efficiently stored IP address. That was weird though, as settings across the game usually store IP addresses as strings. But as I converted that integer into an IP address, I saw the deal going on here. **There were player IP addresses stored in all ghosts.** At first I saw they were all in local format (`192.168/16`, `172.16/12`, `169.254/16`, ...) and thought it was fine, but then I got jumpscared by **a public IP format** and seeing my own public IP address in one of my replays. I thought I had some misconfiguration somewhere, but going deeper, I saw that I'm not alone, and it's not individual player's fault.
+The real concern is NetworkAddress. This was a suspicious 32bit integer value that kept changing on Trackmania 2 replays, so I gave it a closer look. The integer was indeed an efficiently stored IP address in reversed byte order. That was weird though, as settings across the game usually store IP addresses as strings. But as I converted that integer into an IP address, I saw the deal going on here. **There were player IP addresses stored in all ghosts.** At first I saw they were all in local format (`192.168/16`, `172.16/12`, `169.254/16`, ...) and thought it was fine, but then I got jumpscared by **a public IP format** and seeing my own public IP address in one of my replays. I thought I had some misconfiguration somewhere, but going deeper, I saw that I'm not alone, and it's not individual player's fault.
 
 **In ManiaPlanet 4, roughly 9.7% of the ghosts have public IP address included**, using the sample size of 9644 ghosts downloaded from leaderboards. 40% of the ghosts have a private LAN address, and 50% have a link-local address.
 
