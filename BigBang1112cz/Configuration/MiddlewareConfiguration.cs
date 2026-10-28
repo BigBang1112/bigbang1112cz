@@ -1,4 +1,6 @@
-﻿namespace BigBang1112cz.Configuration;
+﻿using BigBang1112cz.Endpoints;
+
+namespace BigBang1112cz.Configuration;
 
 public static class MiddlewareConfiguration
 {
@@ -28,5 +30,6 @@ public static class MiddlewareConfiguration
         app.MapStaticAssets();
         app.MapRazorPages()
            .WithStaticAssets();
+        app.MapBlogFeed();
     }
 }

@@ -1,0 +1,30 @@
+@page "/blog/{slug}"
+@model BlogPostModel
+@using System.Globalization
+@{
+    ViewData["Title"] = Model.Post.Title;
+    ViewData["Description"] = Model.Post.Description;
+    ViewData["OgImage"] = Model.Post.OgImage;
+}
+
+<article class="post">
+    <div class="post-header">
+        <a class="post-back" asp-page="/Blog/Index">← All posts</a>
+        <h1>@Model.Post.Title</h1>
+        <div class="post-meta">
+            <span class="post-author">by @Model.Post.Author</span>
+            <span>·</span>
+            <time datetime="@Model.Post.Published.UtcDateTime.ToString("yyyy-MM-dd'T'HH:mm'Z'", CultureInfo.InvariantCulture)">@Model.Post.PublishedDate.ToString("d MMMM yyyy", CultureInfo.InvariantCulture)</time>
+            <span>·</span>
+            <span>@Model.Post.ReadingMinutes min read</span>
+            @if (Model.IsScheduled)
+            {
+                <span class="card-badge">Scheduled, only visible in development</span>
+            }
+        </div>
+    </div>
+    <div class="post-content">
+        @Html.Raw(Model.Post.ContentHtml)
+    </div>
+    <p class="post-note">@BlogCatalog.AiNote</p>
+</article>

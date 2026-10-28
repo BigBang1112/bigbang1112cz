@@ -9,6 +9,7 @@ public static class DomainConfiguration
         services.AddScoped<HornUserService>();
         services.AddHostedService<HornHostedService>();
         services.AddSingleton<MusicCatalog>();
+        services.AddSingleton<BlogCatalog>();
         services.AddSingleton(TimeProvider.System);
     }
 }

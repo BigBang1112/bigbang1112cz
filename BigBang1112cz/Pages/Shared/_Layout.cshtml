@@ -3,6 +3,7 @@
 
     const string SiteName = "BigBang1112.cz";
     var pageTitle = ViewData["Title"] as string;
+    var ogImage = ViewData["OgImage"] as string;
     var description = ViewData["Description"] as string
         ?? "Petr Pivoňka (BigBang1112), self-taught open-source developer of Trackmania tools and mods, and Drum & Bass producer under the name Realnest.";
 
@@ -22,11 +23,15 @@
     <meta property="og:title" content="@(pageTitle ?? SiteName)" />
     <meta property="og:description" content="@description" />
     <meta property="og:url" content="@(siteUrl + Context.Request.Path)" />
-    <meta property="og:image" content="@(siteUrl)/img/og.jpg" />
-    <meta property="og:image:width" content="1205" />
-    <meta property="og:image:height" content="352" />
-    <meta property="og:image:alt" content="BigBang1112, Petr Pivoňka, developer and music producer" />
+    <meta property="og:image" content="@(siteUrl)@(ogImage ?? "/img/og.jpg")" />
+    @if (ogImage is null)
+    {
+        <meta property="og:image:width" content="1205" />
+        <meta property="og:image:height" content="352" />
+    }
+    <meta property="og:image:alt" content="@(ogImage is null ? "BigBang1112, Petr Pivoňka, developer and music producer" : pageTitle)" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="alternate" type="application/rss+xml" title="BigBang1112.cz blog" href="/blog/feed.xml" />
     <script type="importmap"></script>
     @* Starts the font download before the CSS that references it arrives. The URL must match base.css exactly, so no asp-append-version *@
     <link rel="preload" href="/fonts/rubik-latin.woff2" as="font" type="font/woff2" crossorigin />

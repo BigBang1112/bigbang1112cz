@@ -1,123 +1,38 @@
 using BigBang1112cz.Models.Music;
 using Markdig;
-using Markdig.Extensions.Yaml;
-using Markdig.Syntax;
 using Microsoft.AspNetCore.OutputCaching;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Primitives;
-using System.Globalization;
 using System.Text.RegularExpressions;
-using YamlDotNet.Core;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
 
 namespace BigBang1112cz.Services;
 
 /// <summary>
 /// Music releases written as Markdown files with YAML front matter in <see cref="DirectoryPath"/>.
-/// Files starting with an underscore are ignored. In development, the files are reloaded when they change.
 /// </summary>
-public sealed partial class MusicCatalog : IDisposable
+public sealed partial class MusicCatalog : MarkdownCatalog<MusicRelease>
 {
     public const string DirectoryPath = "Content/Music";
     public const string CacheTag = "music";
 
-    private static readonly MarkdownPipeline Pipeline = new MarkdownPipelineBuilder()
-        .UseYamlFrontMatter()
-        .UseAdvancedExtensions()
-        .Build();
-
-    // Unknown front matter keys throw, so typos don't go unnoticed
-    private static readonly IDeserializer Yaml = new DeserializerBuilder()
-        .WithNamingConvention(HyphenatedNamingConvention.Instance)
-        .Build();
-
-    private readonly IFileProvider files;
-    private readonly IOutputCacheStore cache;
-    private readonly ILogger<MusicCatalog> logger;
-    private readonly IDisposable? watcher;
-
-    public IReadOnlyList<MusicRelease> Releases { get; private set; }
+    public IReadOnlyList<MusicRelease> Releases => Items;
 
     public MusicCatalog(IWebHostEnvironment env, IOutputCacheStore cache, ILogger<MusicCatalog> logger)
+        : base(DirectoryPath, CacheTag, env, cache, logger)
     {
-        files = env.ContentRootFileProvider;
-        this.cache = cache;
-        this.logger = logger;
-
-        Releases = Load(files);
-
-        if (env.IsDevelopment())
-        {
-            watcher = ChangeToken.OnChange(() => files.Watch($"{DirectoryPath}/*.md"), Reload);
-        }
     }
 
-    private void Reload()
+    protected override MusicRelease ParseFile(string fileName, string markdown) => Parse(fileName, markdown);
+
+    protected override IEnumerable<MusicRelease> Arrange(IEnumerable<MusicRelease> items)
     {
-        try
-        {
-            Releases = Load(files);
-        }
-        catch (Exception ex)
-        {
-            // Editors can trigger this mid-save, the next save reloads again
-            logger.LogError(ex, "Failed to reload music releases, keeping the previous ones");
-            return;
-        }
-
-        logger.LogInformation("Reloaded {Count} music releases", Releases.Count);
-        _ = cache.EvictByTagAsync(CacheTag, CancellationToken.None).AsTask();
-    }
-
-    internal static IReadOnlyList<MusicRelease> Load(IFileProvider files)
-    {
-        var directory = files.GetDirectoryContents(DirectoryPath);
-
-        if (!directory.Exists)
-        {
-            throw new DirectoryNotFoundException($"Music directory '{DirectoryPath}' not found in the content root.");
-        }
-
-        return directory
-            .Where(x => !x.IsDirectory && x.Name.EndsWith(".md", StringComparison.OrdinalIgnoreCase) && !x.Name.StartsWith('_'))
-            .Select(x =>
-            {
-                using var reader = new StreamReader(x.CreateReadStream());
-                return Parse(x.Name, reader.ReadToEnd());
-            })
-            .OrderByDescending(x => x.Released)
-            .ThenBy(x => x.Title)
-            .ToList();
+        return items.OrderByDescending(x => x.Released).ThenBy(x => x.Title);
     }
 
     internal static MusicRelease Parse(string fileName, string markdown)
     {
-        var document = Markdown.Parse(markdown, Pipeline);
+        var (frontMatter, document) = ParseMarkdown<FrontMatter>(fileName, markdown);
 
-        var frontMatterBlock = document.Descendants<YamlFrontMatterBlock>().FirstOrDefault()
-            ?? throw new InvalidDataException($"{fileName}: missing front matter, the file has to start with a --- block.");
-
-        FrontMatter frontMatter;
-
-        try
-        {
-            frontMatter = Yaml.Deserialize<FrontMatter?>(frontMatterBlock.Lines.ToString()) ?? new();
-        }
-        catch (YamlException ex)
-        {
-            throw new InvalidDataException($"{fileName}: invalid front matter. {ex.Message}", ex);
-        }
-
-        if (string.IsNullOrWhiteSpace(frontMatter.Title))
-        {
-            throw new InvalidDataException($"{fileName}: 'title' is required.");
-        }
-
-        if (!DateOnly.TryParseExact(frontMatter.Released, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var released))
-        {
-            throw new InvalidDataException($"{fileName}: 'released' is required in the yyyy-MM-dd format.");
-        }
+        var title = Required(fileName, "title", frontMatter.Title);
+        var released = RequiredDate(fileName, "released", frontMatter.Released);
 
         var type = frontMatter.Type switch
         {
@@ -126,7 +41,7 @@ public sealed partial class MusicCatalog : IDisposable
             _ => throw new InvalidDataException($"{fileName}: 'type' has to be 'original' or 'remix'.")
         };
 
-        return new MusicRelease(frontMatter.Title, released, type, ParseEmbed(fileName, frontMatter), document.ToHtml(Pipeline));
+        return new MusicRelease(title, released, type, ParseEmbed(fileName, frontMatter), ToHtml(document));
     }
 
     private static MusicEmbed? ParseEmbed(string fileName, FrontMatter frontMatter)
@@ -173,11 +88,6 @@ public sealed partial class MusicCatalog : IDisposable
         }
 
         return null;
-    }
-
-    public void Dispose()
-    {
-        watcher?.Dispose();
     }
 
     // Accepts the short form and share links, including localized ones like open.spotify.com/intl-de/album/...
