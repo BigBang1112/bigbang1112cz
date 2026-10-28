@@ -22,8 +22,11 @@ public abstract class MarkdownCatalog<T> : IDisposable
     protected static readonly MarkdownPipeline Pipeline = new MarkdownPipelineBuilder()
         .UseYamlFrontMatter()
         .UseAdvancedExtensions()
-        .UseColorCode(HtmlFormatterType.Css)
+        .UseColorCode(HtmlFormatterType.Css, additionalLanguages: [new CSharpLanguage()])
         .Build();
+
+    // The ColorCode formatter in the pipeline writes through shared state, so only one document can be rendered at a time
+    private static readonly Lock RenderLock = new();
 
     // Unknown front matter keys throw, so typos don't go unnoticed
     private static readonly IDeserializer Yaml = new DeserializerBuilder()
@@ -130,6 +133,14 @@ public abstract class MarkdownCatalog<T> : IDisposable
         catch (YamlException ex)
         {
             throw new InvalidDataException($"{fileName}: invalid front matter. {ex.Message}", ex);
+        }
+    }
+
+    protected static string ToHtml(MarkdownDocument document)
+    {
+        lock (RenderLock)
+        {
+            return document.ToHtml(Pipeline);
         }
     }
 

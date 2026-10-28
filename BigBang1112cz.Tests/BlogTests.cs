@@ -165,6 +165,31 @@ public class BlogParseTests
         await Assert.That(post.ContentHtml).Contains("<pre><code>var plain = &quot;not highlighted&quot;;");
     }
 
+    [Test]
+    public async Task Parse_HighlightsCSharpTypes()
+    {
+        var post = ParsePost("post.md", """
+            ---
+            title: Post
+            published: 2026-01-01
+            ---
+
+            ```cs
+            using GBX.NET.Engines.Game;
+
+            IGameCtnMediaTrackTMF track = CGameCtnMediaTrack.Create().Build();
+            var map = Gbx.Parse<CGameCtnChallenge>("Map.Gbx");
+            var blocks = new List<CGameCtnBlock>(map.Blocks);
+            ```
+            """);
+
+        await Assert.That(post.ContentHtml).Contains("<span class=\"keyword\">using</span> GBX.NET.Engines.Game;");
+        await Assert.That(post.ContentHtml).Contains("<span class=\"type\">IGameCtnMediaTrackTMF</span> track");
+        await Assert.That(post.ContentHtml).Contains("<span class=\"type\">CGameCtnMediaTrack</span>.Create()");
+        await Assert.That(post.ContentHtml).Contains("<span class=\"type\">Gbx</span>.Parse&lt;<span class=\"type\">CGameCtnChallenge</span>&gt;");
+        await Assert.That(post.ContentHtml).Contains("<span class=\"type\">List</span>&lt;<span class=\"type\">CGameCtnBlock</span>&gt;(map.Blocks)");
+    }
+
     private static BlogPost ParsePost(string fileName, string markdown) => BlogCatalog.Parse(fileName, markdown);
 }
 

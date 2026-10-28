@@ -41,7 +41,7 @@ public sealed partial class MusicCatalog : MarkdownCatalog<MusicRelease>
             _ => throw new InvalidDataException($"{fileName}: 'type' has to be 'original' or 'remix'.")
         };
 
-        return new MusicRelease(title, released, type, ParseEmbed(fileName, frontMatter), document.ToHtml(Pipeline));
+        return new MusicRelease(title, released, type, ParseEmbed(fileName, frontMatter), ToHtml(document));
     }
 
     private static MusicEmbed? ParseEmbed(string fileName, FrontMatter frontMatter)

@@ -128,7 +128,7 @@ public sealed partial class BlogCatalog : MarkdownCatalog<BlogPost>
         var title = Required(fileName, "title", frontMatter.Title);
         var published = ParsePublished(fileName, frontMatter.Published);
         var author = string.IsNullOrWhiteSpace(frontMatter.Author) ? DefaultAuthor : frontMatter.Author.Trim();
-        var html = document.ToHtml(Pipeline);
+        var html = ToHtml(document);
 
         var description = string.IsNullOrWhiteSpace(frontMatter.Description)
             ? Summarize(markdown, document)
