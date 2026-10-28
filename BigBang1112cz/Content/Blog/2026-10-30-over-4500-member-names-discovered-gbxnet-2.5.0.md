@@ -35,7 +35,7 @@ This process took roughly 2 to 3 weeks to complete and the results are:
 
 - [4400+ unknown member names have been discovered](https://github.com/BigBang1112/gbx-net/blob/895958dddad3589854707f324ccbbd5473894e71/Docs/NewMemberNames2.5.0.md)
 - 250+ new classes have been added to the library
-- Features from the scrapped ManiaPlanet 5 version have existing code in the private 4.1 build, marked "dead" in public builds
+- Features from the next scrapped ManiaPlanet version have existing code in the private 4.1 build, marked "dead" in public builds
 
 While not being able to run the private build, some features have been confirmed to (potentially) exist in map serialization that never made it to the game:
 
