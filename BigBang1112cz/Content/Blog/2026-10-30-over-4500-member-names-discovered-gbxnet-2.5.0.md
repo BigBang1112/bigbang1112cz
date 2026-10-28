@@ -1,5 +1,5 @@
 ---
-title: "Over 4500 member names discovered, including public IP addresses in  and TMTurbo replays – GBX.NET 2.5.0"
+title: "Over 4500 member names discovered, including public IP addresses in TM2 and TMTurbo replays – GBX.NET 2.5.0"
 published: 2026-10-28 13:00
 og-image: /img/blog1.jpg
 ---
