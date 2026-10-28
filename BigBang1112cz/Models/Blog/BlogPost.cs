@@ -7,7 +7,8 @@ public sealed record BlogPost(
     DateTimeOffset Published,
     string Description,
     int ReadingMinutes,
-    string ContentHtml)
+    string ContentHtml,
+    string? OgImage = null)
 {
     /// <summary>
     /// The day of publishing in UTC, which is what the pages show.

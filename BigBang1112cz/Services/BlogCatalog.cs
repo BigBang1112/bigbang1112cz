@@ -134,7 +134,9 @@ public sealed partial class BlogCatalog : MarkdownCatalog<BlogPost>
             ? Summarize(markdown, document)
             : frontMatter.Description.Trim();
 
-        return new BlogPost(slugMatch.Groups["slug"].Value, title, author, published, description, ReadingMinutes(html), html);
+        var ogImage = string.IsNullOrWhiteSpace(frontMatter.OgImage) ? null : frontMatter.OgImage.Trim();
+
+        return new BlogPost(slugMatch.Groups["slug"].Value, title, author, published, description, ReadingMinutes(html), html, ogImage);
     }
 
     /// <summary>
@@ -194,5 +196,6 @@ public sealed partial class BlogCatalog : MarkdownCatalog<BlogPost>
         public string? Published { get; set; }
         public string? Author { get; set; }
         public string? Description { get; set; }
+        public string? OgImage { get; set; }
     }
 }

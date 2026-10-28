@@ -7,6 +7,7 @@ published: 2026-01-31 18:00  # UTC, yyyy-MM-dd HH:mm or just yyyy-MM-dd for midn
 
 # author: Someone else  # optional, Petr Pivoňka by default
 # description: Optional text for the post list and link previews. Without it, the first paragraph is used.
+# og-image: /img/blog1.jpg  # optional, path from the site root for link previews only. Defaults to /img/og.jpg.
 ---
 
 The first paragraph is the summary shown in the post list, so make it a good one.

@@ -214,6 +214,23 @@ public partial class BlogPageTests(FixedTimeWebApplication app)
     }
 
     [Test]
+    public async Task Post_UsesItsOwnSharingImageWithoutChangingOtherPages()
+    {
+        var post = Catalog().Posts.Single(x => x.Slug == "over-4500-member-names-discovered-gbxnet-2.5.0");
+
+        var html = await GetAtAsync($"/blog/{post.Slug}", post.Published);
+        var index = await GetAtAsync("/blog", post.Published);
+
+        await Assert.That(html).Contains("<meta property=\"og:image\" content=\"https://localhost/img/blog1.jpg\" />");
+        await Assert.That(html).DoesNotContain("og:image:width");
+        await Assert.That(html).DoesNotContain("og:image:height");
+        await Assert.That(html).DoesNotContain("<img");
+        await Assert.That(index).Contains("<meta property=\"og:image\" content=\"https://localhost/img/og.jpg\" />");
+        await Assert.That(index).Contains("<meta property=\"og:image:width\" content=\"1205\" />");
+        await Assert.That(index).Contains("<meta property=\"og:image:height\" content=\"352\" />");
+    }
+
+    [Test]
     public async Task Post_ShowsAuthorAndOnlyTheDate()
     {
         var post = Catalog().Posts[0];

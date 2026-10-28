@@ -1,6 +1,7 @@
 ---
 title: "Over 4500 member names discovered, including public IP addresses in TM2 replays – GBX.NET 2.5.0"
-published: 2026-10-30 16:30
+published: 2026-10-28 15:00
+og-image: /img/blog1.jpg
 ---
 
 GBX.NET 2 was released 2.5 years ago already, so it was about time to look at some of its technical debt in version 2.5.
