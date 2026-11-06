@@ -74,5 +74,5 @@ This rework will silently start in 2027, including the TM2020 part, stay tuned.
 ## Links
 
 - [3D Gbx Tools](https://3d.gbx.tools/)
-- Mystixor's [X](https://x.com/Mystixor) and [YouTube](https://www.youtube.com/@Mystixor)
+- Mystixor's [X account](https://x.com/Mystixor) and [YouTube](https://www.youtube.com/@Mystixor)
 - [GameBox Sandbox Discord Server](https://discord.gbx.tools)
