@@ -50,7 +50,7 @@ public static partial class BlogFeedEndpoint
 
         if (posts.Count > 0)
         {
-            channel.Add(new XElement("lastBuildDate", FormatDate(posts.Max(x => x.Published))));
+            channel.Add(new XElement("lastBuildDate", FormatDate(posts.Max(x => x.LastChanged))));
         }
 
         foreach (var post in posts)

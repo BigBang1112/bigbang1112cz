@@ -126,7 +126,14 @@ public sealed partial class BlogCatalog : MarkdownCatalog<BlogPost>
         var (frontMatter, document) = ParseMarkdown<FrontMatter>(fileName, markdown);
 
         var title = Required(fileName, "title", frontMatter.Title);
-        var published = ParsePublished(fileName, frontMatter.Published);
+        var published = ParseDate(fileName, "published", frontMatter.Published, required: true)!.Value;
+        var updated = ParseDate(fileName, "updated", frontMatter.Updated, required: false);
+
+        if (updated <= published)
+        {
+            throw new InvalidDataException($"{fileName}: 'updated' has to be later than 'published'.");
+        }
+
         var author = string.IsNullOrWhiteSpace(frontMatter.Author) ? DefaultAuthor : frontMatter.Author.Trim();
         var html = ToHtml(document);
 
@@ -136,18 +143,23 @@ public sealed partial class BlogCatalog : MarkdownCatalog<BlogPost>
 
         var ogImage = string.IsNullOrWhiteSpace(frontMatter.OgImage) ? null : frontMatter.OgImage.Trim();
 
-        return new BlogPost(slugMatch.Groups["slug"].Value, title, author, published, description, ReadingMinutes(html), html, ogImage);
+        return new BlogPost(slugMatch.Groups["slug"].Value, title, author, published, description, ReadingMinutes(html), html, ogImage, updated);
     }
 
     /// <summary>
-    /// A date, or a date with time for publishing at an exact minute, both in UTC.
+    /// A date, or a date with time to the exact minute, both in UTC. Null when an optional field is left out.
     /// </summary>
-    private static DateTimeOffset ParsePublished(string fileName, string? value)
+    private static DateTimeOffset? ParseDate(string fileName, string field, string? value, bool required)
     {
-        return DateTime.TryParseExact(value, ["yyyy-MM-dd HH:mm", "yyyy-MM-dd"], CultureInfo.InvariantCulture,
-            DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal, out var published)
-            ? new DateTimeOffset(published, TimeSpan.Zero)
-            : throw new InvalidDataException($"{fileName}: 'published' is required as yyyy-MM-dd or yyyy-MM-dd HH:mm, in UTC.");
+        if (!required && string.IsNullOrWhiteSpace(value))
+        {
+            return null;
+        }
+
+        return DateTime.TryParseExact(value?.Trim(), ["yyyy-MM-dd HH:mm", "yyyy-MM-dd"], CultureInfo.InvariantCulture,
+            DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal, out var date)
+            ? new DateTimeOffset(date, TimeSpan.Zero)
+            : throw new InvalidDataException($"{fileName}: '{field}' {(required ? "is required as" : "has to be")} yyyy-MM-dd or yyyy-MM-dd HH:mm, in UTC.");
     }
 
     /// <summary>
@@ -194,6 +206,7 @@ public sealed partial class BlogCatalog : MarkdownCatalog<BlogPost>
     {
         public string? Title { get; set; }
         public string? Published { get; set; }
+        public string? Updated { get; set; }
         public string? Author { get; set; }
         public string? Description { get; set; }
         public string? OgImage { get; set; }

@@ -45,6 +45,33 @@ public class BlogParseTests
     }
 
     [Test]
+    public async Task Parse_UpdatedIsOptional()
+    {
+        var post = ParsePost("post.md", "---\ntitle: Post\npublished: 2026-10-30 18:30\n---");
+
+        await Assert.That(post.Updated).IsNull();
+        await Assert.That(post.UpdatedDate).IsNull();
+        await Assert.That(post.LastChanged).IsEqualTo(post.Published);
+    }
+
+    [Test]
+    public async Task Parse_UpdatedIsKeptSeparateFromPublished()
+    {
+        var post = ParsePost("post.md", """
+            ---
+            title: Post
+            published: 2026-10-30 18:30
+            updated: 2026-11-06 09:15
+            ---
+            """);
+
+        await Assert.That(post.Published).IsEqualTo(new DateTimeOffset(2026, 10, 30, 18, 30, 0, TimeSpan.Zero));
+        await Assert.That(post.Updated).IsEqualTo(new DateTimeOffset(2026, 11, 6, 9, 15, 0, TimeSpan.Zero));
+        await Assert.That(post.UpdatedDate).IsEqualTo(new DateOnly(2026, 11, 6));
+        await Assert.That(post.LastChanged).IsEqualTo(post.Updated!.Value);
+    }
+
+    [Test]
     public async Task Parse_DescriptionDefaultsToFirstParagraphAsPlainText()
     {
         var post = ParsePost("post.md", """
@@ -117,6 +144,9 @@ public class BlogParseTests
     [Arguments("post.md", "---\ntitle: X\n---", "'published' is required")]
     [Arguments("post.md", "---\ntitle: X\npublished: 30. 10. 2026\n---", "'published' is required")]
     [Arguments("post.md", "---\ntitle: X\npublished: 2026-10-30 18:30:15\n---", "'published' is required")]
+    [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01\nupdated: 5. 1. 2026\n---", "'updated' has to be yyyy-MM-dd")]
+    [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01 12:00\nupdated: 2026-01-01 12:00\n---", "'updated' has to be later than 'published'")]
+    [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-02\nupdated: 2026-01-01\n---", "'updated' has to be later than 'published'")]
     [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01\ntags: me\n---", "invalid front matter")]
     [Arguments("post.md", "No front matter.", "missing front matter")]
     public async Task Parse_InvalidFile_ExplainsTheProblem(string fileName, string markdown, string expectedMessage)

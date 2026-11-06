@@ -15,6 +15,11 @@
             <span class="post-author">by @Model.Post.Author</span>
             <span>·</span>
             <time datetime="@Model.Post.Published.UtcDateTime.ToString("yyyy-MM-dd'T'HH:mm'Z'", CultureInfo.InvariantCulture)">@Model.Post.PublishedDate.ToString("d MMMM yyyy", CultureInfo.InvariantCulture)</time>
+            @if (Model.Post.Updated.HasValue)
+            {
+                <span>·</span>
+                <span class="post-updated">Updated <time datetime="@Model.Post.Updated.Value.UtcDateTime.ToString("yyyy-MM-dd'T'HH:mm'Z'", CultureInfo.InvariantCulture)">@Model.Post.UpdatedDate!.Value.ToString("d MMMM yyyy", CultureInfo.InvariantCulture)</time></span>
+            }
             <span>·</span>
             <span>@Model.Post.ReadingMinutes min read</span>
             @if (Model.IsScheduled)

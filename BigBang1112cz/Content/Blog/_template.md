@@ -4,6 +4,7 @@
 
 title: Post title
 published: 2026-01-31 18:00  # UTC, yyyy-MM-dd HH:mm or just yyyy-MM-dd for midnight. Future posts stay hidden until then (but show in development). Pages show only the date.
+# updated: 2026-02-05 12:00  # optional, same format, later than published. Shown next to the published date, the published date stays as is.
 
 # author: Someone else  # optional, Petr Pivoňka by default
 # description: Optional text for the post list and link previews. Without it, the first paragraph is used.
