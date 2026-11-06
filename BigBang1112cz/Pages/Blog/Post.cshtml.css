@@ -61,6 +61,12 @@
     margin: 0 0 1.25rem 0;
 }
 
+/* The opening paragraph is the summary, so it stands out */
+.post-content > ::deep p:first-child {
+    color: white;
+    font-weight: 700;
+}
+
 .post-content ::deep h2,
 .post-content ::deep h3 {
     color: white;
