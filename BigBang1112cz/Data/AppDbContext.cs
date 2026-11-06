@@ -10,6 +10,7 @@ public class AppDbContext : DbContext
     public DbSet<HornUserDbModel> HornUsers { get; set; }
     public DbSet<HornDownloadDbModel> HornDownloads { get; set; }
     public DbSet<HornUserHistoryDbModel> HornUserHistory { get; set; }
+    public DbSet<BlogPostViewDbModel> BlogPostViews { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {

@@ -24,6 +24,8 @@ public static class MiddlewareConfiguration
             app.UseResponseCompression();
         }
 
+        // In front of the output cache, which would hide most views
+        app.UseBlogViewCounting();
         app.UseOutputCache();
         app.UseAuthorization();
 

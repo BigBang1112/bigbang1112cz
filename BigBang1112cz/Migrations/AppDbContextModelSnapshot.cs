@@ -22,6 +22,23 @@ namespace BigBang1112cz.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("BigBang1112cz.Models.Db.BlogPostViewDbModel", b =>
+                {
+                    b.Property<string>("Slug")
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<int>("Views")
+                        .HasColumnType("int");
+
+                    b.HasKey("Slug", "Date");
+
+                    b.ToTable("BlogPostViews");
+                });
+
             modelBuilder.Entity("BigBang1112cz.Models.Db.HornCommentDbModel", b =>
                 {
                     b.Property<int>("Id")

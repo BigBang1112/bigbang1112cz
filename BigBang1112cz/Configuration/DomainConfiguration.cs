@@ -10,6 +10,8 @@ public static class DomainConfiguration
         services.AddHostedService<HornHostedService>();
         services.AddSingleton<MusicCatalog>();
         services.AddSingleton<BlogCatalog>();
+        services.AddSingleton<BlogViewCounter>();
+        services.AddHostedService(provider => provider.GetRequiredService<BlogViewCounter>());
         services.AddSingleton(TimeProvider.System);
     }
 }
