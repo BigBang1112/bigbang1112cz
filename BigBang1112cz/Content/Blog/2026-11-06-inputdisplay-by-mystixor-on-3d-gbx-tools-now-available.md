@@ -1,6 +1,6 @@
 ---
 title: InputDisplay by Mystixor on 3D Gbx Tools now available for everyone, and why it took so long
-published: 2026-11-06 22:00
+published: 2026-11-06 21:00
 image: /img/inputdisplay.jpg
 ---
 
