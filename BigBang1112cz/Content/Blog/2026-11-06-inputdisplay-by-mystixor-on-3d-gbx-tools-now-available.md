@@ -63,7 +63,7 @@ This is why input display is now available for everyone and for free right now.
 
 ## The future of 3D Gbx Tools
 
-Thank you Mystixor for taking your time to contribute to the project with something that will be useful and helpful for everyone. I no longer have to feel weird about wanting some money from a site that copies assets from Nadeo, and you deserve the maximum credit for the implementation.
+Thank you Mystixor for taking your time to contribute to the project with something that will be useful and helpful for everyone. I no longer have to feel weird about wanting some money from a site that copies assets from Nadeo, and you deserve the maximum credit for the implementation. I left out a lot of its smaller features from this blog post for everyone else to discover them, it's way better than Clip Input honestly.
 
 [You can now freely view input visuals in a browser from any device that supports it.](https://3d.gbx.tools/)
 
