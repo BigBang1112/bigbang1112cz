@@ -70,3 +70,9 @@ Thank you Mystixor for taking your time to contribute to the project with someth
 I'll keep on being busy as usual! The project has a lot of render problems still, and I feel like with the tooling we have today, it's best to rework it from scratch using a custom-made WebGPU wrapper which will be taught from the game shaders itself that can be easily extracted nowadays. That way I can drop away from three.js limitations and have full control over the performance, and learn something along the way, as I won't just vibecode... I'll vibecode, review, and integrate with frameworks I already know, like Blazor! Having a clue of how something works is still important to me.
 
 This rework will silently start in 2027, including the TM2020 part, stay tuned.
+
+## Links
+
+- [3D Gbx Tools](https://3d.gbx.tools/)
+- Mystixor's [X](https://x.com/Mystixor) and [YouTube](https://www.youtube.com/@Mystixor)
+- [GameBox Sandbox Discord Server](https://discord.gbx.tools)
