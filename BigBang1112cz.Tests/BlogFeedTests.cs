@@ -30,6 +30,18 @@ public class BlogFeedBuildTests
     }
 
     [Test]
+    public async Task Build_PutsPostImageFirst()
+    {
+        var post = new BlogPost("post", "Post", "BigBang1112", new DateTimeOffset(2026, 10, 30, 18, 30, 0, TimeSpan.Zero), "Summary", 1,
+            "<p>Text.</p>", OgImage: "/img/og.jpg", Image: "/img/blog1.jpg");
+
+        var feed = XDocument.Parse(Encoding.UTF8.GetString(BlogFeedEndpoint.Build("https://bigbang1112.cz", [post])));
+        var content = feed.Descendants(Content + "encoded").Single().Value;
+
+        await Assert.That(content).StartsWith("<p><img src=\"https://bigbang1112.cz/img/blog1.jpg\" alt=\"\" /></p><p>Text.</p>");
+    }
+
+    [Test]
     public async Task Build_EmptyFeedIsStillValid()
     {
         var feed = XDocument.Parse(Encoding.UTF8.GetString(BlogFeedEndpoint.Build("https://bigbang1112.cz", [])));

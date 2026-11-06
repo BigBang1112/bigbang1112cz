@@ -28,6 +28,11 @@
             }
         </div>
     </div>
+    @if (Model.Post.Image is not null)
+    {
+        @* The title right above already says what the post is about *@
+        <img class="post-image" src="@Model.Post.Image" alt="" />
+    }
     <div class="post-content">
         @Html.Raw(Model.Post.ContentHtml)
     </div>

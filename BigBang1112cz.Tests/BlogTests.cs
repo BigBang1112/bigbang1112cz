@@ -72,6 +72,33 @@ public class BlogParseTests
     }
 
     [Test]
+    public async Task Parse_ImageIsAlsoTheSharingImage()
+    {
+        var post = ParsePost("post.md", "---\ntitle: Post\npublished: 2026-01-01\nimage: /img/blog1.jpg\n---");
+
+        await Assert.That(post.Image).IsEqualTo("/img/blog1.jpg");
+        await Assert.That(post.OgImage).IsEqualTo("/img/blog1.jpg");
+    }
+
+    [Test]
+    public async Task Parse_OgImageOverridesImageForSharingOnly()
+    {
+        var post = ParsePost("post.md", "---\ntitle: Post\npublished: 2026-01-01\nimage: /img/blog1.jpg\nog-image: /img/og.jpg\n---");
+
+        await Assert.That(post.Image).IsEqualTo("/img/blog1.jpg");
+        await Assert.That(post.OgImage).IsEqualTo("/img/og.jpg");
+    }
+
+    [Test]
+    public async Task Parse_OgImageAloneIsNotShownInThePost()
+    {
+        var post = ParsePost("post.md", "---\ntitle: Post\npublished: 2026-01-01\nog-image: /img/blog1.jpg\n---");
+
+        await Assert.That(post.Image).IsNull();
+        await Assert.That(post.OgImage).IsEqualTo("/img/blog1.jpg");
+    }
+
+    [Test]
     public async Task Parse_DescriptionDefaultsToFirstParagraphAsPlainText()
     {
         var post = ParsePost("post.md", """
@@ -147,6 +174,9 @@ public class BlogParseTests
     [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01\nupdated: 5. 1. 2026\n---", "'updated' has to be yyyy-MM-dd")]
     [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01 12:00\nupdated: 2026-01-01 12:00\n---", "'updated' has to be later than 'published'")]
     [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-02\nupdated: 2026-01-01\n---", "'updated' has to be later than 'published'")]
+    [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01\nimage: img/blog1.jpg\n---", "'image' has to be a path from the site root")]
+    [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01\nimage: https://example.com/a.jpg\n---", "'image' has to be a path from the site root")]
+    [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01\nog-image: //example.com/a.jpg\n---", "'og-image' has to be a path from the site root")]
     [Arguments("post.md", "---\ntitle: X\npublished: 2026-01-01\ntags: me\n---", "invalid front matter")]
     [Arguments("post.md", "No front matter.", "missing front matter")]
     public async Task Parse_InvalidFile_ExplainsTheProblem(string fileName, string markdown, string expectedMessage)
@@ -236,6 +266,17 @@ public partial class BlogPageTests(FixedTimeWebApplication app)
         var post = BlogCatalog.Parse("2026-01-31-template.md", await File.ReadAllTextAsync(path));
 
         await Assert.That(post.Description).IsNotEmpty();
+    }
+
+    [Test]
+    public async Task Posts_ImagesExist()
+    {
+        var env = app.Services.GetRequiredService<IWebHostEnvironment>();
+
+        foreach (var path in Catalog().Posts.SelectMany(x => new[] { x.Image, x.OgImage }).OfType<string>().Distinct())
+        {
+            await Assert.That(File.Exists(Path.Combine(env.WebRootPath, path.TrimStart('/')))).IsTrue().Because($"{path} is used by a blog post");
+        }
     }
 
     [Test]

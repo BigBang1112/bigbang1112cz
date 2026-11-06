@@ -141,9 +141,29 @@ public sealed partial class BlogCatalog : MarkdownCatalog<BlogPost>
             ? Summarize(markdown, document)
             : frontMatter.Description.Trim();
 
-        var ogImage = string.IsNullOrWhiteSpace(frontMatter.OgImage) ? null : frontMatter.OgImage.Trim();
+        var image = ParseImagePath(fileName, "image", frontMatter.Image);
 
-        return new BlogPost(slugMatch.Groups["slug"].Value, title, author, published, description, ReadingMinutes(html), html, ogImage, updated);
+        // The post image is also the link preview, unless a different one is wanted there
+        var ogImage = ParseImagePath(fileName, "og-image", frontMatter.OgImage) ?? image;
+
+        return new BlogPost(slugMatch.Groups["slug"].Value, title, author, published, description, ReadingMinutes(html), html, ogImage, updated, image);
+    }
+
+    /// <summary>
+    /// Link previews need absolute URLs, so images are paths from the site root that the site URL is put in front of.
+    /// </summary>
+    private static string? ParseImagePath(string fileName, string field, string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return null;
+        }
+
+        var path = value.Trim();
+
+        return path.StartsWith('/') && !path.StartsWith("//")
+            ? path
+            : throw new InvalidDataException($"{fileName}: '{field}' has to be a path from the site root, like /img/blog1.jpg.");
     }
 
     /// <summary>
@@ -209,6 +229,7 @@ public sealed partial class BlogCatalog : MarkdownCatalog<BlogPost>
         public string? Updated { get; set; }
         public string? Author { get; set; }
         public string? Description { get; set; }
+        public string? Image { get; set; }
         public string? OgImage { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using BigBang1112cz.Models.Blog;
 using BigBang1112cz.Services;
 using System.Globalization;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
@@ -57,6 +58,9 @@ public static partial class BlogFeedEndpoint
         {
             var url = $"{siteUrl}/blog/{post.Slug}";
 
+            // The post image comes first like on the page
+            var image = post.Image is null ? "" : $"<p><img src=\"{WebUtility.HtmlEncode(post.Image)}\" alt=\"\" /></p>";
+
             channel.Add(new XElement("item",
                 new XElement("title", post.Title),
                 new XElement("link", url),
@@ -65,7 +69,7 @@ public static partial class BlogFeedEndpoint
                 new XElement("pubDate", FormatDate(post.Published)),
                 new XElement("description", post.Description),
                 new XElement(Content + "encoded", new XCData(
-                    MakeUrlsAbsolute(post.ContentHtml, siteUrl) + $"<p><em>{BlogCatalog.AiNote}</em></p>"))));
+                    MakeUrlsAbsolute(image + post.ContentHtml, siteUrl) + $"<p><em>{BlogCatalog.AiNote}</em></p>"))));
         }
 
         var document = new XDocument(
