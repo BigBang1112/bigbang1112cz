@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "process",
+            "command": "dotnet",
+            "args": ["build", "${workspaceFolder}/BigBang1112cz.Tests/BigBang1112cz.Tests.csproj"],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build site",
+            "type": "process",
+            "command": "dotnet",
+            "args": ["build", "${workspaceFolder}/BigBang1112cz/BigBang1112cz.csproj"],
+            "problemMatcher": "$msCompile",
+            "group": "build"
+        },
+        {
+            "label": "Test",
+            "type": "process",
+            "command": "dotnet",
+            "args": ["test", "--project", "${workspaceFolder}/BigBang1112cz.Tests"],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}

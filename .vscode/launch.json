@@ -1,0 +1,61 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Site: Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build site",
+            "program": "${workspaceFolder}/BigBang1112cz/bin/Debug/net10.0/BigBang1112cz.dll",
+            "cwd": "${workspaceFolder}/BigBang1112cz",
+            "launchSettingsProfile": "http",
+            "console": "integratedTerminal",
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "Now listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            }
+        },
+        {
+            "name": "Site: Debug (Integrated Browser)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build site",
+            "program": "${workspaceFolder}/BigBang1112cz/bin/Debug/net10.0/BigBang1112cz.dll",
+            "cwd": "${workspaceFolder}/BigBang1112cz",
+            "launchSettingsProfile": "http",
+            "console": "integratedTerminal",
+            "serverReadyAction": {
+                "action": "openIntegratedBrowser",
+                "pattern": "Now listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            }
+        },
+        {
+            "name": "Site: Watch",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "dotnet watch --launch-profile http",
+            "cwd": "${workspaceFolder}/BigBang1112cz",
+            "env": {
+                "DOTNET_WATCH_RESTART_ON_RUDE_EDIT": "1"
+            }
+        },
+        {
+            "name": "Site: Watch (Integrated Browser)",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "dotnet watch --launch-profile http",
+            "cwd": "${workspaceFolder}/BigBang1112cz",
+            "env": {
+                "DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER": "1",
+                "DOTNET_WATCH_RESTART_ON_RUDE_EDIT": "1"
+            },
+            "serverReadyAction": {
+                "action": "openIntegratedBrowser",
+                "pattern": "Now listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            }
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "dotnet.build.useMultithreadedMSBuild": false,
+    "dotnet.defaultSolution": "BigBang1112cz.slnx",
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true,
+        "TestResults": true
+    }
+}
