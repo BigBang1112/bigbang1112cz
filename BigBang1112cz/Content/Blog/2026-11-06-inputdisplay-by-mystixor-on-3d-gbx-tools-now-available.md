@@ -33,7 +33,7 @@ Though I was still stuck with an idea I cannot explain without feeling weird abo
 
 ## They really went for it
 
-The same Mystixor from the previous blog post comes to me that he's interested to make the input display. I'm just not sure about it, I explain him that this was meant to be a supporter feature. And he still went for it, made it all by himself, and [opened a pull request on the GitHub page](https://github.com/BigBang1112/gbx-tools-3d/pull/8). He was fully noted that this may not be a feature everyone could have access to. So I get that weird feeling again, and just need to decide that he should be the one that will have permanent free support for the input visualizer.
+The same Mystixor from the previous blog post comes to me that he's interested to make the input display. I'm just not sure about it, I explain him that this was meant to be a supporter feature. And he still went for it, made it all by himself, and [opened a pull request on the GitHub page](https://github.com/BigBang1112/gbx-tools-3d/pull/8). He was fully noted that this may not be a feature everyone could have access to. So I get that weird feeling again, and just need to decide that he should be the one that will have permanent free support for the input visualizer. This one is really well made, recognizes different combined input states, such as what's actually pressed versus what the game will actually apply.
 
 That pull request sits there since November 2025. I'm glad no one is really asking anything about it, and I'm still focusing on the missing parts and other projects without really thinking about the supporter aspect.
 
