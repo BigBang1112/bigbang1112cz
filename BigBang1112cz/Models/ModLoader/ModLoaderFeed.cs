@@ -5,7 +5,10 @@ namespace BigBang1112cz.Models.ModLoader;
 /// <summary>A TM Forever ModLoader product feed.</summary>
 public sealed record ModLoaderFeed(Dictionary<string, ModLoaderProduct> Products)
 {
+    [JsonPropertyOrder(-2)]
     public int Api => 1;
+
+    [JsonPropertyOrder(-1)]
     public string Game => "TmForever";
 }
 
