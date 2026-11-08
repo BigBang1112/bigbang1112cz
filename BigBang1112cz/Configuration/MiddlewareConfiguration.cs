@@ -33,5 +33,6 @@ public static class MiddlewareConfiguration
         app.MapRazorPages()
            .WithStaticAssets();
         app.MapBlogFeed();
+        app.MapModLoaderFeed();
     }
 }

@@ -11,6 +11,13 @@ public static class WebConfiguration
 
         services.AddHttpClient();
         services.AddExternalHttpClient();
+        services.AddHttpClient<IModLoaderFeedService, ModLoaderFeedService>(client =>
+        {
+            client.BaseAddress = new Uri("https://api.github.com/");
+            client.DefaultRequestHeaders.UserAgent.ParseAdd("BigBang1112cz/1.0");
+            client.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.github.text+json");
+            client.Timeout = TimeSpan.FromSeconds(30);
+        });
 
         services.AddOutputCache();
 

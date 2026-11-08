@@ -1,0 +1,5 @@
+@baseUrl = http://localhost:5176
+
+### Latest stable Always Official release for TM Forever ModLoader
+GET {{baseUrl}}/trackmania/tmf/modloader/index.json
+Accept: application/json
